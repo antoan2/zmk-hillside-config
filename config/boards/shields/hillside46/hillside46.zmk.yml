@@ -7,7 +7,7 @@ requires: [pro_micro]
 features:
   - keys
   - encoder
-  - underglow
+  # - underglow
 siblings:
   - hillside46_left
   - hillside46_right
