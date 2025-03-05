@@ -6,7 +6,7 @@ url: https://github.com/mmccoyd/hillside/
 requires: [pro_micro]
 features:
   - keys
-  - encoder
+  # - encoder
   # - underglow
 siblings:
   - hillside46_left
