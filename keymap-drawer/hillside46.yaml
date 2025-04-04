@@ -1,0 +1,143 @@
+layout: {zmk_keyboard: hillside46}
+layers:
+  base:
+  - - {t: ▽, type: trans}
+    - Q
+    - W
+    - E
+    - R
+    - T
+    - Y
+    - U
+    - I
+    - O
+  - - P
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - A
+    - {t: S, h: LALT}
+    - {t: D, h: LCTRL}
+    - {t: F, h: LSHIFT}
+    - G
+    - H
+    - {t: J, h: RSHIFT}
+  - - {t: K, h: RCTRL}
+    - {t: L, h: LALT}
+    - ;
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: Z, h: RGUI}
+    - X
+    - C
+    - V
+    - B
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - N
+    - M
+    - ','
+    - .
+    - {t: /, h: LGUI}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  nav:
+  - - {t: ▽, type: trans}
+    - PREV
+    - NEXT
+    - VOL UP
+    - VOL DN
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - SCROLL DOWN
+    - SCROLL UP
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - LGUI
+    - LALT
+    - LCTRL
+    - LSHIFT
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - DOWN
+  - - UP
+    - LEFT
+    - RIGHT
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - REWIND
+    - FAST FORWARD
+    - MUTE
+    - PLAY PAUSE
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - PAGE DOWN
+    - PAGE UP
+    - HOME
+    - END
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  sym:
+  - - {t: ▽, type: trans}
+    - '~'
+    - '@'
+    - '#'
+    - $
+    - '%'
+    - ^
+    - '&'
+    - '*'
+    - '?'
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - '!'
+    - (
+    - {t: '[', h: LCTRL}
+    - _
+    - '-'
+    - +
+    - '='
+  - - {t: ']', h: RCTRL}
+    - )
+    - ':'
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - '`'
+    - '{'
+    - {t: ▽, type: trans}
+    - ''''
+    - <
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - '>'
+    - '"'
+    - \
+    - '}'
+    - '|'
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
