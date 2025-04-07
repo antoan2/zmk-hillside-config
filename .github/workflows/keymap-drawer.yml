@@ -9,6 +9,10 @@ on:
       - "keymap_drawer.config.yaml"
       # - 'boards/*/*/*.keymap'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   draw:
     uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@main
