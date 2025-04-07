@@ -25,34 +25,19 @@
 
 
 / {
-        // combos {
-        //         compatible = "zmk,combos";
+        combos {
+                # include "combos.dtsi"
+        };
 
-        //         combo_apps {
-        //                 timeout-ms = <50>;
-        //                 key-positions = <13 22>;
-        //                 bindings = <&kp K_APP>;
-        //         };
-        //         combo_esc {
-        //                 timeout-ms = <50>;
-        //                 key-positions = <15 20>;
-        //                 bindings = <&kp ESC>;
-        //         };
-        //         combo_caps {
-        //                 timeout-ms = <50>;
-        //                 key-positions = <16 19>;
-        //                 bindings = <&kp CAPSLOCK>;
-        //         };
-        // };
         keymap {
                 compatible = "zmk,keymap";
 
                 base_layer {
                         bindings = <
 &kp ESCAPE    &kp  Q        &kp  W        &kp  E        &kp  R        &kp  T                                                                         &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &trans
-&mo NUM_L   &mt  LGUI A        &mt LALT S        &mt LCTRL  D        &mt LSHIFT  F        &kp  G                                                       &kp  H        &mt RSHIFT  J        &mt RCTRL  K        &mt LALT  L        &mt RGUI  SEMI     &trans
-&mo FUN_L    &kp Z        &kp  X        &kp  C        &kp  V        &kp  B        &trans                                           &trans    &kp  N        &kp  M        &kp  COMMA    &kp  DOT      &kp  SLASH    &trans
-                                                    &trans &kp TAB      &lt SYM_L BACKSPACE     &trans                &trans &lt NAV_L SPACE    &kp ENTER  &trans 
+&mo NUM_L   &mt { tapping-term-ms = <500>; } LGUI  A        &mt LALT S        &mt LCTRL  D        &mt LSHIFT  F        &kp  G                                                       &kp  H        &mt RSHIFT  J        &mt RCTRL  K        &mt LALT  L        &mt { tapping-term-ms = <500>; } RGUI  SEMI     &trans
+&mo FUN_L    &kp Z        kp  X        &kp  C        &kp  V        &kp  B        &trans                                           &trans    &kp  N        &kp  M        &kp  COMMA    &kp  DOT      &kp  SLASH    &trans
+                                                    &trans &kp TAB      &lt SYM_L BACKSPACE     &kp DELETE                &trans &lt NAV_L SPACE    &kp ENTER  &trans 
                         >;
 			
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -65,7 +50,7 @@
  &trans        &kp  C_REWIND       &kp  C_FAST_FORWARD       &kp  K_MUTE       &kp  K_PLAY_PAUSE       &trans       &trans                                          &trans     &trans       &kp PAGE_DOWN      &kp PAGE_UP      &kp HOME    &kp  END      &trans
                                                          &trans        &trans        &trans        &trans                 &trans     &trans        &trans        &trans 
                          >;
- 			
+ 		
                          sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
                  };
 
@@ -85,7 +70,7 @@
 &trans      &trans     &trans       &trans     &trans   &trans                                                                   &trans    &kp  NUMBER_7     &kp  NUMBER_8    &kp  NUMBER_9     &trans     &trans
 &trans         &kp LGUI     &kp LALT    &kp  LCTRL    &kp  LSHFT     &trans                                     &trans     &kp NUMBER_4    &kp  NUMBER_5   &kp  NUMBER_6     &trans     &trans
 &trans        &trans     &trans    &trans     &trans     &trans     &trans                                          &trans    &trans &kp  NUMBER_1   &kp  NUMBER_2 &kp  NUMBER_3 &trans     &trans         
-                                                        &trans        &trans        &trans       &trans               &trans       &trans        &trans        &trans
+                                                        &trans        &trans        &trans       &trans               &trans       &kp NUMBER_0        &trans        &trans
                         >;
 			
                         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;

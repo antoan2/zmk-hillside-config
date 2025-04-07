@@ -1,0 +1,12 @@
+compatible = "zmk,combos";
+
+#define COMBO(NAME, BINDINGS, KEYPOS, LAYERS) \
+  combo_##NAME { \
+    bindings = <BINDINGS>; \
+    key-positions = <KEYPOS>; \
+    layers = <LAYERS>; \
+  };
+
+COMBO(esc, &kp ESC, 15 20, BASE_L)
+COMBO(caps, &caps_word, 16 19, BASE_L)
+COMBO(apps, &kp LGUI, 13 22, BASE_L)
