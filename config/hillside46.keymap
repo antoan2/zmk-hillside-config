@@ -132,9 +132,10 @@
 
                 base_layer {
                         bindings = <
-&kp ESCAPE  &kp Q         &kp W         &kp E          &kp R           &kp T                                                           &kp Y  &kp U           &kp I          &kp O         &kp P            &trans
-&mo FUN_L   &lt NUM_L A   &hmrl LALT S  &hmrl LCTRL D  &hmsl LSHIFT F  &kp G                                                           &kp H  &hmsr RSHIFT J  &hmrr RCTRL K  &hmrr LALT L  &lt SPE_L SEMI  &trans
-&trans      &hmrl LGUI Z  &kp X         &kp C          &kp V           &kp B        &trans                                 &trans      &kp N  &kp M           &kp COMMA      &kp DOT       &hmrr RGUI SLASH        &trans
+
+&kp ESCAPE  &kp Q         &kp W         &kp E          &kp R           &kp T                                                           &kp Y  &kp U           &kp I          &kp O         &kp P             &trans
+&mo FUN_L   &lt NUM_L A   &hmrl LALT S  &hmrl LCTRL D  &hmsl LSHIFT F  &kp G                                                           &kp H  &hmsr RSHIFT J  &hmrr RCTRL K  &hmrr LALT L  &lt SPE_L SEMI    &trans
+&trans      &hmrl LGUI Z  &kp X         &kp C          &kp V           &kp B        &trans                                 &trans      &kp N  &kp M           &kp COMMA      &kp DOT       &hmrr RGUI SLASH  &trans
                                                                    &trans  &kp TAB  &thumb SYM_L BACKSPACE     &kp DELETE  &trans  &thumb NAV_L SPACE  &kp ENTER  &trans 
                         >;
 			
@@ -168,7 +169,7 @@
 &trans      &trans     &trans       &trans     &trans   &trans                                                                   &trans    &kp  NUMBER_7     &kp  NUMBER_8    &kp  NUMBER_9     &trans     &trans
 &trans         &kp LGUI     &kp LALT    &kp  LCTRL    &kp  LSHFT     &trans                                     &trans     &kp NUMBER_4    &kp  NUMBER_5   &kp  NUMBER_6     &trans     &trans
 &trans        &trans     &trans    &trans     &trans     &trans     &trans                                          &trans    &trans &kp  NUMBER_1   &kp  NUMBER_2 &kp  NUMBER_3 &trans     &trans         
-                                                        &trans        &trans        &trans       &trans               &trans       &kp NUMBER_0        &trans        &trans
+                                                        &trans        &trans        &trans       &trans               &trans       &trans &kp NUMBER_0                &trans
                         >;
 			
                         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -188,7 +189,7 @@
                  special_layer {
                         bindings = <
 &trans      &trans     &trans       &kp RA(E)      &special_e_grave   &trans                                                                   &trans    &special_e_hat     &trans    &trans     &trans     &trans
-&trans      &special_a_grave     &trans       &kp RA(SINGLE_QUOTE)     &kp RA(GRAVE)   &trans                                                                   &trans    &kp RA(NUMBER_6)     &kp RS(RA(SINGLE_QUOTE))    &trans     &trans     &trans
+&trans      &special_a_grave     &trans       &kp RA(SINGLE_QUOTE)     &kp RA(GRAVE)   &trans                                                                   &trans    &kp RA(NUMBER_6)     &kp RA(DOUBLE_QUOTES)    &trans     &trans     &trans
 &trans        &special_a_hat     &trans    &kp RA(COMMA)     &kp RS(RA(COMMA))     &trans     &trans                                          &trans    &trans &trans   &trans &trans &trans     &trans         
                                                         &trans        &trans        &trans       &trans               &trans       &trans        &trans        &trans
                         >;
