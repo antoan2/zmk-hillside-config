@@ -50,6 +50,42 @@
                         bindings = <&kp ESC &kp COLON &kp W &kp Q &kp ENTER>;
                 };
                 // Specials
+                special_grave: special_grave {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                        = <&macro_press &kp RALT>
+                        ,<&macro_tap &kp GRAVE>
+                        ,<&macro_release &kp RALT>
+                        ;
+                };
+                special_aigu: special_aigu {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                        = <&macro_press &kp RALT>
+                        ,<&macro_tap &kp SINGLE_QUOTE>
+                        ,<&macro_release &kp RALT>
+                        ;
+                };
+                special_circ: special_circ {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                        = <&macro_press &kp RALT>
+                        ,<&macro_tap &kp NUMBER_6>
+                        ,<&macro_release &kp RALT>
+                        ;
+                };
+                special_trema: special_trema {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                        = <&macro_press &kp RALT>
+                        ,<&macro_tap &kp DOUBLE_QUOTES>
+                        ,<&macro_release &kp RALT>
+                        ;
+                };
                 special_e_grave: special_e_grave {
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
@@ -65,7 +101,7 @@
                         #binding-cells = <0>;
                         bindings
                         = <&macro_press &kp RALT>
-                        ,<&macro_tap &kp CARET>
+                        ,<&macro_tap &kp NUMBER_6>
                         ,<&macro_release &kp RALT>
                         ,<&macro_tap &kp E>
                         ;
@@ -85,7 +121,7 @@
                         #binding-cells = <0>;
                         bindings
                         = <&macro_press &kp RALT>
-                        ,<&macro_tap &kp CARET>
+                        ,<&macro_tap &kp NUMBER_6>
                         ,<&macro_release &kp RALT>
                         ,<&macro_tap &kp A>
                         ;
@@ -110,7 +146,7 @@
                 // home row mod keys in order to send their modifiers to the computer
                 // (i.e. "register" them) for mod-click mouse usage (e.g. Ctrl-Click).
                 //
-                #define HOMEY_HOLDING_TIME 270 // TAPPING_TERM + ALLOW_CROSSOVER_AFTER
+                #define HOMEY_HOLDING_TIME 200 // TAPPING_TERM + ALLOW_CROSSOVER_AFTER
 
                 //
                 // HOMEY_STREAK_DECAY defines how long you need to wait (milliseconds)
@@ -189,7 +225,7 @@
                  special_layer {
                         bindings = <
 &trans      &trans     &trans       &kp RA(E)      &special_e_grave   &trans                                                                   &trans    &special_e_hat     &trans    &trans     &trans     &trans
-&trans      &special_a_grave     &trans       &kp RA(SINGLE_QUOTE)     &kp RA(GRAVE)   &trans                                                                   &trans    &kp RA(NUMBER_6)     &kp RA(DOUBLE_QUOTES)    &trans     &trans     &trans
+&trans      &special_a_grave     &trans   &special_aigu     &special_grave   &trans                                                                   &trans    &special_circ     &special_trema    &trans     &trans     &trans
 &trans        &special_a_hat     &trans    &kp RA(COMMA)     &kp RS(RA(COMMA))     &trans     &trans                                          &trans    &trans &trans   &trans &trans &trans     &trans         
                                                         &trans        &trans        &trans       &trans               &trans       &trans        &trans        &trans
                         >;
