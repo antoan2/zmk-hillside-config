@@ -17,7 +17,18 @@
 #define SYM_L 2
 #define NUM_L 3
 #define FUN_L 4
+#define SPE_L 5
 
+// #define SP_C_CEDI RALT(KC_COMMA)
+// #define SP_C_CEDI_MAJ RSFT(RALT(KC_COMMA))
+// #define SP_E_AIGU RALT(KC_E)
+// #define DEAD_HAT RALT(KC_6)
+// #define DEAD_GRAVE RALT(KC_GRAVE)
+// #define DEAD_AIGU RALT(KC_QUOTE)
+// #define DEAD_TREMA RSFT(DEAD_AIGU)
+// #define KC_CUT LCTL(KC_X)
+// #define KC_COPY LCTL(KC_C)
+// #define KC_PASTE LCTL(KC_V)
 // Keyboard keys positions
 // 0  1  2  3  4  5                     6  7  8  9  10 11
 // 12 13 14 15 16 17                    18 19 20 21 22 23
@@ -27,6 +38,62 @@
 
 
 / {
+        macros {
+                vim_save: vim_save {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings = <&kp ESC &kp COLON &kp W &kp ENTER>;
+                };
+                vim_save_quit: vim_save_quit {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings = <&kp ESC &kp COLON &kp W &kp Q &kp ENTER>;
+                };
+                // Specials
+                special_e_grave: special_e_grave {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                        = <&macro_press &kp RALT>
+                        ,<&macro_tap &kp GRAVE>
+                        ,<&macro_release &kp RALT>
+                        ,<&macro_tap &kp E>
+                        ;
+                };
+                special_e_hat: special_e_hat {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                        = <&macro_press &kp RALT>
+                        ,<&macro_tap &kp CARET>
+                        ,<&macro_release &kp RALT>
+                        ,<&macro_tap &kp E>
+                        ;
+                };
+                special_a_grave: special_a_grave {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                        = <&macro_press &kp RALT>
+                        ,<&macro_tap &kp GRAVE>
+                        ,<&macro_release &kp RALT>
+                        ,<&macro_tap &kp A>
+                        ;
+                };
+                special_a_hat: special_a_hat {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                        = <&macro_press &kp RALT>
+                        ,<&macro_tap &kp CARET>
+                        ,<&macro_release &kp RALT>
+                        ,<&macro_tap &kp A>
+                        ;
+                };
+                // #include "macros.dtsi"
+                // #include "macros.dtsi"
+        };
+
         combos {
                 #include "combos.dtsi"
         };
@@ -66,8 +133,8 @@
                 base_layer {
                         bindings = <
 &kp ESCAPE  &kp Q         &kp W         &kp E          &kp R           &kp T                                                           &kp Y  &kp U           &kp I          &kp O         &kp P            &trans
-&mo NUM_L   &hmrl LGUI A  &hmrl LALT S  &hmrl LCTRL D  &hmsl LSHIFT F  &kp G                                                           &kp H  &hmsr RSHIFT J  &hmrr RCTRL K  &hmrr LALT L  &hmrr RGUI SEMI  &trans
-&mo FUN_L   &kp Z         &kp X         &kp C          &kp V           &kp B        &trans                                 &trans      &kp N  &kp M           &kp COMMA      &kp DOT       &kp SLASH        &trans
+&mo FUN_L   &lt NUM_L A   &hmrl LALT S  &hmrl LCTRL D  &hmsl LSHIFT F  &kp G                                                           &kp H  &hmsr RSHIFT J  &hmrr RCTRL K  &hmrr LALT L  &lt SPE_L SEMI  &trans
+&trans      &hmrl LGUI Z  &kp X         &kp C          &kp V           &kp B        &trans                                 &trans      &kp N  &kp M           &kp COMMA      &kp DOT       &hmrr RGUI SLASH        &trans
                                                                    &trans  &kp TAB  &thumb SYM_L BACKSPACE     &kp DELETE  &trans  &thumb NAV_L SPACE  &kp ENTER  &trans 
                         >;
 			
@@ -110,8 +177,19 @@
                  function_layer {
                         bindings = <
 &bootloader      &trans     &trans       &trans     &trans   &trans                                                                   &trans    &kp  F7     &kp  F8    &kp  F9     &kp F12     &trans
-&sys_reset         &kp LGUI     &kp LALT    &kp  LCTRL    &kp  LSHFT     &trans                                     &trans     &kp F4    &kp  F5   &kp  F6     &kp F11     &trans
-&trans        &trans     &trans    &trans     &trans     &trans     &trans                                          &trans    &trans &kp  F1   &kp  F2 &kp  F3 &kp F10     &trans         
+&trans         &kp LGUI     &kp LALT    &kp  LCTRL    &kp  LSHFT     &trans                                     &trans     &kp F4    &kp  F5   &kp  F6     &kp F11     &trans
+&sys_reset        &trans     &trans    &trans     &trans     &trans     &trans                                          &trans    &trans &kp  F1   &kp  F2 &kp  F3 &kp F10     &trans         
+                                                        &trans        &trans        &trans       &trans               &trans       &trans        &trans        &trans
+                        >;
+                        			
+                                                
+                        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+                };
+                 special_layer {
+                        bindings = <
+&trans      &trans     &trans       &kp RA(E)      &special_e_grave   &trans                                                                   &trans    &special_e_hat     &trans    &trans     &trans     &trans
+&trans      &special_a_grave     &trans       &kp RA(SINGLE_QUOTE)     &kp RA(GRAVE)   &trans                                                                   &trans    &kp RA(NUMBER_6)     &kp RS(RA(SINGLE_QUOTE))    &trans     &trans     &trans
+&trans        &special_a_hat     &trans    &kp RA(COMMA)     &kp RS(RA(COMMA))     &trans     &trans                                          &trans    &trans &trans   &trans &trans &trans     &trans         
                                                         &trans        &trans        &trans       &trans               &trans       &trans        &trans        &trans
                         >;
 			
