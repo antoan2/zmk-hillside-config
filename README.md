@@ -54,4 +54,11 @@ More information about each keymap is in their readme files.
 
 # Here is my layout
 
+Inspirations
+- Home row mods
+  - https://precondition.github.io/home-row-mods
+  - https://github.com/urob/zmk-config?tab=readme-ov-file#timeless-homerow-mods
+  - https://sunaku.github.io/home-row-mods.html#porting-to-zmk
+  - https://github.com/gagbo/zmk-config-corne/blob/main/config/sunaku_hrm.dtsi
+
 ![Layout](./keymap-drawer/hillside46.svg)
