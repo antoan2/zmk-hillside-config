@@ -18,3 +18,9 @@ COMBO(caps, &caps_word, 16 19, BASE_L)
 COMBO(apps, &kp LGUI, 25 36, BASE_L)
 COMBO(vim_save, &vim_save, 22 2, BASE_L) // : + w -> ESC + :w
 COMBO(vim_save_quit, &vim_save_quit, 22 1, BASE_L) // Like : + q -> ESC + :wq
+// The famous only left hand
+COMBO(ctlt, &kp LC(T), 4 5, BASE_L)
+COMBO(ctla, &kp LC(A), 12 13, BASE_L)
+COMBO(cut, &kp LC(X), 25 26, BASE_L)
+COMBO(copy, &kp LC(C), 26 27, BASE_L)
+COMBO(paste, &kp LC(V), 27 28, BASE_L)
