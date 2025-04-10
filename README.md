@@ -61,4 +61,8 @@ Inspirations
   - https://sunaku.github.io/home-row-mods.html#porting-to-zmk
   - https://github.com/gagbo/zmk-config-corne/blob/main/config/sunaku_hrm.dtsi
 
+TODO:
+- [ ] Keymap drawer configurationh
+- [ ] Deep sleep modes
+
 ![Layout](./keymap-drawer/hillside46.svg)
