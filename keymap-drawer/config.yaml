@@ -1,0 +1,22 @@
+parse_config:
+  raw_binding_map:
+    '&vim_save': :w
+    '&vim_save_quit': :wq
+    '&caps_word': CAPS
+    '&special_e_aigu': é
+    '&special_e_grave': è
+    '&special_e_hat': ê
+    '&special_a_grave': à
+    '&special_a_hat': â
+    '&special_aigu': dead '
+    '&special_grave': dead `
+    '&special_circ': dead ^
+    '&special_trema': daed "
+    '&kp RA(COMMA)': ç
+    '&kp RS(RA(COMMA))': Ç
+  zmk_combos:
+    combo_esc: {align: top, offset: .2, width: 50}
+    combo_caps: {align: top, width: 50}
+    combo_apps: {align: bottom, offset: 2, width: 50}
+    combo_vim_save: {draw_separate: true}
+    combo_vim_save_quit: {draw_separate: true}

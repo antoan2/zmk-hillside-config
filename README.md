@@ -61,8 +61,18 @@ Inspirations
   - https://sunaku.github.io/home-row-mods.html#porting-to-zmk
   - https://github.com/gagbo/zmk-config-corne/blob/main/config/sunaku_hrm.dtsi
 
+This is currently almost the same as my ferris sweep layout.
+
 TODO:
-- [ ] Keymap drawer configurationh
+- [ ] Keymap drawer configuration
 - [ ] Deep sleep modes
+- [ ] Implement true home row modifiers
+  - [ ] Move special char activation to the `o` position (proxy of the ergol layout)
+  - [ ] Move Numeric layer to one of the left thumb key (and the function would be the double key)
+  - [ ] Move back the gui keys to the home row
+  - [ ] Move combos lgui
+- Special layer, double tap for é -> É? Or maybe auto shift?
+- Backspace should be repeatable
+- Sym layer activation moved left and write thumb keys 
 
 ![Layout](./keymap-drawer/hillside46.svg)
