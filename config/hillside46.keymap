@@ -68,7 +68,7 @@
                         ,<&macro_release &kp RALT>
                         ;
                 };
-                special_circ: special_circ {
+                special_hat: special_hat {
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
@@ -133,6 +133,46 @@
                         ,<&macro_tap &kp NUMBER_6>
                         ,<&macro_release &kp RALT>
                         ,<&macro_tap &kp A>
+                        ;
+                };
+                special_u_grave: special_u_grave {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                        = <&macro_press &kp RALT>
+                        ,<&macro_tap &kp GRAVE>
+                        ,<&macro_release &kp RALT>
+                        ,<&macro_tap &kp U>
+                        ;
+                };
+                special_u_hat: special_u_hat {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                        = <&macro_press &kp RALT>
+                        ,<&macro_tap &kp NUMBER_6>
+                        ,<&macro_release &kp RALT>
+                        ,<&macro_tap &kp U>
+                        ;
+                };
+                special_i_hat: special_i_hat {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                        = <&macro_press &kp RALT>
+                        ,<&macro_tap &kp NUMBER_6>
+                        ,<&macro_release &kp RALT>
+                        ,<&macro_tap &kp I>
+                        ;
+                };
+                special_o_hat: special_o_hat {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                        = <&macro_press &kp RALT>
+                        ,<&macro_tap &kp NUMBER_6>
+                        ,<&macro_release &kp RALT>
+                        ,<&macro_tap &kp O>
                         ;
                 };
                 // #include "macros.dtsi"
@@ -233,10 +273,10 @@
                 };
                  special_layer {
                         bindings = <
-&trans      &trans     &trans       &special_e_aigu      &special_e_grave   &trans                                                                   &trans    &special_e_hat     &trans    &trans     &trans     &trans
-&trans      &special_a_grave     &trans   &special_aigu     &special_grave   &trans                                                                   &trans    &special_circ     &special_trema    &trans     &trans     &trans
-&trans        &special_a_hat     &trans    &kp RA(COMMA)     &kp RS(RA(COMMA))     &trans     &trans                                          &trans    &trans &trans   &trans &trans &trans     &trans         
-                                                        &trans        &trans        &trans       &trans               &trans       &trans        &trans        &trans
+&trans &trans           &special_e_aigu &special_e_grave &trans        &trans                                                                       &trans &special_u_grave &trans         &trans         &trans &trans
+&trans &special_a_grave &trans          &special_e_hat   &kp LSHFT     &trans                                                                       &trans &special_u_hat   &special_i_hat &special_o_hat &trans &trans
+&trans &special_a_hat   &trans          &kp RA(COMMA)    &special_aigu &special_grave     &trans                                          &trans    &special_hat &special_trema           &trans         &trans         &trans &trans         
+                                                          &trans        &trans        &trans       &trans               &trans       &trans        &trans        &trans
                         >;
 			
                         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
