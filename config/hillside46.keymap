@@ -221,7 +221,7 @@
 &kp ESCAPE  &kp Q         &kp W         &kp E          &kp R           &kp T                                                           &kp Y  &kp U           &kp I          &kp O         &kp P             &trans
 &mo FUN_L   &lt NUM_L A   &hmrl LALT S  &hmrl LCTRL D  &hmsl LSHIFT F  &kp G                                                           &kp H  &hmsr RSHIFT J  &hmrr RCTRL K  &hmrr LALT L  &lt SPE_L SEMI    &trans
 &trans      &hmrl LGUI Z  &kp X         &kp C          &kp V           &kp B        &trans                                 &trans      &kp N  &kp M           &kp COMMA      &kp DOT       &hmrr RGUI SLASH  &trans
-                                                                   &trans  &kp TAB  &thumb SYM_L BACKSPACE     &kp DELETE  &trans  &thumb NAV_L SPACE  &kp ENTER  &trans 
+                                                                   &trans  &kp TAB  &thumb SYM_L BACKSPACE     &kp DELETE  &trans  &space NAV_L SPACE  &kp ENTER  &trans 
                         >;
 			
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;

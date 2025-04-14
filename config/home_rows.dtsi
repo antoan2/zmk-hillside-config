@@ -106,7 +106,7 @@
 // a thumb key to activate a layer.  Shorter holds are treated as taps.
 //
 #ifndef THUMB_HOLDING_TIME
-#define THUMB_HOLDING_TIME 200
+#define THUMB_HOLDING_TIME 120
 #endif
 
 //
@@ -114,7 +114,7 @@
 // after tapping a key to hold it again in order to make it auto-repeat.
 //
 #ifndef THUMB_REPEAT_DECAY
-#define THUMB_REPEAT_DECAY 300 // "tap then hold" for key auto-repeat
+#define THUMB_REPEAT_DECAY 200 // "tap then hold" for key auto-repeat
 #endif
 
 //
@@ -122,7 +122,7 @@
 // the space thumb key to activate.  Shorter holds are treated as taps.
 //
 #ifndef SPACE_HOLDING_TIME
-#define SPACE_HOLDING_TIME 170
+#define SPACE_HOLDING_TIME 120
 #endif
 
 //
