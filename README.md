@@ -51,3 +51,26 @@ While RGB is disabled, any RGB control keys
 The Hillside shield definition files should *not* need to be modified and are in ./config/boards/shields.
 
 More information about each keymap is in their readme files.
+
+# Here is my layout
+
+Inspirations
+- Home row mods
+  - https://precondition.github.io/home-row-mods
+  - https://github.com/urob/zmk-config?tab=readme-ov-file#timeless-homerow-mods
+  - https://sunaku.github.io/home-row-mods.html#porting-to-zmk
+  - https://github.com/gagbo/zmk-config-corne/blob/main/config/sunaku_hrm.dtsi
+- Implement a qwerty-lafayette like special chars layer
+
+This is currently almost the same as my ferris sweep layout.
+
+TODO:
+- [ ] Deep sleep modes
+- [ ] Implement true home row modifiers
+  - [ ] Move Numeric layer to one of the left thumb key (and the function would be the double key)
+  - [ ] Move back the gui keys to the home row
+  - [ ] Move combos lgui
+- Backspace should be repeatable
+- Sym layer activation moved left and write thumb keys 
+
+![Layout](./keymap-drawer/hillside46.svg)
