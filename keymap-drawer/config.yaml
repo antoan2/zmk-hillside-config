@@ -2,25 +2,47 @@ parse_config:
   raw_binding_map:
     '&vim_save': :w
     '&vim_save_quit': :wq
+    '&cut': cut
+    '&copy': copy
+    '&paste': paste
+    '&shift_paste': shift + paste
     '&caps_word': CAPS
     '&special_e_aigu': é
+    '&special_e_aigu_maj': É
     '&special_e_grave': è
+    '&special_e_grave_maj': È
     '&special_e_hat': ê
+    '&special_e_hat_maj': Ê
+    '&special_e_trema': ë
+    '&special_e_trema_maj': Ë
     '&special_a_grave': à
+    '&special_a_grave_maj': À
     '&special_a_hat': â
+    '&special_a_hat_maj': Â
     '&special_u_grave': ù
+    '&special_u_grave_maj': Ù
     '&special_u_hat': û
+    '&special_u_hat_maj': Û
     '&special_i_hat': î
+    '&special_i_hat_maj': Î
     '&special_o_hat': ô
+    '&special_o_hat_maj': Ô
     '&special_aigu': dead '
     '&special_grave': dead `
     '&special_hat': dead ^
     '&special_trema': dead "
-    '&kp RA(COMMA)': ç
-    '&kp RS(RA(COMMA))': Ç
+  zmk_keycode_map:
+    RA(COMMA): ç
+    LS(RA(COMMA)): Ç
+    LC(X): Cut
+    LC(C): Copy
+    LC(V): Paste
+    LC(LS(V)): Plain Paste
+
   zmk_combos:
-    combo_esc: {align: top, offset: .2, width: 50}
-    combo_caps: {align: top, width: 50}
-    combo_apps: {align: bottom, offset: 2, width: 50}
+    combo_esc: {draw_separate: true}
+    combo_caps: {draw_separate: true}
+    combo_apps: {draw_separate: true}
+    combo_enter: {align: top, offset: .005, width: 50}
     combo_vim_save: {draw_separate: true}
     combo_vim_save_quit: {draw_separate: true}

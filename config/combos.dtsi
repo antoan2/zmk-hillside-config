@@ -8,6 +8,8 @@ compatible = "zmk,combos";
   };
 
 // #define ESC_COMBO_KEYS
+// #define ESC_2_COMBO_KEYS
+// #define ENTER_COMBO_KEYS
 // #define CAPS_COMBO_KEYS
 // #define APPS_COMBO_KEYS
 // #define VIM_SAVE_COMBO_KEYS
@@ -16,8 +18,11 @@ compatible = "zmk,combos";
 // #define COPY_COMBO_KEYS
 // #define CUT_COMBO_KEYS
 // #define PASTE_COMBO_KEYS
+// #define PASTE_SHIFT_COMBO_KEYS
 
 COMBO(esc, &kp ESC, ESC_COMBO_KEYS, BASE_L)
+COMBO(esc_2, &kp ESC, ESC_2_COMBO_KEYS, BASE_L)
+COMBO(enter, &kp ENTER, ENTER_COMBO_KEYS, BASE_L)
 COMBO(caps, &caps_word, CAPS_COMBO_KEYS, BASE_L)
 COMBO(apps, &kp LGUI, APPS_COMBO_KEYS, BASE_L)
 COMBO(vim_save, &vim_save, VIM_SAVE_COMBO_KEYS, BASE_L) // : + w -> ESC + :w
@@ -27,3 +32,4 @@ COMBO(ctla, &kp LC(A), CTLA_COMBO_KEYS, BASE_L)
 COMBO(cut, &kp LC(X), COPY_COMBO_KEYS, BASE_L)
 COMBO(copy, &kp LC(C), CUT_COMBO_KEYS, BASE_L)
 COMBO(paste, &kp LC(V), PASTE_COMBO_KEYS, BASE_L)
+COMBO(shift_paste, &kp LC(LS(V)), PASTE_SHIFT_COMBO_KEYS, BASE_L)
