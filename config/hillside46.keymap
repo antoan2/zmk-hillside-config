@@ -55,6 +55,7 @@
                 #define ESC_COMBO_KEYS 15 20
                 #define ESC_2_COMBO_KEYS 14 15
                 #define ENTER_COMBO_KEYS 15 16
+                #define ENTER_CTRL_COMBO_KEYS 14 15 16
                 #define CAPS_COMBO_KEYS 16 19
                 #define APPS_COMBO_KEYS 25 36
                 #define VIM_SAVE_COMBO_KEYS 22 2

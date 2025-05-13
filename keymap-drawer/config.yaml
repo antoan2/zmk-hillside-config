@@ -43,6 +43,6 @@ parse_config:
     combo_esc: {draw_separate: true}
     combo_caps: {draw_separate: true}
     combo_apps: {draw_separate: true}
-    combo_enter: {align: top, offset: .005, width: 50}
+    combo_enter_ctrl: {align: top, offset: .005, width: 50}
     combo_vim_save: {draw_separate: true}
     combo_vim_save_quit: {draw_separate: true}
