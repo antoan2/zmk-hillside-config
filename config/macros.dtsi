@@ -1,3 +1,136 @@
-// Include necessary ZMK headers
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
+vim_save: vim_save {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&kp ESC &kp COLON &kp W &kp ENTER>;
+};
+vim_save_quit: vim_save_quit {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&kp ESC &kp COLON &kp W &kp Q &kp ENTER>;
+};
+// Specials
+special_grave: special_grave {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_press &kp RALT>
+        ,<&macro_tap &kp GRAVE>
+        ,<&macro_release &kp RALT>
+        ;
+};
+special_aigu: special_aigu {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_press &kp RALT>
+        ,<&macro_tap &kp SINGLE_QUOTE>
+        ,<&macro_release &kp RALT>
+        ;
+};
+special_hat: special_hat {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_press &kp RALT>
+        ,<&macro_tap &kp NUMBER_6>
+        ,<&macro_release &kp RALT>
+        ;
+};
+special_trema: special_trema {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_press &kp RALT>
+        ,<&macro_tap &kp DOUBLE_QUOTES>
+        ,<&macro_release &kp RALT>
+        ;
+};
+special_e_aigu: special_e_aigu {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_press &kp RALT>
+        ,<&macro_tap &kp E>
+        ,<&macro_release &kp RALT>
+        ;
+};
+special_e_grave: special_e_grave {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_press &kp RALT>
+        ,<&macro_tap &kp GRAVE>
+        ,<&macro_release &kp RALT>
+        ,<&macro_tap &kp E>
+        ;
+};
+special_e_hat: special_e_hat {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_press &kp RALT>
+        ,<&macro_tap &kp NUMBER_6>
+        ,<&macro_release &kp RALT>
+        ,<&macro_tap &kp E>
+        ;
+};
+special_a_grave: special_a_grave {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_press &kp RALT>
+        ,<&macro_tap &kp GRAVE>
+        ,<&macro_release &kp RALT>
+        ,<&macro_tap &kp A>
+        ;
+};
+special_a_hat: special_a_hat {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_press &kp RALT>
+        ,<&macro_tap &kp NUMBER_6>
+        ,<&macro_release &kp RALT>
+        ,<&macro_tap &kp A>
+        ;
+};
+special_u_grave: special_u_grave {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_press &kp RALT>
+        ,<&macro_tap &kp GRAVE>
+        ,<&macro_release &kp RALT>
+        ,<&macro_tap &kp U>
+        ;
+};
+special_u_hat: special_u_hat {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_press &kp RALT>
+        ,<&macro_tap &kp NUMBER_6>
+        ,<&macro_release &kp RALT>
+        ,<&macro_tap &kp U>
+        ;
+};
+special_i_hat: special_i_hat {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_press &kp RALT>
+        ,<&macro_tap &kp NUMBER_6>
+        ,<&macro_release &kp RALT>
+        ,<&macro_tap &kp I>
+        ;
+};
+special_o_hat: special_o_hat {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_press &kp RALT>
+        ,<&macro_tap &kp NUMBER_6>
+        ,<&macro_release &kp RALT>
+        ,<&macro_tap &kp O>
+        ;
+};

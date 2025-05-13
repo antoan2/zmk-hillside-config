@@ -133,25 +133,10 @@
 #define SPACE_REPEAT_DECAY 200 // "tap then hold" for key auto-repeat
 #endif
 
-// Keyboard keys positions
-// 0  1  2  3  4  5                     6  7  8  9  10 11
-// 12 13 14 15 16 17                    18 19 20 21 22 23
-// 24 25 26 27 28 29   30          31   32 33 34 35 36 37
-//               38 39 40 41    42 43 44 45
-#define LEFT_HAND_KEYS                                      \
-0  1  2  3  4  5                                         \
-12 13 14 15 16 17                                        \
-24 25 26 27 28 29          
-
-#define RIGHT_HAND_KEYS                                     \
-                                        6  7  8  9  10 11   \
-                                        18 19 20 21 22 23   \
-                                        32 33 34 35 36 37        
-
-
-#define THUMB_KEYS                                          \
-                    30           31                       \
-                38 39 40 41    42 43 44 45
+                
+// #define HOMEY_HOLDING_TIME 200 // TAPPING_TERM + ALLOW_CROSSOVER_AFTER
+// #define HOMEY_STREAK_DECAY 230
+// #define HOMEY_REPEAT_DECAY 300 // "tap then hold" for key auto-repeat
 
 //
 // Home row mod-tap keys for all except index fingers
