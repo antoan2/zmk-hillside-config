@@ -215,15 +215,6 @@ combos:
   k: ESC
   l: [base]
   draw_separate: true
-- p: [11, 12]
-  k: ESC
-  l: [base]
-- p: [12, 13]
-  k: ENTER
-  l: [base]
-  a: top
-  o: 0.005
-  w: 50.0
 - p: [13, 16]
   k: CAPS
   l: [base]
@@ -255,3 +246,15 @@ combos:
 - p: [23, 24]
   k: Plain Paste
   l: [base]
+- p: [11, 12]
+  k: ESC
+  l: [base]
+- p: [12, 13]
+  k: ENTER
+  l: [base]
+- p: [11, 12, 13]
+  k: Ctl+ENTER
+  l: [base]
+  a: top
+  o: 0.005
+  w: 50.0

@@ -329,35 +329,42 @@ path.combo {
 <text x="0" y="0" class="key trans tap">▽</text>
 </g>
 <g class="combo combopos-0">
-<rect rx="6" ry="6" x="164" y="80" width="28" height="26" class="combo"/>
-<text x="178" y="93" class="combo tap">ESC</text>
-</g>
-<g class="combo combopos-1">
-<path d="M235,55 h-22 a6.0,6.0 0 0 0 -6.0,6.0 v5" class="combo"/>
-<path d="M235,55 h22 a6.0,6.0 0 0 1 6.0,6.0 v20" class="combo"/>
-<rect rx="6" ry="6" x="210" y="42" width="50" height="26" class="combo"/>
-<text x="235" y="55" class="combo tap">ENTER</text>
-</g>
-<g class="combo combopos-2">
 <rect rx="6" ry="6" x="105" y="106" width="28" height="26" class="combo"/>
 <text x="119" y="119" class="combo tap">Ctl+A</text>
 </g>
-<g class="combo combopos-3">
+<g class="combo combopos-1">
 <rect rx="6" ry="6" x="109" y="162" width="28" height="26" class="combo"/>
 <text x="123" y="175" class="combo tap">Cut</text>
 </g>
-<g class="combo combopos-4">
+<g class="combo combopos-2">
 <rect rx="6" ry="6" x="165" y="136" width="28" height="26" class="combo"/>
 <text x="179" y="149" class="combo tap">Copy</text>
 </g>
-<g class="combo combopos-5">
+<g class="combo combopos-3">
 <rect rx="6" ry="6" x="221" y="135" width="28" height="26" class="combo"/>
 <text x="235" y="148" class="combo tap">Paste</text>
 </g>
-<g class="combo combopos-6">
+<g class="combo combopos-4">
 <rect rx="6" ry="6" x="277" y="147" width="28" height="26" class="combo"/>
 <text x="291" y="160" class="combo tap">
 <tspan x="291" dy="-0.6em">Plain</tspan><tspan x="291" dy="1.2em">Paste</tspan>
+</text>
+</g>
+<g class="combo combopos-5">
+<rect rx="6" ry="6" x="164" y="80" width="28" height="26" class="combo"/>
+<text x="178" y="93" class="combo tap">ESC</text>
+</g>
+<g class="combo combopos-6">
+<rect rx="6" ry="6" x="221" y="79" width="28" height="26" class="combo"/>
+<text x="235" y="92" class="combo tap">ENTER</text>
+</g>
+<g class="combo combopos-7">
+<path d="M206,55 h-52 a6.0,6.0 0 0 0 -6.0,6.0 v22" class="combo"/>
+<path d="M206,55 l1,18" class="combo"/>
+<path d="M206,55 h51 a6.0,6.0 0 0 1 6.0,6.0 v20" class="combo"/>
+<rect rx="6" ry="6" x="181" y="42" width="50" height="26" class="combo"/>
+<text x="206" y="55" class="combo tap">
+<tspan x="206" dy="-0.6em">Ctl+</tspan><tspan x="206" dy="1.2em">ENTER</tspan>
 </text>
 </g>
 </g>
