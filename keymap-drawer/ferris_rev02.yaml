@@ -20,7 +20,7 @@ layers:
   - {t: J, h: RSHIFT}
   - {t: K, h: RCTRL}
   - {t: L, h: LALT}
-  - {t: ;, h: special}
+  - {t: SEMI, h: special}
   - {t: Z, h: LGUI}
   - X
   - C
@@ -28,9 +28,9 @@ layers:
   - B
   - N
   - M
-  - ','
-  - .
-  - {t: /, h: RGUI}
+  - COMMA
+  - DOT
+  - {t: SLASH, h: RGUI}
   - TAB
   - {t: BACKSPACE, h: sym}
   - {t: SPACE, h: nav}
@@ -71,36 +71,36 @@ layers:
   - {type: held}
   - {t: ▽, type: trans}
   sym:
-  - '~'
-  - '@'
-  - '#'
-  - $
-  - '%'
-  - ^
-  - '&'
-  - '*'
-  - '?'
+  - TILDE
+  - AT
+  - HASH
+  - DOLLAR
+  - PERCENT
+  - CARET
+  - AMPS
+  - ASTRK
+  - QUESTION
   - {t: ▽, type: trans}
-  - '!'
-  - (
-  - {t: '[', h: LCTRL}
-  - _
-  - '-'
-  - +
-  - '='
-  - {t: ']', h: RCTRL}
-  - )
-  - ':'
-  - '`'
-  - '{'
+  - EXCL
+  - LEFT PARENTHESIS
+  - {t: LEFT BRACKET, h: LCTRL}
+  - UNDERSCORE
+  - MINUS
+  - PLUS
+  - EQUAL
+  - {t: RIGHT BRACKET, h: RCTRL}
+  - RIGHT PARENTHESIS
+  - COLON
+  - GRAVE
+  - LEFT BRACE
   - {t: ▽, type: trans}
-  - ''''
-  - <
-  - '>'
-  - '"'
-  - \
-  - '}'
-  - '|'
+  - SINGLE QUOTE
+  - LESS THAN
+  - GREATER THAN
+  - DOUBLE QUOTES
+  - BACKSLASH
+  - RIGHT BRACE
+  - PIPE
   - {t: ▽, type: trans}
   - {type: held}
   - {t: ▽, type: trans}
@@ -214,20 +214,15 @@ combos:
 - p: [12, 17]
   k: ESC
   l: [base]
-  a: top
-  o: 0.2
-  w: 50.0
+  draw_separate: true
 - p: [13, 16]
   k: CAPS
   l: [base]
-  a: top
-  w: 50.0
+  draw_separate: true
 - p: [20, 29]
   k: LGUI
   l: [base]
-  a: bottom
-  o: 2.0
-  w: 50.0
+  draw_separate: true
 - p: [19, 1]
   k: :w
   l: [base]
@@ -236,15 +231,30 @@ combos:
   k: :wq
   l: [base]
   draw_separate: true
-- p: [10, 19]
+- p: [10, 11]
   k: Ctl+A
   l: [base]
+- p: [20, 21]
+  k: Cut
+  l: [base]
 - p: [21, 22]
-  k: Ctl+X
+  k: Copy
   l: [base]
 - p: [22, 23]
-  k: Ctl+C
+  k: Paste
   l: [base]
 - p: [23, 24]
-  k: Ctl+V
+  k: Plain Paste
   l: [base]
+- p: [11, 12]
+  k: ESC
+  l: [base]
+- p: [12, 13]
+  k: ENTER
+  l: [base]
+- p: [11, 12, 13]
+  k: Ctl+ENTER
+  l: [base]
+  a: top
+  o: 0.005
+  w: 50.0

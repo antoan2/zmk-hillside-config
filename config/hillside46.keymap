@@ -53,19 +53,113 @@
                 // 24 25 26 27 28 29   30          31   32 33 34 35 36 37
                 //               38 39 40 41    42 43 44 45
                 #define ESC_COMBO_KEYS 15 20
+                #define ESC_2_COMBO_KEYS 14 15
+                #define ENTER_COMBO_KEYS 15 16
+                #define ENTER_CTRL_COMBO_KEYS 14 15 16
                 #define CAPS_COMBO_KEYS 16 19
                 #define APPS_COMBO_KEYS 25 36
                 #define VIM_SAVE_COMBO_KEYS 22 2
                 #define VIM_SAVE_QUIT_COMBO_KEYS 22 1
-                #define CTLA_COMBO_KEYS 12 13
+                #define CTLA_COMBO_KEYS 13 14
                 #define COPY_COMBO_KEYS 25 26
                 #define CUT_COMBO_KEYS 26 27
                 #define PASTE_COMBO_KEYS 27 28
+                #define PASTE_SHIFT_COMBO_KEYS 28 29
                 #include "combos.dtsi"
         };
          
         behaviors {
                 #include "home_rows.dtsi"
+                ht_macro_e_aigu: hold_tap_e_aigu {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <125>;
+                        bindings = <&special_e_aigu_maj>, <&special_e_aigu>;
+                        label = "HOLD_TAP_E_AIGU";
+                };
+                ht_macro_e_grave: hold_tap_e_grave {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <125>;
+                        bindings = <&special_e_grave_maj>, <&special_e_grave>;
+                        label = "HOLD_TAP_E_GRAVE";
+                };
+                ht_macro_e_hat: hold_tap_e_hat {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <125>;
+                        bindings = <&special_e_hat_maj>, <&special_e_hat>;
+                        label = "HOLD_TAP_E_HAT";
+                };
+                ht_macro_e_trema: hold_tap_e_trema {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <125>;
+                        bindings = <&special_e_trema_maj>, <&special_e_trema>;
+                        label = "HOLD_TAP_E_TREMA";
+                };
+                ht_macro_a_grave: hold_tap_a_grave {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <125>;
+                        bindings = <&special_a_grave_maj>, <&special_a_grave>;
+                        label = "HOLD_TAP_A_GRAVE";
+                };
+                ht_macro_a_hat: hold_tap_a_hat {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <125>;
+                        bindings = <&special_a_hat_maj>, <&special_a_hat>;
+                        label = "HOLD_TAP_A_HAT";
+                };
+                ht_macro_u_grave: hold_tap_u_grave {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <125>;
+                        bindings = <&special_u_grave_maj>, <&special_u_grave>;
+                        label = "HOLD_TAP_U_GRAVE";
+                };
+                ht_macro_u_hat: hold_tap_u_hat {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <125>;
+                        bindings = <&special_u_hat_maj>, <&special_u_hat>;
+                        label = "HOLD_TAP_U_HAT";
+                };
+                ht_macro_o_hat: hold_tap_o_hat {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <125>;
+                        bindings = <&special_o_hat_maj>, <&special_o_hat>;
+                        label = "HOLD_TAP_O_HAT";
+                };
+                ht_macro_i_hat: hold_tap_i_hat {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <125>;
+                        bindings = <&special_i_hat_maj>, <&special_i_hat>;
+                        label = "HOLD_TAP_I_HAT";
+                };
         };
 
         keymap {
@@ -129,10 +223,10 @@
                 };
                  special_layer {
                         bindings = <
-&trans  &trans            &special_e_aigu  &special_e_grave  &trans         &trans                                                        &trans        &special_u_grave  &trans          &trans          &trans  &trans
-&trans  &special_a_grave  &trans           &special_e_hat    &kp LSHFT      &trans                                                        &trans        &special_u_hat    &special_i_hat  &special_o_hat  &trans  &trans
-&trans  &special_a_hat    &trans           &kp RA(COMMA)     &special_aigu  &special_grave        &trans                    &trans        &special_hat  &special_trema    &trans          &trans          &trans  &trans         
-                                                                                  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
+&trans  &trans            &ht_macro_e_aigu 0 0  &ht_macro_e_grave 0 0  &trans         &trans                                                        &trans        &ht_macro_u_grave 0 0  &trans          &trans          &trans  &trans
+&trans  &ht_macro_a_grave 0 0  &ht_macro_e_trema 0 0     &ht_macro_e_hat 0 0   &kp LSHFT          &trans                                                        &trans        &ht_macro_u_hat 0 0    &ht_macro_i_hat 0 0  &ht_macro_o_hat 0 0  &trans  &trans
+&trans  &ht_macro_a_hat 0 0    &trans                &mt LS(RA(COMMA)) RA(COMMA)     &special_aigu      &special_grave        &trans                    &trans        &special_hat  &special_trema    &trans          &trans          &trans  &trans         
+                                                                                   &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
                         >;
 			
                         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;

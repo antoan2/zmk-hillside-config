@@ -54,6 +54,15 @@ special_e_aigu: special_e_aigu {
         ,<&macro_release &kp RALT>
         ;
 };
+special_e_aigu_maj: special_e_aigu_maj {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_press &kp RALT>
+        ,<&macro_tap &kp LS(E)>
+        ,<&macro_release &kp RALT>
+        ;
+};
 special_e_grave: special_e_grave {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
@@ -62,6 +71,16 @@ special_e_grave: special_e_grave {
         ,<&macro_tap &kp GRAVE>
         ,<&macro_release &kp RALT>
         ,<&macro_tap &kp E>
+        ;
+};
+special_e_grave_maj: special_e_grave_maj {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_press &kp RALT>
+        ,<&macro_tap &kp GRAVE>
+        ,<&macro_release &kp RALT>
+        ,<&macro_tap &kp LS(E)>
         ;
 };
 special_e_hat: special_e_hat {
@@ -74,6 +93,36 @@ special_e_hat: special_e_hat {
         ,<&macro_tap &kp E>
         ;
 };
+special_e_hat_maj: special_e_hat_maj {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_press &kp RALT>
+        ,<&macro_tap &kp NUMBER_6>
+        ,<&macro_release &kp RALT>
+        ,<&macro_tap &kp LS(E)>
+        ;
+};
+special_e_trema: special_e_trema {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_press &kp RALT>
+        ,<&macro_tap &kp DOUBLE_QUOTES>
+        ,<&macro_release &kp RALT>
+        ,<&macro_tap &kp E>
+        ;
+};
+special_e_trema_maj: special_e_trema_maj {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_press &kp RALT>
+        ,<&macro_tap &kp DOUBLE_QUOTES>
+        ,<&macro_release &kp RALT>
+        ,<&macro_tap &kp LS(E)>
+        ;
+};
 special_a_grave: special_a_grave {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
@@ -82,6 +131,16 @@ special_a_grave: special_a_grave {
         ,<&macro_tap &kp GRAVE>
         ,<&macro_release &kp RALT>
         ,<&macro_tap &kp A>
+        ;
+};
+special_a_grave_maj: special_a_grave_maj {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_press &kp RALT>
+        ,<&macro_tap &kp GRAVE>
+        ,<&macro_release &kp RALT>
+        ,<&macro_tap &kp LS(A)>
         ;
 };
 special_a_hat: special_a_hat {
@@ -94,6 +153,16 @@ special_a_hat: special_a_hat {
         ,<&macro_tap &kp A>
         ;
 };
+special_a_hat_maj: special_a_hat_maj {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_press &kp RALT>
+        ,<&macro_tap &kp NUMBER_6>
+        ,<&macro_release &kp RALT>
+        ,<&macro_tap &kp LS(A)>
+        ;
+};
 special_u_grave: special_u_grave {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
@@ -102,6 +171,16 @@ special_u_grave: special_u_grave {
         ,<&macro_tap &kp GRAVE>
         ,<&macro_release &kp RALT>
         ,<&macro_tap &kp U>
+        ;
+};
+special_u_grave_maj: special_u_grave_maj {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_press &kp RALT>
+        ,<&macro_tap &kp GRAVE>
+        ,<&macro_release &kp RALT>
+        ,<&macro_tap &kp LS(U)>
         ;
 };
 special_u_hat: special_u_hat {
@@ -114,6 +193,16 @@ special_u_hat: special_u_hat {
         ,<&macro_tap &kp U>
         ;
 };
+special_u_hat_maj: special_u_hat_maj {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_press &kp RALT>
+        ,<&macro_tap &kp NUMBER_6>
+        ,<&macro_release &kp RALT>
+        ,<&macro_tap &kp LS(U)>
+        ;
+};
 special_i_hat: special_i_hat {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
@@ -124,6 +213,16 @@ special_i_hat: special_i_hat {
         ,<&macro_tap &kp I>
         ;
 };
+special_i_hat_maj: special_i_hat_maj {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_press &kp RALT>
+        ,<&macro_tap &kp NUMBER_6>
+        ,<&macro_release &kp RALT>
+        ,<&macro_tap &kp LS(I)>
+        ;
+};
 special_o_hat: special_o_hat {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
@@ -132,5 +231,15 @@ special_o_hat: special_o_hat {
         ,<&macro_tap &kp NUMBER_6>
         ,<&macro_release &kp RALT>
         ,<&macro_tap &kp O>
+        ;
+};
+special_o_hat_maj: special_o_hat_maj {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_press &kp RALT>
+        ,<&macro_tap &kp NUMBER_6>
+        ,<&macro_release &kp RALT>
+        ,<&macro_tap &kp LS(O)>
         ;
 };

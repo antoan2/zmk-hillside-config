@@ -51,14 +51,18 @@
                 // 20 21 22 23 24             25 26 27 28 29
                 //             30 31       32 33
                 #define ESC_COMBO_KEYS 12 17
+                #define ESC_2_COMBO_KEYS 11 12
+                #define ENTER_COMBO_KEYS 12 13
+                #define ENTER_CTRL_COMBO_KEYS 11 12 13
                 #define CAPS_COMBO_KEYS 13 16
                 #define APPS_COMBO_KEYS 20 29
                 #define VIM_SAVE_COMBO_KEYS 19 1
                 #define VIM_SAVE_QUIT_COMBO_KEYS 19 0
-                #define CTLA_COMBO_KEYS 10 19
-                #define COPY_COMBO_KEYS 21 22
-                #define CUT_COMBO_KEYS 22 23
-                #define PASTE_COMBO_KEYS 23 24
+                #define CTLA_COMBO_KEYS 10 11
+                #define COPY_COMBO_KEYS 20 21
+                #define CUT_COMBO_KEYS 21 22
+                #define PASTE_COMBO_KEYS 22 23
+                #define PASTE_SHIFT_COMBO_KEYS 23 24
                 #include "combos.dtsi"
         };
          

@@ -23,7 +23,7 @@ layers:
   - {t: J, h: RSHIFT}
   - {t: K, h: RCTRL}
   - {t: L, h: LALT}
-  - {t: ;, h: special}
+  - {t: SEMI, h: special}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: Z, h: LGUI}
@@ -35,9 +35,9 @@ layers:
   - {t: ▽, type: trans}
   - N
   - M
-  - ','
-  - .
-  - {t: /, h: RGUI}
+  - COMMA
+  - DOT
+  - {t: SLASH, h: RGUI}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - TAB
@@ -96,42 +96,42 @@ layers:
   - {t: ▽, type: trans}
   sym:
   - {t: ▽, type: trans}
-  - '~'
-  - '@'
-  - '#'
-  - $
-  - '%'
-  - ^
-  - '&'
-  - '*'
-  - '?'
+  - TILDE
+  - AT
+  - HASH
+  - DOLLAR
+  - PERCENT
+  - CARET
+  - AMPS
+  - ASTRK
+  - QUESTION
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '!'
-  - (
-  - {t: '[', h: LCTRL}
-  - _
-  - '-'
-  - +
-  - '='
-  - {t: ']', h: RCTRL}
-  - )
-  - ':'
+  - EXCL
+  - LEFT PARENTHESIS
+  - {t: LEFT BRACKET, h: LCTRL}
+  - UNDERSCORE
+  - MINUS
+  - PLUS
+  - EQUAL
+  - {t: RIGHT BRACKET, h: RCTRL}
+  - RIGHT PARENTHESIS
+  - COLON
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '`'
-  - '{'
+  - GRAVE
+  - LEFT BRACE
   - {t: ▽, type: trans}
-  - ''''
-  - <
+  - SINGLE QUOTE
+  - LESS THAN
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '>'
-  - '"'
-  - \
-  - '}'
-  - '|'
+  - GREATER THAN
+  - DOUBLE QUOTES
+  - BACKSLASH
+  - RIGHT BRACE
+  - PIPE
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -238,32 +238,32 @@ layers:
   special:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - é
-  - è
+  - {t: é, h: É}
+  - {t: è, h: È}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - ù
+  - {t: ù, h: Ù}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - à
-  - {t: ▽, type: trans}
-  - ê
+  - {t: à, h: À}
+  - {t: ë, h: Ë}
+  - {t: ê, h: Ê}
   - LSHFT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - û
-  - î
-  - ô
+  - {t: û, h: Û}
+  - {t: î, h: Î}
+  - {t: ô, h: Ô}
   - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - â
+  - {t: â, h: Â}
   - {t: ▽, type: trans}
-  - ç
+  - {t: ç, h: Ç}
   - dead '
   - dead `
   - {t: ▽, type: trans}
@@ -286,20 +286,15 @@ combos:
 - p: [15, 20]
   k: ESC
   l: [base]
-  a: top
-  o: 0.2
-  w: 50.0
+  draw_separate: true
 - p: [16, 19]
   k: CAPS
   l: [base]
-  a: top
-  w: 50.0
+  draw_separate: true
 - p: [25, 36]
   k: LGUI
   l: [base]
-  a: bottom
-  o: 2.0
-  w: 50.0
+  draw_separate: true
 - p: [22, 2]
   k: :w
   l: [base]
@@ -308,15 +303,30 @@ combos:
   k: :wq
   l: [base]
   draw_separate: true
-- p: [12, 13]
+- p: [13, 14]
   k: Ctl+A
   l: [base]
 - p: [25, 26]
-  k: Ctl+X
+  k: Cut
   l: [base]
 - p: [26, 27]
-  k: Ctl+C
+  k: Copy
   l: [base]
 - p: [27, 28]
-  k: Ctl+V
+  k: Paste
   l: [base]
+- p: [28, 29]
+  k: Plain Paste
+  l: [base]
+- p: [14, 15]
+  k: ESC
+  l: [base]
+- p: [15, 16]
+  k: ENTER
+  l: [base]
+- p: [14, 15, 16]
+  k: Ctl+ENTER
+  l: [base]
+  a: top
+  o: 0.005
+  w: 50.0
