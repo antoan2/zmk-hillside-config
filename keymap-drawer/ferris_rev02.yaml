@@ -12,28 +12,28 @@ layers:
   - O
   - P
   - {t: A, h: num}
-  - {t: S, h: LALT}
-  - {t: D, h: LCTRL}
+  - {t: S, h: Alt}
+  - {t: D, h: Ctrl}
   - {t: F, h: LSHIFT}
   - G
   - H
   - {t: J, h: RSHIFT}
-  - {t: K, h: RCTRL}
-  - {t: L, h: LALT}
-  - {t: SEMI, h: special}
-  - {t: Z, h: LGUI}
+  - {t: K, h: Ctrl}
+  - {t: L, h: Alt}
+  - {t: ;, h: special}
+  - {t: Z, h: Gui}
   - X
   - C
   - V
   - B
   - N
   - M
-  - COMMA
-  - DOT
-  - {t: SLASH, h: RGUI}
-  - TAB
+  - ','
+  - .
+  - {t: /, h: Gui}
+  - ↹
   - {t: BACKSPACE, h: sym}
-  - {t: SPACE, h: nav}
+  - {t: ␣, h: nav}
   - ENTER
   nav:
   - PREV
@@ -46,9 +46,9 @@ layers:
   - SCROLL UP
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - LGUI
-  - LALT
-  - LCTRL
+  - Gui
+  - Alt
+  - Ctrl
   - LSHIFT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -71,36 +71,36 @@ layers:
   - {type: held}
   - {t: ▽, type: trans}
   sym:
-  - TILDE
-  - AT
-  - HASH
-  - DOLLAR
-  - PERCENT
-  - CARET
-  - AMPS
-  - ASTRK
-  - QUESTION
+  - '~'
+  - '@'
+  - '#'
+  - $
+  - '%'
+  - ^
+  - '&'
+  - '*'
+  - '?'
   - {t: ▽, type: trans}
-  - EXCL
-  - LEFT PARENTHESIS
-  - {t: LEFT BRACKET, h: LCTRL}
-  - UNDERSCORE
-  - MINUS
-  - PLUS
-  - EQUAL
-  - {t: RIGHT BRACKET, h: RCTRL}
-  - RIGHT PARENTHESIS
-  - COLON
-  - GRAVE
-  - LEFT BRACE
+  - '!'
+  - (
+  - {t: '[', h: Ctrl}
+  - _
+  - '-'
+  - +
+  - '='
+  - {t: ']', h: Ctrl}
+  - )
+  - ':'
+  - '`'
+  - '{'
   - {t: ▽, type: trans}
-  - SINGLE QUOTE
-  - LESS THAN
-  - GREATER THAN
-  - DOUBLE QUOTES
-  - BACKSLASH
-  - RIGHT BRACE
-  - PIPE
+  - ''''
+  - <
+  - '>'
+  - '"'
+  - \
+  - '}'
+  - '|'
   - {t: ▽, type: trans}
   - {type: held}
   - {t: ▽, type: trans}
@@ -116,10 +116,10 @@ layers:
   - '8'
   - '9'
   - {t: ▽, type: trans}
-  - {t: LGUI, type: held}
-  - LALT
-  - LCTRL
-  - LSHFT
+  - {t: Gui, type: held}
+  - Alt
+  - Ctrl
+  - Shift
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '4'
@@ -151,10 +151,10 @@ layers:
   - F8
   - F9
   - F12
-  - LGUI
-  - LALT
-  - LCTRL
-  - LSHFT
+  - Gui
+  - Alt
+  - Ctrl
+  - Shift
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - F4
@@ -189,7 +189,7 @@ layers:
   - à
   - {t: ▽, type: trans}
   - ê
-  - LSHFT
+  - Shift
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - û
@@ -212,7 +212,7 @@ layers:
   - {t: ▽, type: trans}
 combos:
 - p: [12, 17]
-  k: ESC
+  k: Esc
   l: [base]
   draw_separate: true
 - p: [13, 16]
@@ -220,7 +220,7 @@ combos:
   l: [base]
   draw_separate: true
 - p: [20, 29]
-  k: LGUI
+  k: Gui
   l: [base]
   draw_separate: true
 - p: [19, 1]
@@ -247,7 +247,7 @@ combos:
   k: Plain Paste
   l: [base]
 - p: [11, 12]
-  k: ESC
+  k: Esc
   l: [base]
 - p: [12, 13]
   k: ENTER
@@ -256,5 +256,5 @@ combos:
   k: Ctl+ENTER
   l: [base]
   a: top
-  o: 0.005
+  o: 0.01
   w: 50.0
