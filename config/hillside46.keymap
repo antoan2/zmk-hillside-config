@@ -160,6 +160,87 @@
                         bindings = <&special_i_hat_maj>, <&special_i_hat>;
                         label = "HOLD_TAP_I_HAT";
                 };
+                ht_number_1_f1: hold_tap_number_1_f1 {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <125>;
+                        bindings = <&kp>, <&kp>;
+                        label = "HOLD_TAP_NUMBER_1_F1";
+                };
+                ht_number_2_f2: hold_tap_number_2_f2 {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <125>;
+                        bindings = <&kp>, <&kp>;
+                        label = "HOLD_TAP_NUMBER_2_F2";
+                };
+                ht_number_3_f3: hold_tap_number_3_f3 {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <125>;
+                        bindings = <&kp>, <&kp>;
+                        label = "HOLD_TAP_NUMBER_3_F3";
+                };
+                ht_number_4_f4: hold_tap_number_4_f4 {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <125>;
+                        bindings = <&kp>, <&kp>;
+                        label = "HOLD_TAP_NUMBER_4_F4";
+                };
+                ht_number_5_f5: hold_tap_number_5_f5 {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <125>;
+                        bindings = <&kp>, <&kp>;
+                        label = "HOLD_TAP_NUMBER_5_F5";
+                };
+                ht_number_6_f6: hold_tap_number_6_f6 {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <125>;
+                        bindings = <&kp>, <&kp>;
+                        label = "HOLD_TAP_NUMBER_6_F6";
+                };
+                ht_number_7_f7: hold_tap_number_7_f7 {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <125>;
+                        bindings = <&kp>, <&kp>;
+                        label = "HOLD_TAP_NUMBER_7_F7";
+                };
+                ht_number_8_f8: hold_tap_number_8_f8 {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <125>;
+                        bindings = <&kp>, <&kp>;
+                        label = "HOLD_TAP_NUMBER_8_F8";
+                };
+                ht_number_9_f9: hold_tap_number_9_f9 {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <125>;
+                        bindings = <&kp>, <&kp>;
+                        label = "HOLD_TAP_NUMBER_9_F9";
+                };
         };
 
         keymap {
@@ -201,9 +282,9 @@
 
                  num_layer {
                         bindings = <
-&trans  &trans    &trans    &trans     &trans     &trans                                                        &kp PLUS  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &trans  &trans
-&trans  &trans    &kp LALT  &kp LCTRL  &kp LSHFT  &trans                                                        &kp EQUAL  &kp NUMBER_0  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans
-&trans  &kp LGUI  &trans    &trans     &trans     &trans        &trans                            &trans        &kp MINUS  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &trans  &trans
+&trans  &trans    &trans    &trans     &trans     &trans                                                        &kp PLUS  &ht_number_7_f7 F7 NUMBER_7  &ht_number_8_f8 F8 NUMBER_8  &ht_number_9_f9 F9 NUMBER_9  &trans &kp F10
+&trans  &trans    &kp LALT  &kp LCTRL  &kp LSHFT  &trans                                                        &kp EQUAL  &kp NUMBER_0  &ht_number_1_f1 F1 NUMBER_1  &ht_number_2_f2 F2 NUMBER_2  &ht_number_3_f3 F3 NUMBER_3  &kp F11
+&trans  &kp LGUI  &trans    &trans     &trans     &trans        &trans                            &trans        &kp MINUS  &ht_number_4_f4 F4 NUMBER_4  &ht_number_5_f5 F5 NUMBER_5  &ht_number_6_f6 F6 NUMBER_6  &trans  &kp F12
                                                         &trans  &trans  &trans  &trans    &trans  &kp COMMA  &kp DOT  &trans
                         >;
 			
