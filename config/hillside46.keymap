@@ -168,10 +168,10 @@
                 base_layer {
                         bindings = <
 
-&kp ESCAPE  &kp Q         &kp W         &kp E          &kp R           &kp T                                                                    &kp Y  &kp U           &kp I          &kp O         &kp P             &trans
-&mo FUN_L   &lt NUM_L A   &hmrl LALT S  &hmrl LCTRL D  &hmsl LSHIFT F  &kp G                                                                    &kp H  &hmsr RSHIFT J  &hmrr RCTRL K  &hmrr LALT L  &lt SPE_L SEMI    &trans
-&trans      &hmrl LGUI Z  &kp X         &kp C          &kp V           &kp B        &trans                                        &trans        &kp N  &kp M           &kp COMMA      &kp DOT       &hmrr RGUI SLASH  &trans
-                                                                   &trans  &kp TAB  &thumb SYM_L BACKSPACE  &kp DELETE    &trans  &space NAV_L SPACE  &kp ENTER  &trans 
+&kp ESCAPE  &kp Q         &kp W         &kp E          &kp R           &kp T                                                                             &kp Y  &kp U           &kp I          &kp O         &kp P             &trans
+&mo FUN_L   &kp A         &hmrl LALT S  &hmrl LCTRL D  &hmsl LSHIFT F  &kp G                                                                             &kp H  &hmsr RSHIFT J  &hmrr RCTRL K  &hmrr LALT L  &lt SPE_L SEMI    &trans
+&trans      &hmrl LGUI Z  &kp X         &kp C          &kp V           &kp B        &trans                                                 &trans        &kp N  &kp M           &kp COMMA      &kp DOT       &hmrr RGUI SLASH  &trans
+                                                                   &trans  &kp TAB  &thumb SYM_L BACKSPACE  &thumb NUM_L DELETE    &trans  &space NAV_L SPACE  &kp ENTER  &trans 
                         >;
 			
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -201,10 +201,10 @@
 
                  num_layer {
                         bindings = <
-&trans  &trans    &trans    &trans     &trans     &trans                                                        &trans  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &trans  &trans
-&trans  &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &trans                                                        &trans  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &trans  &trans
-&trans  &trans    &trans    &trans     &trans     &trans        &trans                            &trans        &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans         
-                                                        &trans  &trans  &trans  &trans    &trans  &trans  &kp NUMBER_0  &trans
+&trans  &trans    &trans    &trans     &trans     &trans                                                        &kp PLUS  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &trans  &trans
+&trans  &trans    &kp LALT  &kp LCTRL  &kp LSHFT  &trans                                                        &kp EQUAL  &kp NUMBER_0  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans
+&trans  &kp LGUI  &trans    &trans     &trans     &trans        &trans                            &trans        &kp MINUS  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &trans  &trans
+                                                        &trans  &trans  &trans  &trans    &trans  &kp COMMA  &kp DOT  &trans
                         >;
 			
                         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
