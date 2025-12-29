@@ -256,9 +256,9 @@
                 base_layer {
                         bindings = <
 
-&kp ESCAPE  &kp Q         &kp W         &lt MOU_L E  &kp R           &kp T                                                                             &kp Y  &kp U           &kp I          &kp O         &kp P             &trans
-&trans      &kp A         &hmrl LALT S  &hmrl LCTRL D        &hmsl LSHIFT F  &kp G                                                                             &kp H  &hmsr RSHIFT J  &hmrr RCTRL K  &hmrr LALT L  &lt SPE_L SEMI    &trans
-&trans      &hmrl LGUI Z  &kp X         &kp C                &kp V           &kp B        &trans                                                 &trans        &kp N  &kp M           &kp COMMA      &kp DOT       &hmrr RGUI SLASH  &trans
+&kp ESCAPE  &kp Q         &kp W         &lt MOU_L E    &kp R           &kp T                                                                             &kp Y  &kp U           &kp I          &kp O         &kp P             &trans
+&trans      &kp A         &hmrl LALT S  &hmrl LCTRL D  &hmsl LSHIFT F  &kp G                                                                             &kp H  &hmsr RSHIFT J  &hmrr RCTRL K  &hmrr LALT L  &lt SPE_L SEMI    &trans
+&trans      &hmrl LGUI Z  &kp X         &kp C          &kp V           &kp B        &trans                                                 &trans        &kp N  &kp M           &kp COMMA      &kp DOT       &hmrr RGUI SLASH  &trans
                                                                    &trans  &kp TAB  &thumb SYM_L BACKSPACE  &thumb NUM_L DELETE    &trans  &space NAV_L SPACE  &kp ENTER  &trans 
                         >;
 			
@@ -267,9 +267,9 @@
 		
                  nav_layer {
                          bindings = <
- &trans  &kp K_PREV    &kp K_NEXT          &kp K_VOL_UP  &kp K_VOL_DN      &trans                                                &trans  &kp K_SCROLL_DOWN  &kp K_SCROLL_UP  &trans    &trans     &trans
- &trans  &kp LGUI      &kp LALT            &kp LCTRL     &kp LSHIFT        &trans                                                &trans  &kp DOWN           &kp UP           &kp LEFT  &kp RIGHT  &trans
- &trans  &kp C_REWIND  &kp C_FAST_FORWARD  &kp K_MUTE    &kp K_PLAY_PAUSE  &trans       &trans                    &trans         &trans  &kp PAGE_DOWN      &kp PAGE_UP      &kp HOME  &kp END    &trans
+ &trans  &kp K_PREV    &kp K_NEXT          &kp K_VOL_UP  &kp K_VOL_DN      &trans                                                &trans  &msc SCRL_DOWN      &msc SCRL_UP    &msc SCRL_LEFT  &msc SCRL_RIGHT  &trans
+ &trans  &kp LGUI      &kp LALT            &kp LCTRL     &kp LSHIFT        &trans                                                &trans  &mt PAGE_DOWN DOWN  &mt PAGE_UP UP  &kp LEFT        &kp RIGHT        &trans
+ &trans  &kp C_REWIND  &kp C_FAST_FORWARD  &kp K_MUTE    &kp K_PLAY_PAUSE  &trans       &trans                    &trans         &trans  &kp PAGE_DOWN       &kp PAGE_UP     &kp HOME        &kp END          &trans
                                                                         &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans 
                          >;
  		

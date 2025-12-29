@@ -55,10 +55,10 @@ layers:
   - VOL DN
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - SCROLL DOWN
-  - SCROLL UP
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - Scroll ↓
+  - Scroll ↑
+  - Scroll ←
+  - Scroll →
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - Gui
@@ -67,10 +67,10 @@ layers:
   - LSHIFT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - DOWN
-  - UP
-  - LEFT
-  - RIGHT
+  - {t: ↓, h: PAGE DOWN}
+  - {t: ↑, h: PAGE UP}
+  - ←
+  - →
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - REWIND
@@ -243,10 +243,10 @@ layers:
   - '&mkp RCLK'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '&msc SCRL_DOWN'
-  - '&msc SCRL_UP'
-  - '&msc SCRL_LEFT'
-  - '&msc SCRL_RIGHT'
+  - Scroll ↓
+  - Scroll ↑
+  - Scroll ←
+  - Scroll →
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -255,10 +255,10 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '&mmv MOVE_DOWN'
-  - '&mmv MOVE_UP'
-  - '&mmv MOVE_LEFT'
-  - '&mmv MOVE_RIGHT'
+  - Mouse ↓
+  - Mouse ↑
+  - Mouse ←
+  - Mouse →
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}

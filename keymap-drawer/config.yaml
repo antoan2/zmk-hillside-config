@@ -31,6 +31,16 @@ parse_config:
     '&special_grave': dead `
     '&special_hat': dead ^
     '&special_trema': dead "
+
+    '&mmv MOVE_UP': Mouse ↑
+    '&mmv MOVE_DOWN': Mouse ↓
+    '&mmv MOVE_LEFT': Mouse ←
+    '&mmv MOVE_RIGHT': Mouse →
+
+    '&msc SCRL_UP': Scroll ↑
+    '&msc SCRL_DOWN': Scroll ↓
+    '&msc SCRL_LEFT': Scroll ←
+    '&msc SCRL_RIGHT': Scroll →
     
   zmk_keycode_map:
     LCTRL: Ctrl
@@ -119,6 +129,14 @@ parse_config:
     LC(C): Copy
     LC(V): Paste
     LC(LS(V)): Plain Paste
+
+    PG_UP: Page ↑
+    PG_DN: Page ↓
+
+    UP: ↑
+    DOWN: ↓
+    LEFT: ←
+    RIGHT: →
 
   zmk_combos:
     combo_esc: {draw_separate: true}
