@@ -24,6 +24,9 @@
 #define NUM_L 3
 #define SPE_L 4
 #define MOU_L 5
+#define MOU_FAST_L 6
+#define MOU_SCROLL_L 7
+#define MOU_TP_L 8
 
 // Keyboard keys positions
 // 0  1  2  3  4  5                     6  7  8  9  10 11
@@ -50,6 +53,7 @@
 / {
         macros {
                 #include "macros.dtsi"
+                #include "mouse.dtsi"
         };
 
         combos {
@@ -76,6 +80,7 @@
          
         behaviors {
                 #include "home_rows.dtsi"
+#include <dt-bindings/zmk/mouse.h>
                 ht_macro_e_aigu: hold_tap_e_aigu {
                         compatible = "zmk,behavior-hold-tap";
                         #binding-cells = <2>;
@@ -247,6 +252,15 @@
                         bindings = <&kp>, <&kp>;
                         label = "HOLD_TAP_NUMBER_9_F9";
                 };
+                // Mouse thumb behavior: tap = teleport layer, hold = fast layer
+                mouse_thumb: mouse_thumb_teleport_fast {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "balanced";
+                        tapping-term-ms = <200>;
+                        bindings = <&mo>, <&to>;
+                        label = "MOUSE_THUMB_TELEPORT_FAST";
+                };
 
         };
 
@@ -256,9 +270,9 @@
                 base_layer {
                         bindings = <
 
-&kp ESCAPE  &kp Q         &kp W         &lt MOU_L E    &kp R           &kp T                                                                             &kp Y  &kp U           &kp I          &kp O         &kp P             &trans
+&kp ESCAPE  &kp Q         &kp W         &kp E          &kp R           &kp T                                                                             &kp Y  &kp U           &kp I          &kp O         &kp P             &trans
 &trans      &kp A         &hmrl LALT S  &hmrl LCTRL D  &hmsl LSHIFT F  &kp G                                                                             &kp H  &hmsr RSHIFT J  &hmrr RCTRL K  &hmrr LALT L  &lt SPE_L SEMI    &trans
-&trans      &hmrl LGUI Z  &kp X         &kp C          &kp V           &kp B        &trans                                                 &trans        &kp N  &kp M           &kp COMMA      &kp DOT       &hmrr RGUI SLASH  &trans
+&tog MOU_L  &hmrl LGUI Z  &kp X         &kp C          &kp V           &kp B        &trans                                                 &trans        &kp N  &kp M           &kp COMMA      &kp DOT       &hmrr RGUI SLASH  &trans
                                                                    &trans  &kp TAB  &thumb SYM_L BACKSPACE  &thumb NUM_L DELETE    &trans  &space NAV_L SPACE  &kp ENTER  &trans 
                         >;
 			
@@ -309,11 +323,54 @@
                         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
                  mouse_layer {
+// Left hand: home row mods (transparent) + scroll modifier on G
+// Right hand: WASD-style movement (UIOJKL.M for 8 directions)
+// Thumbs: LCLK | Teleport(tap)/Fast(hold) | RCLK | MCLK
                         bindings = <
-&trans  &mkp MCLK  &mkp LCLK  &trans  &mkp RCLK  &trans                                                &trans  &msc SCRL_DOWN  &msc SCRL_UP    &msc SCRL_LEFT  &msc SCRL_RIGHT  &trans
-&trans  &trans     &trans     &trans  &trans     &trans                                                &trans  &mmv MOVE_DOWN  &mmv MOVE_UP    &mmv MOVE_LEFT  &mmv MOVE_RIGHT &trans
-&trans  &trans     &trans     &trans  &trans     &trans        &trans                    &trans        &trans  &trans          &trans          &trans           &trans          &trans
-                                                &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
+&trans      &trans        &trans        &trans         &trans          &trans                                                                       &trans  &mmv_up_left     &mmv MOVE_UP    &mmv_up_right    &trans     &trans
+&trans      &trans        &kp LALT      &kp LCTRL      &kp LSHIFT      &mo MOU_SCROLL_L                                                             &trans  &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans     &trans
+&tog MOU_L  &kp LGUI      &kp LC(X)     &kp LC(C)      &kp LC(V)       &trans        &trans                                         &mkp MCLK          &trans  &mmv_down_left   &trans          &mmv_down_right  &trans     &trans
+                                                                &trans  &trans  &trans  &trans    &mkp LCLK  &mouse_thumb MOU_FAST_L MOU_TP_L  &mkp RCLK  &trans
+                        >;
+                        
+                        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+                };
+
+                 mouse_fast_layer {
+// Fast mouse movement layer - activated by holding middle right thumb
+                        bindings = <
+&trans      &trans        &trans        &trans         &trans          &trans                                                                       &trans  &mmv_fast_up_left   &mmv_fast_up      &mmv_fast_up_right    &trans     &trans
+&trans      &trans        &kp LALT      &kp LCTRL      &kp LSHIFT      &trans                                                                       &trans  &mmv_fast_left      &mmv_fast_down    &mmv_fast_right       &trans     &trans
+&tog MOU_L  &kp LGUI      &kp LC(X)     &kp LC(C)      &kp LC(V)       &trans        &trans                                         &trans          &trans  &mmv_fast_down_left &trans            &mmv_fast_down_right  &trans     &trans
+                                                                &trans  &trans  &trans  &trans    &mkp LCLK  &trans  &mkp RCLK  &mkp MCLK
+                        >;
+                        
+                        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+                };
+
+                 mouse_scroll_layer {
+// Scroll layer - activated by holding G in mouse layer
+// U/O = page up/down (jump scroll), I/K = scroll up/down, J/L = scroll left/right
+                        bindings = <
+&trans      &trans        &trans        &trans         &trans          &trans                                                                       &trans  &kp PAGE_UP     &msc SCRL_UP    &kp PAGE_DOWN &trans     &trans
+&trans      &trans        &kp LALT      &kp LCTRL      &kp LSHIFT      &trans                                                                       &trans  &msc SCRL_LEFT   &msc SCRL_DOWN  &msc SCRL_RIGHT  &trans     &trans
+&tog MOU_L  &kp LGUI      &kp LC(X)     &kp LC(C)      &kp LC(V)       &trans        &trans                                         &mkp MCLK          &trans  &trans           &trans          &trans           &trans     &trans
+                                                                &trans  &trans  &trans  &trans    &mkp LCLK  &trans  &mkp RCLK  &trans
+                        >;
+                        
+                        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+                };
+
+                 mouse_teleport_layer {
+// Teleport grid layer - 36 positions across 3 screens (4 cols × 3 rows per screen)
+// Left hand: Screen 1 (cols 0-3) + Screen 2 (cols 0-1)
+// Right hand: Screen 2 (cols 2-3) + Screen 3 (cols 0-3)
+// Top row = top of screen, middle row = middle, bottom row = bottom
+                        bindings = <
+&trans      &tp_s1_r0_c0  &tp_s1_r0_c1  &tp_s1_r0_c2   &tp_s1_r0_c3    &tp_s2_r0_c0                                                                 &tp_s2_r0_c1  &tp_s2_r0_c2  &tp_s2_r0_c3  &tp_s3_r0_c0  &tp_s3_r0_c1  &tp_s3_r0_c2
+&trans      &tp_s1_r1_c0  &tp_s1_r1_c1  &tp_s1_r1_c2   &tp_s1_r1_c3    &tp_s2_r1_c0                                                                 &tp_s2_r1_c1  &tp_s2_r1_c2  &tp_s2_r1_c3  &tp_s3_r1_c0  &tp_s3_r1_c1  &tp_s3_r1_c2
+&tog MOU_L  &tp_s1_r2_c0  &tp_s1_r2_c1  &tp_s1_r2_c2   &tp_s1_r2_c3    &tp_s2_r2_c0  &trans                                         &tp_s3_r0_c3    &tp_s2_r2_c1  &tp_s2_r2_c2  &tp_s2_r2_c3  &tp_s3_r2_c0  &tp_s3_r2_c1  &tp_s3_r2_c2
+                                                                &trans  &trans  &trans  &trans    &trans  &to MOU_L  &tp_s3_r1_c3  &tp_s3_r2_c3
                         >;
                         
                         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;

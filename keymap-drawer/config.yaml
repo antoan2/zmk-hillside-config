@@ -37,10 +37,74 @@ parse_config:
     '&mmv MOVE_LEFT': Mouse ←
     '&mmv MOVE_RIGHT': Mouse →
 
+    '&mmv_up_left': Mouse ↖
+    '&mmv_up_right': Mouse ↗
+    '&mmv_down_left': Mouse ↙
+    '&mmv_down_right': Mouse ↘
+
+    '&mmv_fast_up': Fast ↑
+    '&mmv_fast_down': Fast ↓
+    '&mmv_fast_left': Fast ←
+    '&mmv_fast_right': Fast →
+    '&mmv_fast_up_left': Fast ↖
+    '&mmv_fast_up_right': Fast ↗
+    '&mmv_fast_down_left': Fast ↙
+    '&mmv_fast_down_right': Fast ↘
+
     '&msc SCRL_UP': Scroll ↑
     '&msc SCRL_DOWN': Scroll ↓
     '&msc SCRL_LEFT': Scroll ←
     '&msc SCRL_RIGHT': Scroll →
+    '&msc_jump_up': Page ↑
+    '&msc_jump_down': Page ↓
+
+    '&mkp LCLK': LClick
+    '&mkp RCLK': RClick
+    '&mkp MCLK': MClick
+
+    '&mouse_thumb MOU_FAST_L MOU_TP_L': {t: teleport, h: fast}
+
+    # Teleport macros - Screen 1
+    '&tp_s1_r0_c0': S1 TL1
+    '&tp_s1_r0_c1': S1 TL2
+    '&tp_s1_r0_c2': S1 TR1
+    '&tp_s1_r0_c3': S1 TR2
+    '&tp_s1_r1_c0': S1 ML1
+    '&tp_s1_r1_c1': S1 ML2
+    '&tp_s1_r1_c2': S1 MR1
+    '&tp_s1_r1_c3': S1 MR2
+    '&tp_s1_r2_c0': S1 BL1
+    '&tp_s1_r2_c1': S1 BL2
+    '&tp_s1_r2_c2': S1 BR1
+    '&tp_s1_r2_c3': S1 BR2
+
+    # Teleport macros - Screen 2
+    '&tp_s2_r0_c0': S2 TL1
+    '&tp_s2_r0_c1': S2 TL2
+    '&tp_s2_r0_c2': S2 TR1
+    '&tp_s2_r0_c3': S2 TR2
+    '&tp_s2_r1_c0': S2 ML1
+    '&tp_s2_r1_c1': S2 ML2
+    '&tp_s2_r1_c2': S2 MR1
+    '&tp_s2_r1_c3': S2 MR2
+    '&tp_s2_r2_c0': S2 BL1
+    '&tp_s2_r2_c1': S2 BL2
+    '&tp_s2_r2_c2': S2 BR1
+    '&tp_s2_r2_c3': S2 BR2
+
+    # Teleport macros - Screen 3
+    '&tp_s3_r0_c0': S3 TL1
+    '&tp_s3_r0_c1': S3 TL2
+    '&tp_s3_r0_c2': S3 TR1
+    '&tp_s3_r0_c3': S3 TR2
+    '&tp_s3_r1_c0': S3 ML1
+    '&tp_s3_r1_c1': S3 ML2
+    '&tp_s3_r1_c2': S3 MR1
+    '&tp_s3_r1_c3': S3 MR2
+    '&tp_s3_r2_c0': S3 BL1
+    '&tp_s3_r2_c1': S3 BL2
+    '&tp_s3_r2_c2': S3 BR1
+    '&tp_s3_r2_c3': S3 BR2
     
   zmk_keycode_map:
     LCTRL: Ctrl
