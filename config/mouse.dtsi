@@ -3,373 +3,132 @@
  * 
  * Layers:
  * - MOU_L: Main mouse control layer (movements, clicks)
- * - MOU_FAST_L: Fast mouse movement layer
+ * - MOU_FAST_L: Fast mouse movement layer (2x speed via input processor)
+ * - MOU_VFAST_L: Very fast mouse movement layer (4x speed via input processor)
  * - MOU_SCROLL_L: Scroll mode layer
  * - MOU_TP_L: Teleport grid layer (36 positions across 3 screens)
  *
- * Note: For diagonal movements, MOVE_X and MOVE_Y must be combined with |
- * MOVE_Y(val) stores in lower 16 bits, MOVE_X(val) stores in upper 16 bits
+ * Movement: Uses &mmv directly with MOVE_UP, MOVE_DOWN, etc.
+ * Diagonal defines (MOVE_UL, MOVE_UR, MOVE_DL, MOVE_DR) are in hillside46.keymap
+ *
+ * Speed scaling (configured in hillside46.keymap via &mmv_input_listener):
+ * - MOU_L: Normal speed (1x)
+ * - MOU_FAST_L: 2x speed via zip_xy_scaler
+ * - MOU_VFAST_L: 4x speed via zip_xy_scaler
  */
 
 // ============================================================================
-// DIAGONAL MOVEMENT MACROS - Normal Speed (1500)
+// TELEPORT MACRO  
 // ============================================================================
-
-mmv_up_left: mmv_up_left {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-1500) | MOVE_Y(-1500))>;
-};
-
-mmv_up_right: mmv_up_right {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(1500) | MOVE_Y(-1500))>;
-};
-
-mmv_down_left: mmv_down_left {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-1500) | MOVE_Y(1500))>;
-};
-
-mmv_down_right: mmv_down_right {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(1500) | MOVE_Y(1500))>;
-};
-
-// ============================================================================
-// FAST MOVEMENT MACROS - 2x Speed (3000)
-// ============================================================================
-
-mmv_fast_up: mmv_fast_up {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv MOVE_Y(-3000)>;
-};
-
-mmv_fast_down: mmv_fast_down {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv MOVE_Y(3000)>;
-};
-
-mmv_fast_left: mmv_fast_left {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv MOVE_X(-3000)>;
-};
-
-mmv_fast_right: mmv_fast_right {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv MOVE_X(3000)>;
-};
-
-mmv_fast_up_left: mmv_fast_up_left {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-3000) | MOVE_Y(-3000))>;
-};
-
-mmv_fast_up_right: mmv_fast_up_right {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(3000) | MOVE_Y(-3000))>;
-};
-
-mmv_fast_down_left: mmv_fast_down_left {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-3000) | MOVE_Y(3000))>;
-};
-
-mmv_fast_down_right: mmv_fast_down_right {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(3000) | MOVE_Y(3000))>;
-};
-
-// ============================================================================
-// VERY FAST MOVEMENT MACROS - 4x Speed (6000)
-// ============================================================================
-
-mmv_vfast_up: mmv_vfast_up {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv MOVE_Y(-6000)>;
-};
-
-mmv_vfast_down: mmv_vfast_down {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv MOVE_Y(6000)>;
-};
-
-mmv_vfast_left: mmv_vfast_left {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv MOVE_X(-6000)>;
-};
-
-mmv_vfast_right: mmv_vfast_right {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv MOVE_X(6000)>;
-};
-
-mmv_vfast_up_left: mmv_vfast_up_left {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-6000) | MOVE_Y(-6000))>;
-};
-
-mmv_vfast_up_right: mmv_vfast_up_right {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(6000) | MOVE_Y(-6000))>;
-};
-
-mmv_vfast_down_left: mmv_vfast_down_left {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-6000) | MOVE_Y(6000))>;
-};
-
-mmv_vfast_down_right: mmv_vfast_down_right {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(6000) | MOVE_Y(6000))>;
-};
-
-// ============================================================================
-// SCROLL JUMP MACROS - Large scroll amounts (like page up/down)
-// ============================================================================
-
-msc_jump_up: msc_jump_up {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&msc MOVE_Y(80)>;
-};
-
-msc_jump_down: msc_jump_down {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&msc MOVE_Y(-80)>;
-};
-
-// ============================================================================
-// TELEPORT MACROS
-// ============================================================================
-// Grid: 3 screens × 4 columns × 3 rows = 36 positions
-// Screen: 1920×1080, Cell: 480×360
-// Centers: X = 240 + (col × 480), Y = 180 + (row × 360)
+// FAST teleport (~150ms total) to approximate grid positions
+// Fine-tune with mouse movement layer after teleporting
 //
-// Screen 1: X = 0-1919     (cols 0-3)
-// Screen 2: X = 1920-3839  (cols 4-7)  
-// Screen 3: X = 3840-5759  (cols 8-11)
+// Strategy: 
+// 1. Reset to top-left at max velocity (100ms)
+// 2. Move to target zone at max velocity (50ms)
 //
-// Row 0 (top):    Y = 180
-// Row 1 (middle): Y = 540
-// Row 2 (bottom): Y = 900
+// At max velocity 32767 with 50ms hold: ~1640 pixels of movement
+// This covers Screen 1 well. Screens 2-3 will land at similar X but correct Y row
+// Use mouse layer to adjust horizontally after teleport
+
+tele: teleport_macro {
+        compatible = "zmk,behavior-macro-one-param";
+        #binding-cells = <1>;
+        wait-ms = <0>;
+        tap-ms = <0>;
+        bindings
+                // Step 1: Reset to top-left corner (100ms at max speed)
+                = <&macro_press &mmv_tele MOVE(-32767, -32767)>
+                , <&macro_wait_time 100>
+                , <&macro_release &mmv_tele MOVE(-32767, -32767)>
+                , <&macro_wait_time 5>
+                // Step 2: Move toward target (50ms hold)
+                , <&macro_param_1to1>
+                , <&macro_press &mmv_tele MACRO_PLACEHOLDER>
+                , <&macro_wait_time 50>
+                , <&macro_param_1to1>
+                , <&macro_release &mmv_tele MACRO_PLACEHOLDER>
+                ;
+};
+
+// ============================================================================
+// TEST MACRO - verify mmv_tele works
+// ============================================================================
+// Moves 100px left, waits 1s, moves 100px up, waits 1s
+// Use this to confirm the mmv_tele behavior is functioning
+test_mmv_tele: test_mmv_tele_macro {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <0>;
+        tap-ms = <0>;
+        bindings
+                // Move 100 pixels left (velocity -2000 for 50ms = 100px)
+                = <&macro_press &mmv_tele MOVE(-2000, 0)>
+                , <&macro_wait_time 50>
+                , <&macro_release &mmv_tele MOVE(-2000, 0)>
+                // Wait 1 second
+                , <&macro_wait_time 1000>
+                // Move 100 pixels up (velocity -2000 for 50ms = 100px)
+                , <&macro_press &mmv_tele MOVE(0, -2000)>
+                , <&macro_wait_time 50>
+                , <&macro_release &mmv_tele MOVE(0, -2000)>
+                // Wait 1 second to see result
+                , <&macro_wait_time 1000>
+                ;
+};
+
+// ============================================================================
+// TELEPORT POSITION DEFINES  
+// ============================================================================
+// 36 positions across 3 screens (4 cols × 3 rows × 3 screens)
 //
-// Teleport strategy: First move to origin with large negative, then to target
+// With 50ms hold at velocity V: distance = V * 0.05 (approx)
+// To reach position P in 50ms: V = P * 20
+// Max velocity = 32767 → max reachable position ≈ 1638px
+//
+// For positions > 1638px, cursor lands at ~1638px (Screen 1 right edge area)
+// You'll need to use mouse layer to reach Screens 2-3
+//
+// Y positions (180, 540, 900) all work fine since max Y velocity needed is 18000
 
-// Screen 1 - Top Row (Y=180)
-tp_s1_r0_c0: tp_s1_r0_c0 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(240) | MOVE_Y(180))>;
-};
-tp_s1_r0_c1: tp_s1_r0_c1 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(720) | MOVE_Y(180))>;
-};
-tp_s1_r0_c2: tp_s1_r0_c2 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(1200) | MOVE_Y(180))>;
-};
-tp_s1_r0_c3: tp_s1_r0_c3 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(1680) | MOVE_Y(180))>;
-};
+// Screen 1 - positions within reach
+#define TELE_S1_T1 MOVE(4800, 3600)      // (240, 180)
+#define TELE_S1_T2 MOVE(14400, 3600)     // (720, 180)  
+#define TELE_S1_T3 MOVE(24000, 3600)     // (1200, 180)
+#define TELE_S1_T4 MOVE(32767, 3600)     // (1680, 180) - near edge
+#define TELE_S1_M1 MOVE(4800, 10800)     // (240, 540)
+#define TELE_S1_M2 MOVE(14400, 10800)    // (720, 540)
+#define TELE_S1_M3 MOVE(24000, 10800)    // (1200, 540)
+#define TELE_S1_M4 MOVE(32767, 10800)    // (1680, 540)
+#define TELE_S1_B1 MOVE(4800, 18000)     // (240, 900)
+#define TELE_S1_B2 MOVE(14400, 18000)    // (720, 900)
+#define TELE_S1_B3 MOVE(24000, 18000)    // (1200, 900)
+#define TELE_S1_B4 MOVE(32767, 18000)    // (1680, 900)
 
-// Screen 1 - Middle Row (Y=540)
-tp_s1_r1_c0: tp_s1_r1_c0 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(240) | MOVE_Y(540))>;
-};
-tp_s1_r1_c1: tp_s1_r1_c1 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(720) | MOVE_Y(540))>;
-};
-tp_s1_r1_c2: tp_s1_r1_c2 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(1200) | MOVE_Y(540))>;
-};
-tp_s1_r1_c3: tp_s1_r1_c3 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(1680) | MOVE_Y(540))>;
-};
+// Screens 2 & 3 - X capped at max velocity, lands near right edge of Screen 1
+// Use these to at least get the correct Y row, then navigate with mouse
+#define TELE_S2_T1 MOVE(32767, 3600)
+#define TELE_S2_T2 MOVE(32767, 3600)
+#define TELE_S2_T3 MOVE(32767, 3600)
+#define TELE_S2_T4 MOVE(32767, 3600)
+#define TELE_S2_M1 MOVE(32767, 10800)
+#define TELE_S2_M2 MOVE(32767, 10800)
+#define TELE_S2_M3 MOVE(32767, 10800)
+#define TELE_S2_M4 MOVE(32767, 10800)
+#define TELE_S2_B1 MOVE(32767, 18000)
+#define TELE_S2_B2 MOVE(32767, 18000)
+#define TELE_S2_B3 MOVE(32767, 18000)
+#define TELE_S2_B4 MOVE(32767, 18000)
 
-// Screen 1 - Bottom Row (Y=900)
-tp_s1_r2_c0: tp_s1_r2_c0 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(240) | MOVE_Y(900))>;
-};
-tp_s1_r2_c1: tp_s1_r2_c1 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(720) | MOVE_Y(900))>;
-};
-tp_s1_r2_c2: tp_s1_r2_c2 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(1200) | MOVE_Y(900))>;
-};
-tp_s1_r2_c3: tp_s1_r2_c3 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(1680) | MOVE_Y(900))>;
-};
-
-// Screen 2 - Top Row (Y=180)
-tp_s2_r0_c0: tp_s2_r0_c0 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(2160) | MOVE_Y(180))>;
-};
-tp_s2_r0_c1: tp_s2_r0_c1 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(2640) | MOVE_Y(180))>;
-};
-tp_s2_r0_c2: tp_s2_r0_c2 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(3120) | MOVE_Y(180))>;
-};
-tp_s2_r0_c3: tp_s2_r0_c3 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(3600) | MOVE_Y(180))>;
-};
-
-// Screen 2 - Middle Row (Y=540)
-tp_s2_r1_c0: tp_s2_r1_c0 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(2160) | MOVE_Y(540))>;
-};
-tp_s2_r1_c1: tp_s2_r1_c1 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(2640) | MOVE_Y(540))>;
-};
-tp_s2_r1_c2: tp_s2_r1_c2 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(3120) | MOVE_Y(540))>;
-};
-tp_s2_r1_c3: tp_s2_r1_c3 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(3600) | MOVE_Y(540))>;
-};
-
-// Screen 2 - Bottom Row (Y=900)
-tp_s2_r2_c0: tp_s2_r2_c0 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(2160) | MOVE_Y(900))>;
-};
-tp_s2_r2_c1: tp_s2_r2_c1 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(2640) | MOVE_Y(900))>;
-};
-tp_s2_r2_c2: tp_s2_r2_c2 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(3120) | MOVE_Y(900))>;
-};
-tp_s2_r2_c3: tp_s2_r2_c3 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(3600) | MOVE_Y(900))>;
-};
-
-// Screen 3 - Top Row (Y=180)
-tp_s3_r0_c0: tp_s3_r0_c0 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(4080) | MOVE_Y(180))>;
-};
-tp_s3_r0_c1: tp_s3_r0_c1 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(4560) | MOVE_Y(180))>;
-};
-tp_s3_r0_c2: tp_s3_r0_c2 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(5040) | MOVE_Y(180))>;
-};
-tp_s3_r0_c3: tp_s3_r0_c3 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(5520) | MOVE_Y(180))>;
-};
-
-// Screen 3 - Middle Row (Y=540)
-tp_s3_r1_c0: tp_s3_r1_c0 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(4080) | MOVE_Y(540))>;
-};
-tp_s3_r1_c1: tp_s3_r1_c1 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(4560) | MOVE_Y(540))>;
-};
-tp_s3_r1_c2: tp_s3_r1_c2 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(5040) | MOVE_Y(540))>;
-};
-tp_s3_r1_c3: tp_s3_r1_c3 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(5520) | MOVE_Y(540))>;
-};
-
-// Screen 3 - Bottom Row (Y=900)
-tp_s3_r2_c0: tp_s3_r2_c0 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(4080) | MOVE_Y(900))>;
-};
-tp_s3_r2_c1: tp_s3_r2_c1 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(4560) | MOVE_Y(900))>;
-};
-tp_s3_r2_c2: tp_s3_r2_c2 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(5040) | MOVE_Y(900))>;
-};
-tp_s3_r2_c3: tp_s3_r2_c3 {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings = <&mmv (MOVE_X(-10000) | MOVE_Y(-10000))>, <&mmv (MOVE_X(5520) | MOVE_Y(900))>;
-};
+#define TELE_S3_T1 MOVE(32767, 3600)
+#define TELE_S3_T2 MOVE(32767, 3600)
+#define TELE_S3_T3 MOVE(32767, 3600)
+#define TELE_S3_T4 MOVE(32767, 3600)
+#define TELE_S3_M1 MOVE(32767, 10800)
+#define TELE_S3_M2 MOVE(32767, 10800)
+#define TELE_S3_M3 MOVE(32767, 10800)
+#define TELE_S3_M4 MOVE(32767, 10800)
+#define TELE_S3_B1 MOVE(32767, 18000)
+#define TELE_S3_B2 MOVE(32767, 18000)
+#define TELE_S3_B3 MOVE(32767, 18000)
+#define TELE_S3_B4 MOVE(32767, 18000)

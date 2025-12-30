@@ -32,79 +32,77 @@ parse_config:
     '&special_hat': dead ^
     '&special_trema': dead "
 
-    '&mmv MOVE_UP': Mouse ↑
-    '&mmv MOVE_DOWN': Mouse ↓
-    '&mmv MOVE_LEFT': Mouse ←
-    '&mmv MOVE_RIGHT': Mouse →
-
-    '&mmv_up_left': Mouse ↖
-    '&mmv_up_right': Mouse ↗
-    '&mmv_down_left': Mouse ↙
-    '&mmv_down_right': Mouse ↘
-
-    '&mmv_fast_up': Fast ↑
-    '&mmv_fast_down': Fast ↓
-    '&mmv_fast_left': Fast ←
-    '&mmv_fast_right': Fast →
-    '&mmv_fast_up_left': Fast ↖
-    '&mmv_fast_up_right': Fast ↗
-    '&mmv_fast_down_left': Fast ↙
-    '&mmv_fast_down_right': Fast ↘
+    # Mouse movement bindings (direct &mmv usage)
+    '&mmv MOVE_UP': ↑
+    '&mmv MOVE_DOWN': ↓
+    '&mmv MOVE_LEFT': ←
+    '&mmv MOVE_RIGHT': →
+    '&mmv MOVE_UL': ↖
+    '&mmv MOVE_UR': ↗
+    '&mmv MOVE_DL': ↙
+    '&mmv MOVE_DR': ↘
 
     '&msc SCRL_UP': Scroll ↑
     '&msc SCRL_DOWN': Scroll ↓
     '&msc SCRL_LEFT': Scroll ←
     '&msc SCRL_RIGHT': Scroll →
-    '&msc_jump_up': Page ↑
-    '&msc_jump_down': Page ↓
 
     '&mkp LCLK': LClick
     '&mkp RCLK': RClick
     '&mkp MCLK': MClick
 
+    '&sl MOU_TP_L': teleport
     '&mouse_thumb MOU_FAST_L MOU_TP_L': {t: teleport, h: fast}
 
-    # Teleport macros - Screen 1
-    '&tp_s1_r0_c0': S1 TL1
-    '&tp_s1_r0_c1': S1 TL2
-    '&tp_s1_r0_c2': S1 TR1
-    '&tp_s1_r0_c3': S1 TR2
-    '&tp_s1_r1_c0': S1 ML1
-    '&tp_s1_r1_c1': S1 ML2
-    '&tp_s1_r1_c2': S1 MR1
-    '&tp_s1_r1_c3': S1 MR2
-    '&tp_s1_r2_c0': S1 BL1
-    '&tp_s1_r2_c1': S1 BL2
-    '&tp_s1_r2_c2': S1 BR1
-    '&tp_s1_r2_c3': S1 BR2
+    # Teleport positions - Screen 1 (direct &mmv_tele)
+    '&mmv_tele TELE_S1_T1': S1 T1
+    '&mmv_tele TELE_S1_T2': S1 T2
+    '&mmv_tele TELE_S1_T3': S1 T3
+    '&mmv_tele TELE_S1_T4': S1 T4
+    '&mmv_tele TELE_S1_M1': S1 M1
+    '&mmv_tele TELE_S1_M2': S1 M2
+    '&mmv_tele TELE_S1_M3': S1 M3
+    '&mmv_tele TELE_S1_M4': S1 M4
+    '&mmv_tele TELE_S1_B1': S1 B1
+    '&mmv_tele TELE_S1_B2': S1 B2
+    '&mmv_tele TELE_S1_B3': S1 B3
+    '&mmv_tele TELE_S1_B4': S1 B4
 
-    # Teleport macros - Screen 2
-    '&tp_s2_r0_c0': S2 TL1
-    '&tp_s2_r0_c1': S2 TL2
-    '&tp_s2_r0_c2': S2 TR1
-    '&tp_s2_r0_c3': S2 TR2
-    '&tp_s2_r1_c0': S2 ML1
-    '&tp_s2_r1_c1': S2 ML2
-    '&tp_s2_r1_c2': S2 MR1
-    '&tp_s2_r1_c3': S2 MR2
-    '&tp_s2_r2_c0': S2 BL1
-    '&tp_s2_r2_c1': S2 BL2
-    '&tp_s2_r2_c2': S2 BR1
-    '&tp_s2_r2_c3': S2 BR2
+    # Teleport positions - Screen 2
+    '&mmv_tele TELE_S2_T1': S2 T1
+    '&mmv_tele TELE_S2_T2': S2 T2
+    '&mmv_tele TELE_S2_T3': S2 T3
+    '&mmv_tele TELE_S2_T4': S2 T4
+    '&mmv_tele TELE_S2_M1': S2 M1
+    '&mmv_tele TELE_S2_M2': S2 M2
+    '&mmv_tele TELE_S2_M3': S2 M3
+    '&mmv_tele TELE_S2_M4': S2 M4
+    '&mmv_tele TELE_S2_B1': S2 B1
+    '&mmv_tele TELE_S2_B2': S2 B2
+    '&mmv_tele TELE_S2_B3': S2 B3
+    '&mmv_tele TELE_S2_B4': S2 B4
 
-    # Teleport macros - Screen 3
-    '&tp_s3_r0_c0': S3 TL1
-    '&tp_s3_r0_c1': S3 TL2
-    '&tp_s3_r0_c2': S3 TR1
-    '&tp_s3_r0_c3': S3 TR2
-    '&tp_s3_r1_c0': S3 ML1
-    '&tp_s3_r1_c1': S3 ML2
-    '&tp_s3_r1_c2': S3 MR1
-    '&tp_s3_r1_c3': S3 MR2
-    '&tp_s3_r2_c0': S3 BL1
-    '&tp_s3_r2_c1': S3 BL2
-    '&tp_s3_r2_c2': S3 BR1
-    '&tp_s3_r2_c3': S3 BR2
+    # Teleport positions - Screen 3
+    '&mmv_tele TELE_S3_T1': S3 T1
+    '&mmv_tele TELE_S3_T2': S3 T2
+    '&mmv_tele TELE_S3_T3': S3 T3
+    '&mmv_tele TELE_S3_T4': S3 T4
+    '&mmv_tele TELE_S3_M1': S3 M1
+    '&mmv_tele TELE_S3_M2': S3 M2
+    '&mmv_tele TELE_S3_M3': S3 M3
+    '&mmv_tele TELE_S3_M4': S3 M4
+    '&mmv_tele TELE_S3_B1': S3 B1
+    '&mmv_tele TELE_S3_B2': S3 B2
+    '&mmv_tele TELE_S3_B3': S3 B3
+    '&mmv_tele TELE_S3_B4': S3 B4
+
+  # Layer legend map - provide friendly names for layers
+  layer_legend_map:
+    mouse_layer: 🖱️ Mouse
+    mouse_fast_layer: 🖱️ Fast ⏩
+    mouse_vfast_layer: 🖱️ VFast ⏭️
+    mouse_scroll_layer: 🖱️ Scroll
+    mouse_teleport_layer: 🖱️ Teleport
     
   zmk_keycode_map:
     LCTRL: Ctrl

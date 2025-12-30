@@ -10,13 +10,19 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 
-
+// Must define before including pointing.h so the header uses our values
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
 
 #include <dt-bindings/zmk/pointing.h>
+#include <input/processors.dtsi>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 
-
+// Diagonal movement defines (not provided by pointing.h)
+#define MOVE_UL MOVE(-ZMK_POINTING_DEFAULT_MOVE_VAL, -ZMK_POINTING_DEFAULT_MOVE_VAL)
+#define MOVE_UR MOVE(ZMK_POINTING_DEFAULT_MOVE_VAL, -ZMK_POINTING_DEFAULT_MOVE_VAL)
+#define MOVE_DL MOVE(-ZMK_POINTING_DEFAULT_MOVE_VAL, ZMK_POINTING_DEFAULT_MOVE_VAL)
+#define MOVE_DR MOVE(ZMK_POINTING_DEFAULT_MOVE_VAL, ZMK_POINTING_DEFAULT_MOVE_VAL)
 
 #define BASE_L 0
 #define NAV_L 1
@@ -82,6 +88,18 @@
         behaviors {
                 #include "home_rows.dtsi"
 #include <dt-bindings/zmk/mouse.h>
+
+                // Teleport behavior - uniform speed (no acceleration) for predictable pixel movement
+                mmv_tele: mmv_teleport {
+                        compatible = "zmk,behavior-input-two-axis";
+                        #binding-cells = <1>;
+                        x-input-code = <INPUT_REL_X>;
+                        y-input-code = <INPUT_REL_Y>;
+                        trigger-period-ms = <16>;
+                        time-to-max-speed-ms = <0>;
+                        acceleration-exponent = <0>;
+                };
+
                 ht_macro_e_aigu: hold_tap_e_aigu {
                         compatible = "zmk,behavior-hold-tap";
                         #binding-cells = <2>;
@@ -325,37 +343,41 @@
                 };
                  mouse_layer {
 // Left hand: home row mods (transparent) + scroll modifier on G
-// Right hand: WASD-style movement (UIOJKL.M for 8 directions)
+// Right hand: movement on JKLUIM,;
+// j=down, k=up, l=left, ;=right, u=top-left, i=top-right, m=down-left, ,=down-right
 // Thumbs: LCLK | Teleport(tap)/Fast(hold) | RCLK | MCLK
+// TEST: &test_mmv_tele on top-left key (Q position) - moves 100px left, wait 1s, 100px up
                         bindings = <
-&trans      &trans        &trans        &trans         &trans          &trans                                                                       &trans  &mmv_up_left     &mmv MOVE_UP    &mmv_up_right    &trans     &trans
-&tog BASE_L &trans        &kp LALT      &kp LCTRL      &kp LSHIFT      &mo MOU_SCROLL_L                                                             &trans  &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans     &trans
-&tog MOU_L  &kp LGUI      &kp LC(X)     &kp LC(C)      &kp LC(V)       &trans        &trans                                         &mkp MCLK          &trans  &mmv_down_left   &trans          &mmv_down_right  &trans     &trans
-                                                                &trans &trans &mo MOU_FAST_L  &mo MOU_VFAST_L    &mkp LCLK &mkp RCLK &mouse_thumb MOU_FAST_L MOU_TP_L &trans
+&test_mmv_tele &trans     &trans        &trans         &trans          &trans                                                                       &trans  &mmv MOVE_UL     &mmv MOVE_UR    &trans          &trans     &trans
+&tog BASE_L &trans        &kp LALT      &kp LCTRL      &kp LSHIFT      &mo MOU_SCROLL_L                                                             &trans  &mmv MOVE_DOWN   &mmv MOVE_UP    &mmv MOVE_LEFT  &mmv MOVE_RIGHT &trans
+&tog MOU_L  &kp LGUI      &kp LC(X)     &kp LC(C)      &kp LC(V)       &trans        &trans                                         &mkp MCLK          &trans  &mmv MOVE_DL     &mmv MOVE_DR    &trans          &trans     &trans
+                                                                &trans &sl MOU_TP_L &mo MOU_FAST_L  &mo MOU_VFAST_L    &mkp LCLK &mkp RCLK &mouse_thumb MOU_FAST_L MOU_TP_L &trans
                         >;
                         
                         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
 
                  mouse_fast_layer {
-// Fast mouse movement layer - activated by holding left inner thumb in mouse layer
+// Fast mouse movement layer - 2x speed via input processor, activated by holding left inner thumb
+// j=down, k=up, l=left, ;=right, u=top-left, i=top-right, m=down-left, ,=down-right
                         bindings = <
-&trans      &trans        &trans        &trans         &trans          &trans                                                                       &trans  &mmv_fast_up_left   &mmv_fast_up      &mmv_fast_up_right    &trans     &trans
-&trans      &trans        &kp LALT      &kp LCTRL      &kp LSHIFT      &trans                                                                       &trans  &mmv_fast_left      &mmv_fast_down    &mmv_fast_right       &trans     &trans
-&tog MOU_L  &kp LGUI      &kp LC(X)     &kp LC(C)      &kp LC(V)       &trans        &trans                                         &mkp MCLK          &trans  &mmv_fast_down_left &trans            &mmv_fast_down_right  &trans     &trans
-                                                                &trans  &trans  &trans  &trans    &mkp LCLK  &mkp RCLK  &trans  &trans
+&trans      &trans        &trans        &trans         &trans          &trans                                                                       &trans  &mmv MOVE_UL   &mmv MOVE_UR   &trans         &trans     &trans
+&trans      &trans        &kp LALT      &kp LCTRL      &kp LSHIFT      &trans                                                                       &trans  &mmv MOVE_DOWN &mmv MOVE_UP   &mmv MOVE_LEFT &mmv MOVE_RIGHT &trans
+&tog MOU_L  &kp LGUI      &kp LC(X)     &kp LC(C)      &kp LC(V)       &trans        &trans                                         &mkp MCLK          &trans  &mmv MOVE_DL   &mmv MOVE_DR   &trans         &trans     &trans
+                                                                &trans  &trans  &trans  &trans    &mkp LCLK  &mkp RCLK  &sl MOU_TP_L  &trans
                         >;
                         
                         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
 
                  mouse_vfast_layer {
-// Very fast mouse movement layer - activated by holding left outer thumb in mouse layer
+// Very fast mouse movement layer - 4x speed via input processor, activated by holding left outer thumb
+// j=down, k=up, l=left, ;=right, u=top-left, i=top-right, m=down-left, ,=down-right
                         bindings = <
-&trans      &trans        &trans        &trans         &trans          &trans                                                                       &trans  &mmv_vfast_up_left   &mmv_vfast_up      &mmv_vfast_up_right    &trans     &trans
-&trans      &trans        &kp LALT      &kp LCTRL      &kp LSHIFT      &trans                                                                       &trans  &mmv_vfast_left      &mmv_vfast_down    &mmv_vfast_right       &trans     &trans
-&tog MOU_L  &kp LGUI      &kp LC(X)     &kp LC(C)      &kp LC(V)       &trans        &trans                                         &mkp MCLK          &trans  &mmv_vfast_down_left &trans            &mmv_vfast_down_right  &trans     &trans
-                                                                &trans  &trans  &trans  &trans    &mkp LCLK  &mkp RCLK  &trans  &trans
+&trans      &trans        &trans        &trans         &trans          &trans                                                                       &trans  &mmv MOVE_UL   &mmv MOVE_UR   &trans         &trans     &trans
+&trans      &trans        &kp LALT      &kp LCTRL      &kp LSHIFT      &trans                                                                       &trans  &mmv MOVE_DOWN &mmv MOVE_UP   &mmv MOVE_LEFT &mmv MOVE_RIGHT &trans
+&tog MOU_L  &kp LGUI      &kp LC(X)     &kp LC(C)      &kp LC(V)       &trans        &trans                                         &mkp MCLK          &trans  &mmv MOVE_DL   &mmv MOVE_DR   &trans         &trans     &trans
+                                                                &trans  &trans  &trans  &trans    &mkp LCLK  &mkp RCLK  &sl MOU_TP_L  &trans
                         >;
                         
                         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -376,17 +398,36 @@
 
                  mouse_teleport_layer {
 // Teleport grid layer - 36 positions across 3 screens (4 cols × 3 rows per screen)
-// Left hand: Screen 1 (cols 0-3) + Screen 2 (cols 0-1)
-// Right hand: Screen 2 (cols 2-3) + Screen 3 (cols 0-3)
+// Continuous left-to-right mapping: S1 + S2 left cols on left hand, S2 right cols + S3 on right hand
 // Top row = top of screen, middle row = middle, bottom row = bottom
+// Usage: &tele TELE_S*_** where * is screen (1-3), ** is position (T1-T4, M1-M4, B1-B4)
                         bindings = <
-&trans      &tp_s1_r0_c0  &tp_s1_r0_c1  &tp_s1_r0_c2   &tp_s1_r0_c3    &tp_s2_r0_c0                                                                 &tp_s2_r0_c1  &tp_s2_r0_c2  &tp_s2_r0_c3  &tp_s3_r0_c0  &tp_s3_r0_c1  &tp_s3_r0_c2
-&trans      &tp_s1_r1_c0  &tp_s1_r1_c1  &tp_s1_r1_c2   &tp_s1_r1_c3    &tp_s2_r1_c0                                                                 &tp_s2_r1_c1  &tp_s2_r1_c2  &tp_s2_r1_c3  &tp_s3_r1_c0  &tp_s3_r1_c1  &tp_s3_r1_c2
-&tog MOU_L  &tp_s1_r2_c0  &tp_s1_r2_c1  &tp_s1_r2_c2   &tp_s1_r2_c3    &tp_s2_r2_c0  &trans                                         &tp_s3_r0_c3    &tp_s2_r2_c1  &tp_s2_r2_c2  &tp_s2_r2_c3  &tp_s3_r2_c0  &tp_s3_r2_c1  &tp_s3_r2_c2
-                                                                &trans  &trans  &trans  &trans    &trans  &to MOU_L  &tp_s3_r1_c3  &tp_s3_r2_c3
+&tele TELE_S1_T1  &tele TELE_S1_T2  &tele TELE_S1_T3  &tele TELE_S1_T4  &tele TELE_S2_T1  &tele TELE_S2_T2                                                                          &tele TELE_S2_T3  &tele TELE_S2_T4  &tele TELE_S3_T1  &tele TELE_S3_T2  &tele TELE_S3_T3  &tele TELE_S3_T4
+&tele TELE_S1_M1  &tele TELE_S1_M2  &tele TELE_S1_M3  &tele TELE_S1_M4  &tele TELE_S2_M1  &tele TELE_S2_M2                                                                          &tele TELE_S2_M3  &tele TELE_S2_M4  &tele TELE_S3_M1  &tele TELE_S3_M2  &tele TELE_S3_M3  &tele TELE_S3_M4
+&tele TELE_S1_B1  &tele TELE_S1_B2  &tele TELE_S1_B3  &tele TELE_S1_B4  &tele TELE_S2_B1  &tele TELE_S2_B2  &trans                                                     &trans       &tele TELE_S2_B3  &tele TELE_S2_B4  &tele TELE_S3_B1  &tele TELE_S3_B2  &tele TELE_S3_B3  &tele TELE_S3_B4
+                                                                                  &trans  &trans  &trans  &trans    &trans  &to MOU_L  &trans  &trans
                         >;
                         
                         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
+        };
+};
+
+// ============================================================================
+// INPUT PROCESSOR CONFIGURATION FOR MOUSE SPEED SCALING
+// ============================================================================
+// Use layer-based input processor scaling instead of multiple behaviors
+// - MOU_L: Normal speed (1x)
+// - MOU_FAST_L: 2x speed via zip_xy_scaler
+// - MOU_VFAST_L: 4x speed via zip_xy_scaler
+
+&mmv_input_listener {
+        fast {
+                layers = <MOU_FAST_L>;
+                input-processors = <&zip_xy_scaler 2 1>;  // 2x speed
+        };
+        vfast {
+                layers = <MOU_VFAST_L>;
+                input-processors = <&zip_xy_scaler 4 1>;  // 4x speed
         };
 };
