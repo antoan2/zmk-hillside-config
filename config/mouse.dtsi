@@ -92,6 +92,58 @@ mmv_fast_down_right: mmv_fast_down_right {
 };
 
 // ============================================================================
+// VERY FAST MOVEMENT MACROS - 4x Speed (6000)
+// ============================================================================
+
+mmv_vfast_up: mmv_vfast_up {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&mmv MOVE_Y(-6000)>;
+};
+
+mmv_vfast_down: mmv_vfast_down {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&mmv MOVE_Y(6000)>;
+};
+
+mmv_vfast_left: mmv_vfast_left {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&mmv MOVE_X(-6000)>;
+};
+
+mmv_vfast_right: mmv_vfast_right {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&mmv MOVE_X(6000)>;
+};
+
+mmv_vfast_up_left: mmv_vfast_up_left {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&mmv (MOVE_X(-6000) | MOVE_Y(-6000))>;
+};
+
+mmv_vfast_up_right: mmv_vfast_up_right {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&mmv (MOVE_X(6000) | MOVE_Y(-6000))>;
+};
+
+mmv_vfast_down_left: mmv_vfast_down_left {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&mmv (MOVE_X(-6000) | MOVE_Y(6000))>;
+};
+
+mmv_vfast_down_right: mmv_vfast_down_right {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&mmv (MOVE_X(6000) | MOVE_Y(6000))>;
+};
+
+// ============================================================================
 // SCROLL JUMP MACROS - Large scroll amounts (like page up/down)
 // ============================================================================
 

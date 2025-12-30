@@ -25,8 +25,9 @@
 #define SPE_L 4
 #define MOU_L 5
 #define MOU_FAST_L 6
-#define MOU_SCROLL_L 7
-#define MOU_TP_L 8
+#define MOU_VFAST_L 7
+#define MOU_SCROLL_L 8
+#define MOU_TP_L 9
 
 // Keyboard keys positions
 // 0  1  2  3  4  5                     6  7  8  9  10 11
@@ -330,18 +331,30 @@
 &trans      &trans        &trans        &trans         &trans          &trans                                                                       &trans  &mmv_up_left     &mmv MOVE_UP    &mmv_up_right    &trans     &trans
 &tog BASE_L &trans        &kp LALT      &kp LCTRL      &kp LSHIFT      &mo MOU_SCROLL_L                                                             &trans  &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans     &trans
 &tog MOU_L  &kp LGUI      &kp LC(X)     &kp LC(C)      &kp LC(V)       &trans        &trans                                         &mkp MCLK          &trans  &mmv_down_left   &trans          &mmv_down_right  &trans     &trans
-                                                                &trans  &trans  &trans  &trans    &mkp LCLK &mkp RCLK &mouse_thumb MOU_FAST_L MOU_TP_L &trans
+                                                                &trans &trans &mo MOU_FAST_L  &mo MOU_VFAST_L    &mkp LCLK &mkp RCLK &mouse_thumb MOU_FAST_L MOU_TP_L &trans
                         >;
                         
                         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
 
                  mouse_fast_layer {
-// Fast mouse movement layer - activated by holding middle right thumb
+// Fast mouse movement layer - activated by holding left inner thumb in mouse layer
                         bindings = <
 &trans      &trans        &trans        &trans         &trans          &trans                                                                       &trans  &mmv_fast_up_left   &mmv_fast_up      &mmv_fast_up_right    &trans     &trans
 &trans      &trans        &kp LALT      &kp LCTRL      &kp LSHIFT      &trans                                                                       &trans  &mmv_fast_left      &mmv_fast_down    &mmv_fast_right       &trans     &trans
-&tog MOU_L  &kp LGUI      &kp LC(X)     &kp LC(C)      &kp LC(V)       &trans        &trans                                         &MCLK          &trans  &mmv_fast_down_left &trans            &mmv_fast_down_right  &trans     &trans
+&tog MOU_L  &kp LGUI      &kp LC(X)     &kp LC(C)      &kp LC(V)       &trans        &trans                                         &mkp MCLK          &trans  &mmv_fast_down_left &trans            &mmv_fast_down_right  &trans     &trans
+                                                                &trans  &trans  &trans  &trans    &mkp LCLK  &mkp RCLK  &trans  &trans
+                        >;
+                        
+                        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+                };
+
+                 mouse_vfast_layer {
+// Very fast mouse movement layer - activated by holding left outer thumb in mouse layer
+                        bindings = <
+&trans      &trans        &trans        &trans         &trans          &trans                                                                       &trans  &mmv_vfast_up_left   &mmv_vfast_up      &mmv_vfast_up_right    &trans     &trans
+&trans      &trans        &kp LALT      &kp LCTRL      &kp LSHIFT      &trans                                                                       &trans  &mmv_vfast_left      &mmv_vfast_down    &mmv_vfast_right       &trans     &trans
+&tog MOU_L  &kp LGUI      &kp LC(X)     &kp LC(C)      &kp LC(V)       &trans        &trans                                         &mkp MCLK          &trans  &mmv_vfast_down_left &trans            &mmv_vfast_down_right  &trans     &trans
                                                                 &trans  &trans  &trans  &trans    &mkp LCLK  &mkp RCLK  &trans  &trans
                         >;
                         
