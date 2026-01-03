@@ -1,134 +1,57 @@
 /*
- * Mouse Layer Configuration for ZMK
+ * Daemon-Controlled Mouse Layer - Signal Defines
  * 
- * Layers:
- * - MOU_L: Main mouse control layer (movements, clicks)
- * - MOU_FAST_L: Fast mouse movement layer (2x speed via input processor)
- * - MOU_VFAST_L: Very fast mouse movement layer (4x speed via input processor)
- * - MOU_SCROLL_L: Scroll mode layer
- * - MOU_TP_L: Teleport grid layer (36 positions across 3 screens)
+ * Signal Protocol:
+ * - Movement:  F13-F16 (up/down/left/right) - no modifiers, daemon intercepts directly
+ * - Mode Keys: F17 (precision), F18 (scroll) - daemon-side modifiers
+ * - Teleport:  Ctrl+Shift+Alt + F13-F24 (12 positions across 3 screens)
  *
- * Movement: Uses &mmv directly with MOVE_UP, MOVE_DOWN, etc.
- * Diagonal defines (MOVE_UL, MOVE_UR, MOVE_DL, MOVE_DR) are in hillside46.keymap
- *
- * Speed scaling (configured in hillside46.keymap via &mmv_input_listener):
- * - MOU_L: Normal speed (1x)
- * - MOU_FAST_L: 2x speed via zip_xy_scaler
- * - MOU_VFAST_L: 4x speed via zip_xy_scaler
+ * Note: Movement and mode keys have NO modifiers to avoid conflicts with
+ * host OS shortcuts (e.g., Ctrl+Scroll = Zoom). The daemon grabs these keys.
  */
 
 // ============================================================================
-// TELEPORT MACRO  
+// MOVEMENT SIGNALS (F13-F16 - no modifiers)
 // ============================================================================
-// FAST teleport (~150ms total) to approximate grid positions
-// Fine-tune with mouse movement layer after teleporting
-//
-// Strategy: 
-// 1. Reset to top-left at max velocity (100ms)
-// 2. Move to target zone at max velocity (50ms)
-//
-// At max velocity 32767 with 50ms hold: ~1640 pixels of movement
-// This covers Screen 1 well. Screens 2-3 will land at similar X but correct Y row
-// Use mouse layer to adjust horizontally after teleport
-
-tele: teleport_macro {
-        compatible = "zmk,behavior-macro-one-param";
-        #binding-cells = <1>;
-        wait-ms = <0>;
-        tap-ms = <0>;
-        bindings
-                // Step 1: Reset to top-left corner (100ms at max speed)
-                = <&macro_press &mmv_tele MOVE(-32767, -32767)>
-                , <&macro_wait_time 100>
-                , <&macro_release &mmv_tele MOVE(-32767, -32767)>
-                , <&macro_wait_time 5>
-                // Step 2: Move toward target (50ms hold)
-                , <&macro_param_1to1>
-                , <&macro_press &mmv_tele MACRO_PLACEHOLDER>
-                , <&macro_wait_time 50>
-                , <&macro_param_1to1>
-                , <&macro_release &mmv_tele MACRO_PLACEHOLDER>
-                ;
-};
+#define SIG_UP    F13
+#define SIG_DOWN  F14
+#define SIG_LEFT  F15
+#define SIG_RIGHT F16
 
 // ============================================================================
-// TEST MACRO - verify mmv_tele works
+// MODE MODIFIER SIGNALS (F17-F18 - no modifiers)
 // ============================================================================
-// Moves 100px left, waits 1s, moves 100px up, waits 1s
-// Use this to confirm the mmv_tele behavior is functioning
-test_mmv_tele: test_mmv_tele_macro {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        wait-ms = <0>;
-        tap-ms = <0>;
-        bindings
-                // Move 100 pixels left (velocity -2000 for 50ms = 100px)
-                = <&macro_press &mmv_tele MOVE(-2000, 0)>
-                , <&macro_wait_time 50>
-                , <&macro_release &mmv_tele MOVE(-2000, 0)>
-                // Wait 1 second
-                , <&macro_wait_time 1000>
-                // Move 100 pixels up (velocity -2000 for 50ms = 100px)
-                , <&macro_press &mmv_tele MOVE(0, -2000)>
-                , <&macro_wait_time 50>
-                , <&macro_release &mmv_tele MOVE(0, -2000)>
-                // Wait 1 second to see result
-                , <&macro_wait_time 1000>
-                ;
-};
+// These act as daemon-side modifiers - hold them while pressing movement keys
+// The daemon interprets these to change movement behavior without ZMK layers
+#define SIG_PRECISION F17  // Hold for precision mode (slower movement)
+#define SIG_SCROLL    F18  // Hold for scroll mode (movement becomes scroll)
 
 // ============================================================================
-// TELEPORT POSITION DEFINES  
+// TELEPORT SIGNALS (Ctrl+Shift+Alt + F13-F24)
 // ============================================================================
-// 36 positions across 3 screens (4 cols × 3 rows × 3 screens)
+// 12 positions across 3 screens (2x2 grid per screen)
 //
-// With 50ms hold at velocity V: distance = V * 0.05 (approx)
-// To reach position P in 50ms: V = P * 20
-// Max velocity = 32767 → max reachable position ≈ 1638px
+// Physical keyboard layout (right hand):
+// TOP ROW:     Y      U   |   I      O   |   P      [
+//             S1-TL  S1-TR|  S2-TL  S2-TR|  S3-TL  S3-TR
 //
-// For positions > 1638px, cursor lands at ~1638px (Screen 1 right edge area)
-// You'll need to use mouse layer to reach Screens 2-3
-//
-// Y positions (180, 540, 900) all work fine since max Y velocity needed is 18000
+// BOTTOM ROW:  N      M   |   ,      .   |   /      \
+//             S1-BL  S1-BR|  S2-BL  S2-BR|  S3-BL  S3-BR
 
-// Screen 1 - positions within reach
-#define TELE_S1_T1 MOVE(4800, 3600)      // (240, 180)
-#define TELE_S1_T2 MOVE(14400, 3600)     // (720, 180)  
-#define TELE_S1_T3 MOVE(24000, 3600)     // (1200, 180)
-#define TELE_S1_T4 MOVE(32767, 3600)     // (1680, 180) - near edge
-#define TELE_S1_M1 MOVE(4800, 10800)     // (240, 540)
-#define TELE_S1_M2 MOVE(14400, 10800)    // (720, 540)
-#define TELE_S1_M3 MOVE(24000, 10800)    // (1200, 540)
-#define TELE_S1_M4 MOVE(32767, 10800)    // (1680, 540)
-#define TELE_S1_B1 MOVE(4800, 18000)     // (240, 900)
-#define TELE_S1_B2 MOVE(14400, 18000)    // (720, 900)
-#define TELE_S1_B3 MOVE(24000, 18000)    // (1200, 900)
-#define TELE_S1_B4 MOVE(32767, 18000)    // (1680, 900)
+// Screen 1
+#define TP_S1_TL LS(LC(LA(F13)))
+#define TP_S1_TR LS(LC(LA(F14)))
+#define TP_S1_BL LS(LC(LA(F15)))
+#define TP_S1_BR LS(LC(LA(F16)))
 
-// Screens 2 & 3 - X capped at max velocity, lands near right edge of Screen 1
-// Use these to at least get the correct Y row, then navigate with mouse
-#define TELE_S2_T1 MOVE(32767, 3600)
-#define TELE_S2_T2 MOVE(32767, 3600)
-#define TELE_S2_T3 MOVE(32767, 3600)
-#define TELE_S2_T4 MOVE(32767, 3600)
-#define TELE_S2_M1 MOVE(32767, 10800)
-#define TELE_S2_M2 MOVE(32767, 10800)
-#define TELE_S2_M3 MOVE(32767, 10800)
-#define TELE_S2_M4 MOVE(32767, 10800)
-#define TELE_S2_B1 MOVE(32767, 18000)
-#define TELE_S2_B2 MOVE(32767, 18000)
-#define TELE_S2_B3 MOVE(32767, 18000)
-#define TELE_S2_B4 MOVE(32767, 18000)
+// Screen 2
+#define TP_S2_TL LS(LC(LA(F17)))
+#define TP_S2_TR LS(LC(LA(F18)))
+#define TP_S2_BL LS(LC(LA(F19)))
+#define TP_S2_BR LS(LC(LA(F20)))
 
-#define TELE_S3_T1 MOVE(32767, 3600)
-#define TELE_S3_T2 MOVE(32767, 3600)
-#define TELE_S3_T3 MOVE(32767, 3600)
-#define TELE_S3_T4 MOVE(32767, 3600)
-#define TELE_S3_M1 MOVE(32767, 10800)
-#define TELE_S3_M2 MOVE(32767, 10800)
-#define TELE_S3_M3 MOVE(32767, 10800)
-#define TELE_S3_M4 MOVE(32767, 10800)
-#define TELE_S3_B1 MOVE(32767, 18000)
-#define TELE_S3_B2 MOVE(32767, 18000)
-#define TELE_S3_B3 MOVE(32767, 18000)
-#define TELE_S3_B4 MOVE(32767, 18000)
+// Screen 3
+#define TP_S3_TL LS(LC(LA(F21)))
+#define TP_S3_TR LS(LC(LA(F22)))
+#define TP_S3_BL LS(LC(LA(F23)))
+#define TP_S3_BR LS(LC(LA(F24)))

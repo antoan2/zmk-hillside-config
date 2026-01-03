@@ -32,77 +32,44 @@ parse_config:
     '&special_hat': dead ^
     '&special_trema': dead "
 
-    # Mouse movement bindings (direct &mmv usage)
-    '&mmv MOVE_UP': ↑
-    '&mmv MOVE_DOWN': ↓
-    '&mmv MOVE_LEFT': ←
-    '&mmv MOVE_RIGHT': →
-    '&mmv MOVE_UL': ↖
-    '&mmv MOVE_UR': ↗
-    '&mmv MOVE_DL': ↙
-    '&mmv MOVE_DR': ↘
-
-    '&msc SCRL_UP': Scroll ↑
-    '&msc SCRL_DOWN': Scroll ↓
-    '&msc SCRL_LEFT': Scroll ←
-    '&msc SCRL_RIGHT': Scroll →
-
+    # Native mouse clicks
     '&mkp LCLK': LClick
     '&mkp RCLK': RClick
     '&mkp MCLK': MClick
 
-    '&sl MOU_TP_L': teleport
-    '&mouse_thumb MOU_FAST_L MOU_TP_L': {t: teleport, h: fast}
+    # Daemon movement signals (normal)
+    '&kp SIG_UP': ↑
+    '&kp SIG_DOWN': ↓
+    '&kp SIG_LEFT': ←
+    '&kp SIG_RIGHT': →
 
-    # Teleport positions - Screen 1 (direct &mmv_tele)
-    '&mmv_tele TELE_S1_T1': S1 T1
-    '&mmv_tele TELE_S1_T2': S1 T2
-    '&mmv_tele TELE_S1_T3': S1 T3
-    '&mmv_tele TELE_S1_T4': S1 T4
-    '&mmv_tele TELE_S1_M1': S1 M1
-    '&mmv_tele TELE_S1_M2': S1 M2
-    '&mmv_tele TELE_S1_M3': S1 M3
-    '&mmv_tele TELE_S1_M4': S1 M4
-    '&mmv_tele TELE_S1_B1': S1 B1
-    '&mmv_tele TELE_S1_B2': S1 B2
-    '&mmv_tele TELE_S1_B3': S1 B3
-    '&mmv_tele TELE_S1_B4': S1 B4
+    # Daemon mode modifier signals
+    '&kp SIG_PRECISION': 🎯 Slow
+    '&kp SIG_SCROLL': 📜 Scroll
 
-    # Teleport positions - Screen 2
-    '&mmv_tele TELE_S2_T1': S2 T1
-    '&mmv_tele TELE_S2_T2': S2 T2
-    '&mmv_tele TELE_S2_T3': S2 T3
-    '&mmv_tele TELE_S2_T4': S2 T4
-    '&mmv_tele TELE_S2_M1': S2 M1
-    '&mmv_tele TELE_S2_M2': S2 M2
-    '&mmv_tele TELE_S2_M3': S2 M3
-    '&mmv_tele TELE_S2_M4': S2 M4
-    '&mmv_tele TELE_S2_B1': S2 B1
-    '&mmv_tele TELE_S2_B2': S2 B2
-    '&mmv_tele TELE_S2_B3': S2 B3
-    '&mmv_tele TELE_S2_B4': S2 B4
+    # Teleport signals - Screen 1
+    '&kp TP_S1_TL': S1 ↖
+    '&kp TP_S1_TR': S1 ↗
+    '&kp TP_S1_BL': S1 ↙
+    '&kp TP_S1_BR': S1 ↘
 
-    # Teleport positions - Screen 3
-    '&mmv_tele TELE_S3_T1': S3 T1
-    '&mmv_tele TELE_S3_T2': S3 T2
-    '&mmv_tele TELE_S3_T3': S3 T3
-    '&mmv_tele TELE_S3_T4': S3 T4
-    '&mmv_tele TELE_S3_M1': S3 M1
-    '&mmv_tele TELE_S3_M2': S3 M2
-    '&mmv_tele TELE_S3_M3': S3 M3
-    '&mmv_tele TELE_S3_M4': S3 M4
-    '&mmv_tele TELE_S3_B1': S3 B1
-    '&mmv_tele TELE_S3_B2': S3 B2
-    '&mmv_tele TELE_S3_B3': S3 B3
-    '&mmv_tele TELE_S3_B4': S3 B4
+    # Teleport signals - Screen 2
+    '&kp TP_S2_TL': S2 ↖
+    '&kp TP_S2_TR': S2 ↗
+    '&kp TP_S2_BL': S2 ↙
+    '&kp TP_S2_BR': S2 ↘
+
+    # Teleport signals - Screen 3
+    '&kp TP_S3_TL': S3 ↖
+    '&kp TP_S3_TR': S3 ↗
+    '&kp TP_S3_BL': S3 ↙
+    '&kp TP_S3_BR': S3 ↘
 
   # Layer legend map - provide friendly names for layers
   layer_legend_map:
     mouse_layer: 🖱️ Mouse
-    mouse_fast_layer: 🖱️ Fast ⏩
-    mouse_vfast_layer: 🖱️ VFast ⏭️
+    mouse_precision_layer: 🖱️ Precision
     mouse_scroll_layer: 🖱️ Scroll
-    mouse_teleport_layer: 🖱️ Teleport
     
   zmk_keycode_map:
     LCTRL: Ctrl
