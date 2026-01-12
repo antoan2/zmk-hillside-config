@@ -32,15 +32,44 @@ parse_config:
     '&special_hat': dead ^
     '&special_trema': dead "
 
-    '&mmv MOVE_UP': Mouse ↑
-    '&mmv MOVE_DOWN': Mouse ↓
-    '&mmv MOVE_LEFT': Mouse ←
-    '&mmv MOVE_RIGHT': Mouse →
+    # Native mouse clicks
+    '&mkp LCLK': LClick
+    '&mkp RCLK': RClick
+    '&mkp MCLK': MClick
 
-    '&msc SCRL_UP': Scroll ↑
-    '&msc SCRL_DOWN': Scroll ↓
-    '&msc SCRL_LEFT': Scroll ←
-    '&msc SCRL_RIGHT': Scroll →
+    # Daemon movement signals (normal)
+    '&kp SIG_UP': ↑
+    '&kp SIG_DOWN': ↓
+    '&kp SIG_LEFT': ←
+    '&kp SIG_RIGHT': →
+
+    # Daemon mode modifier signals
+    '&kp SIG_PRECISION': 🎯 Slow
+    '&kp SIG_SCROLL': 📜 Scroll
+
+    # Teleport signals - Screen 1
+    '&kp TP_S1_TL': S1 ↖
+    '&kp TP_S1_TR': S1 ↗
+    '&kp TP_S1_BL': S1 ↙
+    '&kp TP_S1_BR': S1 ↘
+
+    # Teleport signals - Screen 2
+    '&kp TP_S2_TL': S2 ↖
+    '&kp TP_S2_TR': S2 ↗
+    '&kp TP_S2_BL': S2 ↙
+    '&kp TP_S2_BR': S2 ↘
+
+    # Teleport signals - Screen 3
+    '&kp TP_S3_TL': S3 ↖
+    '&kp TP_S3_TR': S3 ↗
+    '&kp TP_S3_BL': S3 ↙
+    '&kp TP_S3_BR': S3 ↘
+
+  # Layer legend map - provide friendly names for layers
+  layer_legend_map:
+    mouse_layer: 🖱️ Mouse
+    mouse_precision_layer: 🖱️ Precision
+    mouse_scroll_layer: 🖱️ Scroll
     
   zmk_keycode_map:
     LCTRL: Ctrl

@@ -1,0 +1,57 @@
+/*
+ * Daemon-Controlled Mouse Layer - Signal Defines
+ * 
+ * Signal Protocol:
+ * - Movement:  F13-F16 (up/down/left/right) - no modifiers, daemon intercepts directly
+ * - Mode Keys: F17 (precision), F18 (scroll) - daemon-side modifiers
+ * - Teleport:  Ctrl+Shift+Alt + F13-F24 (12 positions across 3 screens)
+ *
+ * Note: Movement and mode keys have NO modifiers to avoid conflicts with
+ * host OS shortcuts (e.g., Ctrl+Scroll = Zoom). The daemon grabs these keys.
+ */
+
+// ============================================================================
+// MOVEMENT SIGNALS (F13-F16 - no modifiers)
+// ============================================================================
+#define SIG_UP    F13
+#define SIG_DOWN  F14
+#define SIG_LEFT  F15
+#define SIG_RIGHT F16
+
+// ============================================================================
+// MODE MODIFIER SIGNALS (F17-F18 - no modifiers)
+// ============================================================================
+// These act as daemon-side modifiers - hold them while pressing movement keys
+// The daemon interprets these to change movement behavior without ZMK layers
+#define SIG_PRECISION F17  // Hold for precision mode (slower movement)
+#define SIG_SCROLL    F18  // Hold for scroll mode (movement becomes scroll)
+
+// ============================================================================
+// TELEPORT SIGNALS (Ctrl+Shift+Alt + F13-F24)
+// ============================================================================
+// 12 positions across 3 screens (2x2 grid per screen)
+//
+// Physical keyboard layout (right hand):
+// TOP ROW:     Y      U   |   I      O   |   P      [
+//             S1-TL  S1-TR|  S2-TL  S2-TR|  S3-TL  S3-TR
+//
+// BOTTOM ROW:  N      M   |   ,      .   |   /      \
+//             S1-BL  S1-BR|  S2-BL  S2-BR|  S3-BL  S3-BR
+
+// Screen 1
+#define TP_S1_TL LS(LC(LA(F13)))
+#define TP_S1_TR LS(LC(LA(F14)))
+#define TP_S1_BL LS(LC(LA(F15)))
+#define TP_S1_BR LS(LC(LA(F16)))
+
+// Screen 2
+#define TP_S2_TL LS(LC(LA(F17)))
+#define TP_S2_TR LS(LC(LA(F18)))
+#define TP_S2_BL LS(LC(LA(F19)))
+#define TP_S2_BR LS(LC(LA(F20)))
+
+// Screen 3
+#define TP_S3_TL LS(LC(LA(F21)))
+#define TP_S3_TR LS(LC(LA(F22)))
+#define TP_S3_BL LS(LC(LA(F23)))
+#define TP_S3_BR LS(LC(LA(F24)))

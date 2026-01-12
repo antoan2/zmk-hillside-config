@@ -15,8 +15,8 @@
 include:
 
 # Hillside 46
-  - board: nice_nano_v2
+  - board: nice_nano
     shield: hillside46_left
-  - board: nice_nano_v2
+  - board: nice_nano
     shield: hillside46_right
   # - board: ferris_rev02

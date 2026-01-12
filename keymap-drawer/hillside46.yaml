@@ -4,7 +4,7 @@ layers:
   - ESCAPE
   - Q
   - W
-  - {t: E, h: mouse}
+  - E
   - R
   - T
   - Y
@@ -14,7 +14,7 @@ layers:
   - P
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - A
+  - {t: A, h: mouse}
   - {t: S, h: Alt}
   - {t: D, h: Ctrl}
   - {t: F, h: LSHIFT}
@@ -55,10 +55,10 @@ layers:
   - VOL DN
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - Scroll ↓
-  - Scroll ↑
-  - Scroll ←
-  - Scroll →
+  - '&msc SCRL_DOWN'
+  - '&msc SCRL_UP'
+  - '&msc SCRL_LEFT'
+  - '&msc SCRL_RIGHT'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - Gui
@@ -67,8 +67,8 @@ layers:
   - LSHIFT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ↓, h: PAGE DOWN}
-  - {t: ↑, h: PAGE UP}
+  - ↓
+  - ↑
   - ←
   - →
   - {t: ▽, type: trans}
@@ -237,28 +237,27 @@ layers:
   - {t: ▽, type: trans}
   mouse:
   - {t: ▽, type: trans}
-  - '&mkp MCLK'
-  - '&mkp LCLK'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ↑
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - S1 ↖
+  - S1 ↗
+  - S2 ↖
+  - S2 ↗
+  - S3 ↖
+  - S3 ↗
+  - {t: ▽, type: trans}
   - {type: held}
-  - '&mkp RCLK'
+  - ←
+  - ↓
+  - →
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - Scroll ↓
-  - Scroll ↑
-  - Scroll ←
-  - Scroll →
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - Mouse ↓
-  - Mouse ↑
-  - Mouse ←
-  - Mouse →
+  - LClick
+  - Ctrl
+  - RClick
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -269,18 +268,19 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - S1 ↙
+  - S1 ↘
+  - S2 ↙
+  - S2 ↘
+  - S3 ↙
+  - S3 ↘
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - 📜 Scroll
+  - 🎯 Slow
+  - MClick
   - {t: ▽, type: trans}
 combos:
 - p: [15, 20]
