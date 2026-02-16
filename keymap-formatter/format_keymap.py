@@ -129,13 +129,15 @@ def format_layer(bindings: list[str], layer_name: str = "") -> list[str]:
     sep4_top = make_separator(4, "top", cw)
     sep4_bot = make_separator(4, "bottom", cw)
 
-    # Calculate gaps and indents
+    # Calculate gaps
     middle_gap_size = CONFIG["split_gap"] - cw * 2 - CONFIG["thumb_gap"] * 2
     middle_gap = " " * middle_gap_size
     thumb_indent_size = cw * 4 + CONFIG["thumb_gap"]
     thumb_indent = " " * thumb_indent_size
+    thumb_split_size = CONFIG["split_gap"] - cw * 4 - CONFIG["thumb_gap"] * 2 + 1
+    thumb_split = " " * thumb_split_size
     spaces_to_thumb = CONFIG["thumb_gap"] - 1
-    
+
     # Keys gap is 1 more than split_gap because "    " prefix is 1 char longer than "// "
     keys_gap = " " * (CONFIG["split_gap"] + 1)
 

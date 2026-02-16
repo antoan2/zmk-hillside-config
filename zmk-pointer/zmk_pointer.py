@@ -131,8 +131,8 @@ TELEPORT_KEYS: dict[str, tuple[int, int, int]] = {
 SPEED_PROFILES: dict[str, dict[str, float]] = {
     "normal": {
         "base": 2.0,
-        "max": 10.0,
-        "ramp_time": 0.4,
+        "max": 15.0,
+        "ramp_time": 0.8,
     },
     "precision": {
         "base": 0.5,
