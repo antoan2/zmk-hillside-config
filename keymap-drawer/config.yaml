@@ -2,12 +2,20 @@ parse_config:
   raw_binding_map:
     '&vim_save': :w
     '&vim_save_quit': :wq
+    '&ht_spe_mou':
+      t: SPE
+      h: MOU ↔
     '&cut': cut
     '&copy': copy
     '&paste': paste
     '&shift_paste': shift + paste
     '&caps_word': CAPS
+    '&sl SPE_L': SPE 1x
+    '&tog NAV_L': NAV ↔
+    '&tog MOU_L': MOU ↔
+    '&mouse_layer_toggle': MOU ↔
     '&special_e_aigu': é
+    '&special_e_aigu_twice': éé
     '&special_e_aigu_maj': É
     '&special_e_grave': è
     '&special_e_grave_maj': È
@@ -31,6 +39,9 @@ parse_config:
     '&special_grave': dead `
     '&special_hat': dead ^
     '&special_trema': dead "
+    '&sym_paren_pair': ()
+    '&sym_bracket_pair': '[]'
+    '&sym_brace_pair': '{}'
 
     # Native mouse clicks
     '&mkp LCLK': LClick
@@ -168,9 +179,15 @@ parse_config:
     RIGHT: →
 
   zmk_combos:
-    combo_esc: {draw_separate: true}
     combo_caps: {draw_separate: true}
     combo_apps: {draw_separate: true}
     combo_enter_ctrl: {align: top, offset: 0.01, width: 50}
+    combo_sym_paren_pair: {align: top, offset: 0.01, width: 50}
+    combo_sym_bracket_pair: {align: top, offset: 0.9, width: 50}
+    combo_sym_brace_pair: {align: bottom, offset: 0.1, width: 50}
     combo_vim_save: {draw_separate: true}
     combo_vim_save_quit: {draw_separate: true}
+
+  draw_config:
+    separate_combo_diagrams: true
+    combo_diagrams_scale: 2

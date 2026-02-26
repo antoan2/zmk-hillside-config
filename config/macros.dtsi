@@ -8,6 +8,31 @@ vim_save_quit: vim_save_quit {
         #binding-cells = <0>;
         bindings = <&kp ESC &kp COLON &kp W &kp Q &kp ENTER>;
 };
+special_layer_once: special_layer_once {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&sl SPE_L>;
+};
+mouse_layer_toggle: mouse_layer_toggle {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&tog MOU_L>;
+};
+sym_paren_pair: sym_paren_pair {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS>;
+};
+sym_bracket_pair: sym_bracket_pair {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&kp LEFT_BRACKET &kp RIGHT_BRACKET>;
+};
+sym_brace_pair: sym_brace_pair {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&kp LEFT_BRACE &kp RIGHT_BRACE>;
+};
 // Specials
 special_grave: special_grave {
         compatible = "zmk,behavior-macro";
@@ -50,6 +75,18 @@ special_e_aigu: special_e_aigu {
         #binding-cells = <0>;
         bindings
         = <&macro_press &kp RALT>
+        ,<&macro_tap &kp E>
+        ,<&macro_release &kp RALT>
+        ;
+};
+special_e_aigu_twice: special_e_aigu_twice {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_press &kp RALT>
+        ,<&macro_tap &kp E>
+        ,<&macro_release &kp RALT>
+        ,<&macro_press &kp RALT>
         ,<&macro_tap &kp E>
         ,<&macro_release &kp RALT>
         ;
