@@ -58,10 +58,11 @@
                 #define COMBO_KEYS_ESC 2 3 // "we"
 
                 #define COMBO_KEYS_SYM_CARET 1 13 // "qa"
-                #define COMBO_KEYS_SYM_AMP 5 17 // "tg"
+                #define COMBO_KEYS_SYM_DOLLAR 5 17 // "tg"
                 #define COMBO_KEYS_SYM_ASTERISK 6 18 // "yh"
-                #define COMBO_KEYS_SYM_PLUS 18 32 // "hn"
-                #define COMBO_KEYS_SYM_MINUS 17 29 // "gb"
+                #define COMBO_KEYS_SYM_PLUS 26 14 // "xs"
+                #define COMBO_KEYS_SYM_MINUS 35 21 // ".l"
+                #define COMBO_KEYS_SYM_HASH 17 29 // "gb"
                 #define COMBO_KEYS_SYM_GRAVE 13 25 // "az"
 
                 #define COMBO_KEYS_ENTER 15 16 // "df"
@@ -80,15 +81,13 @@
                 #define COMBO_KEYS_SYM_RPAR 8 20 // "ik"
                 #define COMBO_KEYS_SYM_LBKT 2 14 // "ed"
                 #define COMBO_KEYS_SYM_RBKT 9 21 // "ol"
-                #define COMBO_KEYS_SYM_LBRC 14 26 // "dc"
-                #define COMBO_KEYS_SYM_RBRC 21 35 // "l."
-                #define COMBO_KEYS_SYM_EXCLAM 15 27 // "dc"
+                #define COMBO_KEYS_SYM_EXCLAM 27 15 // "cd"
+                #define COMBO_KEYS_SYM_QUESTION 34 20 // ",k"
                 #define COMBO_KEYS_SYM_UNDER 4 16 // "rf"
-                #define COMBO_KEYS_SYM_EQUAL 7 19 // "uj"
+                #define COMBO_KEYS_SYM_EQUAL 19 7 // "ju"
                 #define COMBO_KEYS_SYM_PAREN_PAIR 3 8 // "ei"
                 #define COMBO_KEYS_SYM_BRACKET_PAIR 2 9 // "wo"
-                #define COMBO_KEYS_SYM_BRACE_PAIR 26 35 // "x."
-                #define COMBO_KEYS_SYM_AT 20 34 // "k,"
+                #define COMBO_KEYS_SYM_AT 18 32 // "hn"
                 #define COMBO_KEYS_SYM_COLON 10 22 // "p;"
                 #define COMBO_KEYS_SYM_SEMI 22 36 // ";/"
 
@@ -104,7 +103,7 @@
 
                 ht_spe_mou: hold_tap_special_mouse {
                         compatible = "zmk,behavior-hold-tap";
-                        #binding-cells = <2>;
+                        #binding-cells = <0>;
                         flavor = "tap-preferred";
                         tapping-term-ms = <200>;
                         quick-tap-ms = <125>;
@@ -118,6 +117,7 @@
                         tapping-term-ms = <200>;
                         quick-tap-ms = <125>;
                         bindings = <&special_e_aigu_maj>, <&special_e_aigu>;
+                        label = "HOLD_TAP_E_AIGU";
                 };
                 ht_macro_e_grave: hold_tap_e_grave {
                         compatible = "zmk,behavior-hold-tap";
@@ -126,6 +126,7 @@
                         tapping-term-ms = <200>;
                         quick-tap-ms = <125>;
                         bindings = <&special_e_grave_maj>, <&special_e_grave>;
+                        label = "HOLD_TAP_E_GRAVE";
                 };
                 ht_macro_e_hat: hold_tap_e_hat {
                         compatible = "zmk,behavior-hold-tap";
@@ -134,6 +135,7 @@
                         tapping-term-ms = <200>;
                         quick-tap-ms = <125>;
                         bindings = <&special_e_hat_maj>, <&special_e_hat>;
+                        label = "HOLD_TAP_E_HAT";
                 };
                 ht_macro_e_trema: hold_tap_e_trema {
                         compatible = "zmk,behavior-hold-tap";
@@ -142,6 +144,7 @@
                         tapping-term-ms = <200>;
                         quick-tap-ms = <125>;
                         bindings = <&special_e_trema_maj>, <&special_e_trema>;
+                        label = "HOLD_TAP_E_TREMA";
                 };
                 ht_macro_a_grave: hold_tap_a_grave {
                         compatible = "zmk,behavior-hold-tap";
@@ -150,6 +153,7 @@
                         tapping-term-ms = <200>;
                         quick-tap-ms = <125>;
                         bindings = <&special_a_grave_maj>, <&special_a_grave>;
+                        label = "HOLD_TAP_A_GRAVE";
                 };
                 ht_macro_a_hat: hold_tap_a_hat {
                         compatible = "zmk,behavior-hold-tap";
@@ -158,6 +162,7 @@
                         tapping-term-ms = <200>;
                         quick-tap-ms = <125>;
                         bindings = <&special_a_hat_maj>, <&special_a_hat>;
+                        label = "HOLD_TAP_A_HAT";
                 };
                 ht_macro_u_grave: hold_tap_u_grave {
                         compatible = "zmk,behavior-hold-tap";
@@ -166,6 +171,7 @@
                         tapping-term-ms = <200>;
                         quick-tap-ms = <125>;
                         bindings = <&special_u_grave_maj>, <&special_u_grave>;
+                        label = "HOLD_TAP_U_GRAVE";
                 };
                 ht_macro_u_hat: hold_tap_u_hat {
                         compatible = "zmk,behavior-hold-tap";
@@ -174,6 +180,7 @@
                         tapping-term-ms = <200>;
                         quick-tap-ms = <125>;
                         bindings = <&special_u_hat_maj>, <&special_u_hat>;
+                        label = "HOLD_TAP_U_HAT";
                 };
                 ht_macro_o_hat: hold_tap_o_hat {
                         compatible = "zmk,behavior-hold-tap";
@@ -182,6 +189,7 @@
                         tapping-term-ms = <200>;
                         quick-tap-ms = <125>;
                         bindings = <&special_o_hat_maj>, <&special_o_hat>;
+                        label = "HOLD_TAP_O_HAT";
                 };
                 ht_macro_i_hat: hold_tap_i_hat {
                         compatible = "zmk,behavior-hold-tap";
@@ -190,6 +198,7 @@
                         tapping-term-ms = <200>;
                         quick-tap-ms = <125>;
                         bindings = <&special_i_hat_maj>, <&special_i_hat>;
+                        label = "HOLD_TAP_I_HAT";
                 };
                 ht_number_1_f1: hold_tap_number_1_f1 {
                         compatible = "zmk,behavior-hold-tap";
@@ -198,6 +207,7 @@
                         tapping-term-ms = <200>;
                         quick-tap-ms = <125>;
                         bindings = <&kp>, <&kp>;
+                        label = "HOLD_TAP_NUMBER_1_F1";
                 };
                 ht_number_2_f2: hold_tap_number_2_f2 {
                         compatible = "zmk,behavior-hold-tap";
@@ -206,6 +216,7 @@
                         tapping-term-ms = <200>;
                         quick-tap-ms = <125>;
                         bindings = <&kp>, <&kp>;
+                        label = "HOLD_TAP_NUMBER_2_F2";
                 };
                 ht_number_3_f3: hold_tap_number_3_f3 {
                         compatible = "zmk,behavior-hold-tap";
@@ -214,6 +225,7 @@
                         tapping-term-ms = <200>;
                         quick-tap-ms = <125>;
                         bindings = <&kp>, <&kp>;
+                        label = "HOLD_TAP_NUMBER_3_F3";
                 };
                 ht_number_4_f4: hold_tap_number_4_f4 {
                         compatible = "zmk,behavior-hold-tap";
@@ -222,6 +234,7 @@
                         tapping-term-ms = <200>;
                         quick-tap-ms = <125>;
                         bindings = <&kp>, <&kp>;
+                        label = "HOLD_TAP_NUMBER_4_F4";
                 };
                 ht_number_5_f5: hold_tap_number_5_f5 {
                         compatible = "zmk,behavior-hold-tap";
@@ -230,6 +243,7 @@
                         tapping-term-ms = <200>;
                         quick-tap-ms = <125>;
                         bindings = <&kp>, <&kp>;
+                        label = "HOLD_TAP_NUMBER_5_F5";
                 };
                 ht_number_6_f6: hold_tap_number_6_f6 {
                         compatible = "zmk,behavior-hold-tap";
@@ -238,6 +252,7 @@
                         tapping-term-ms = <200>;
                         quick-tap-ms = <125>;
                         bindings = <&kp>, <&kp>;
+                        label = "HOLD_TAP_NUMBER_6_F6";
                 };
                 ht_number_7_f7: hold_tap_number_7_f7 {
                         compatible = "zmk,behavior-hold-tap";
@@ -246,6 +261,7 @@
                         tapping-term-ms = <200>;
                         quick-tap-ms = <125>;
                         bindings = <&kp>, <&kp>;
+                        label = "HOLD_TAP_NUMBER_7_F7";
                 };
                 ht_number_8_f8: hold_tap_number_8_f8 {
                         compatible = "zmk,behavior-hold-tap";
@@ -254,6 +270,7 @@
                         tapping-term-ms = <200>;
                         quick-tap-ms = <125>;
                         bindings = <&kp>, <&kp>;
+                        label = "HOLD_TAP_NUMBER_8_F8";
                 };
                 ht_number_9_f9: hold_tap_number_9_f9 {
                         compatible = "zmk,behavior-hold-tap";
@@ -262,6 +279,7 @@
                         tapping-term-ms = <200>;
                         quick-tap-ms = <125>;
                         bindings = <&kp>, <&kp>;
+                        label = "HOLD_TAP_NUMBER_9_F9";
                 };
 
         };
@@ -273,7 +291,7 @@
                         bindings = <
 
 &trans      &kp Q         &kp W         &kp E          &kp R           &kp T                                                                             &kp Y  &kp U           &kp I          &kp O         &kp P             &trans
-&trans  &hmrl LGUI A  &hmrl LALT S  &hmrl LCTRL D  &hmsl LSHIFT F  &kp G                                                                             &kp H  &hmsr RSHIFT J  &hmrr RCTRL K  &hmrr LALT L  &ht_spe_mou 0 0     &trans
+&trans  &hmrl LGUI A  &hmrl LALT S  &hmrl LCTRL D  &hmsl LSHIFT F  &kp G                                                                             &kp H  &hmsr RSHIFT J  &hmrr RCTRL K  &hmrr LALT L  &ht_spe_mou         &trans
 &trans      &kp Z         &kp X         &kp C          &kp V           &kp B        &trans                                                 &trans        &kp N  &kp M           &kp COMMA      &kp DOT       &kp SLASH         &trans
                                                                   &kp DELETE  &thumb NUM_L TAB     &thumb SYM_L BACKSPACE  &trans    &trans  &space NAV_L SPACE  &kp ENTER  &kp ESC 
                         >;
@@ -285,7 +303,7 @@
                          bindings = <
  &trans  &trans             &kp HOME        &kp UP          &kp END           &trans                                                &trans  &kp K_PLAY_PAUSE   &kp K_MUTE      &kp K_VOL_UP    &kp K_VOL_DN     &trans
  &trans  &trans             &kp LEFT        &kp DOWN        &kp RIGHT         &trans                                                &trans  &kp RSHIFT         &kp RCTRL       &kp LALT        &kp RGUI         &trans
- &trans  &trans             &kp PAGE_UP     &trans          &kp PAGE_DOWN     &trans       &trans                    &trans         &trans  &trans           &trans          &trans          &trans           &trans
+ &trans  &trans             &kp PAGE_UP     &trans          &kp PAGE_DOWN     &trans       &trans                    &trans         &trans  &trans           &trans          &trans          &kp LS(RGUI)     &trans
                                                                         &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans 
                          >;
  		
