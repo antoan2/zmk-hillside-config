@@ -18,6 +18,11 @@ mouse_layer_toggle: mouse_layer_toggle {
         #binding-cells = <0>;
         bindings = <&tog MOU_L>;
 };
+mouse_left_click_base: mouse_left_click_base {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&mkp LCLK &to BASE_L>;
+};
 sym_paren_pair: sym_paren_pair {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
@@ -279,4 +284,14 @@ special_o_hat_maj: special_o_hat_maj {
         ,<&macro_release &kp RALT>
         ,<&macro_tap &kp LS(O)>
         ;
+};
+special_c_cedilla: special_c_cedilla {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&kp RA(COMMA)>;
+};
+special_c_cedilla_maj: special_c_cedilla_maj {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&kp LS(RA(COMMA))>;
 };

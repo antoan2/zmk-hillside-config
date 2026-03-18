@@ -2,55 +2,48 @@ parse_config:
   raw_binding_map:
     '&vim_save': :w
     '&vim_save_quit': :wq
-    '&ht_special_mouse':
+    '&mouse_left_click_base': LClick↩BASE
+    MOU_ENTRY:
       t: SPE
       h: MOU ↔
+    '&hmrl LGUI A': {t: A, h: Gui}
+    '&hmrl LALT S': {t: S, h: Alt}
+    '&hmrl LCTRL D': {t: D, h: Ctrl}
+    '&hmsl LSHIFT F': {t: F, h: Shift}
+    '&hmsr RSHIFT J': {t: J, h: Shift}
+    '&hmrr RCTRL K': {t: K, h: Ctrl}
+    '&hmrr LALT L': {t: L, h: Alt}
+    '&thumb 3 TAB': {t: ↹, h: NUM}
+    '&thumb 2 BACKSPACE': {t: ⌫, h: SYM}
+    '&space 1 SPACE': {t: ␣, h: NAV}
+    '&kp LS(RGUI)': ⇧+Gui
     '&caps_word': CAPS
     '&tog NAV_L': NAV ↔
-    '&ht_e_aigu': {t: é, h: É}
-    '&ht_e_grave': {t: è, h: È}
-    '&ht_e_hat': {t: ê, h: Ê}
-    '&ht_e_trema': {t: ë, h: Ë}
-    '&ht_a_grave': {t: à, h: À}
-    '&ht_a_hat': {t: â, h: Â}
-    '&ht_u_grave': {t: ù, h: Ù}
-    '&ht_u_hat': {t: û, h: Û}
-    '&ht_i_hat': {t: î, h: Î}
-    '&ht_o_hat': {t: ô, h: Ô}
-    '&ht_1_f1': {t: '1', h: F1}
-    '&ht_2_f2': {t: '2', h: F2}
-    '&ht_3_f3': {t: '3', h: F3}
-    '&ht_4_f4': {t: '4', h: F4}
-    '&ht_5_f5': {t: '5', h: F5}
-    '&ht_6_f6': {t: '6', h: F6}
-    '&ht_7_f7': {t: '7', h: F7}
-    '&ht_8_f8': {t: '8', h: F8}
-    '&ht_9_f9': {t: '9', h: F9}
-    '&special_e_aigu': é
-    '&special_e_aigu_twice': éé
-    '&special_e_aigu_maj': É
-    '&special_e_grave': è
-    '&special_e_grave_maj': È
-    '&special_e_hat': ê
-    '&special_e_hat_maj': Ê
-    '&special_e_trema': ë
-    '&special_e_trema_maj': Ë
-    '&special_a_grave': à
-    '&special_a_grave_maj': À
-    '&special_a_hat': â
-    '&special_a_hat_maj': Â
-    '&special_u_grave': ù
-    '&special_u_grave_maj': Ù
-    '&special_u_hat': û
-    '&special_u_hat_maj': Û
-    '&special_i_hat': î
-    '&special_i_hat_maj': Î
-    '&special_o_hat': ô
-    '&special_o_hat_maj': Ô
-    '&special_aigu': dead '
-    '&special_grave': dead `
-    '&special_hat': dead ^
-    '&special_trema': dead "
+    HT_1_F1: {t: '1', h: F1}
+    HT_2_F2: {t: '2', h: F2}
+    HT_3_F3: {t: '3', h: F3}
+    HT_4_F4: {t: '4', h: F4}
+    HT_5_F5: {t: '5', h: F5}
+    HT_6_F6: {t: '6', h: F6}
+    HT_7_F7: {t: '7', h: F7}
+    HT_8_F8: {t: '8', h: F8}
+    HT_9_F9: {t: '9', h: F9}
+    ACC_E_AIGU: {t: é, h: É}
+    ACC_E_GRAVE: {t: è, h: È}
+    ACC_E_HAT: {t: ê, h: Ê}
+    ACC_E_TREMA: {t: ë, h: Ë}
+    ACC_A_GRAVE: {t: à, h: À}
+    ACC_A_HAT: {t: â, h: Â}
+    ACC_U_GRAVE: {t: ù, h: Ù}
+    ACC_U_HAT: {t: û, h: Û}
+    ACC_I_HAT: {t: î, h: Î}
+    ACC_O_HAT: {t: ô, h: Ô}
+    ACC_E_AIGU_TWICE: éé
+    ACC_C_CEDILLA: {t: ç, h: Ç}
+    ACC_AIGU: dead '
+    ACC_GRAVE: dead `
+    ACC_HAT: dead ^
+    ACC_TREMA: dead "
     '&sym_paren_pair': ()
     '&sym_bracket_pair': '[]'
 
@@ -174,6 +167,7 @@ parse_config:
 
     RA(COMMA): ç
     LS(RA(COMMA)): Ç
+    LS(RGUI): ⇧+Gui
     LC(X): Cut
     LC(C): Copy
     LC(V): Paste

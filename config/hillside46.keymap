@@ -22,32 +22,6 @@
 
 #define DEFAULT_SENSORS <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>
 
-#define HOLD_TAP_COMMON                                      \
-                flavor = "tap-preferred";                          \
-                tapping-term-ms = <200>;                            \
-                quick-tap-ms = <125>;
-
-#define DEFINE_ACCENT_HOLD_TAP(NAME, HOLD, TAP, LABEL)       \
-                NAME: NAME {                                        \
-                        compatible = "zmk,behavior-hold-tap";        \
-                        #binding-cells = <2>;                          \
-                        HOLD_TAP_COMMON                                \
-                        bindings = <HOLD TAP>;                         \
-                        label = LABEL;                                 \
-                };
-
-#define HT_NUM_FN(NUM, FN) &ht_num_fn FN NUM
-
-#define HT_1_F1 HT_NUM_FN(NUMBER_1, F1)
-#define HT_2_F2 HT_NUM_FN(NUMBER_2, F2)
-#define HT_3_F3 HT_NUM_FN(NUMBER_3, F3)
-#define HT_4_F4 HT_NUM_FN(NUMBER_4, F4)
-#define HT_5_F5 HT_NUM_FN(NUMBER_5, F5)
-#define HT_6_F6 HT_NUM_FN(NUMBER_6, F6)
-#define HT_7_F7 HT_NUM_FN(NUMBER_7, F7)
-#define HT_8_F8 HT_NUM_FN(NUMBER_8, F8)
-#define HT_9_F9 HT_NUM_FN(NUMBER_9, F9)
-
 
 // Keyboard keys positions
 // 0  1  2  3  4  5                     6  7  8  9  10 11
@@ -126,33 +100,8 @@
         };
          
         behaviors {
+                #include "behaviors.dtsi"
                 #include "home_rows.dtsi"
-
-                ht_special_mouse: hold_tap_special_mouse {
-                        compatible = "zmk,behavior-hold-tap";
-                        #binding-cells = <2>;
-                        HOLD_TAP_COMMON
-                        bindings = <&mouse_layer_toggle &special_layer_once>;
-                };
-
-                DEFINE_ACCENT_HOLD_TAP(ht_e_aigu, &special_e_aigu_maj, &special_e_aigu, "HOLD_TAP_E_AIGU")
-                DEFINE_ACCENT_HOLD_TAP(ht_e_grave, &special_e_grave_maj, &special_e_grave, "HOLD_TAP_E_GRAVE")
-                DEFINE_ACCENT_HOLD_TAP(ht_e_hat, &special_e_hat_maj, &special_e_hat, "HOLD_TAP_E_HAT")
-                DEFINE_ACCENT_HOLD_TAP(ht_e_trema, &special_e_trema_maj, &special_e_trema, "HOLD_TAP_E_TREMA")
-                DEFINE_ACCENT_HOLD_TAP(ht_a_grave, &special_a_grave_maj, &special_a_grave, "HOLD_TAP_A_GRAVE")
-                DEFINE_ACCENT_HOLD_TAP(ht_a_hat, &special_a_hat_maj, &special_a_hat, "HOLD_TAP_A_HAT")
-                DEFINE_ACCENT_HOLD_TAP(ht_u_grave, &special_u_grave_maj, &special_u_grave, "HOLD_TAP_U_GRAVE")
-                DEFINE_ACCENT_HOLD_TAP(ht_u_hat, &special_u_hat_maj, &special_u_hat, "HOLD_TAP_U_HAT")
-                DEFINE_ACCENT_HOLD_TAP(ht_o_hat, &special_o_hat_maj, &special_o_hat, "HOLD_TAP_O_HAT")
-                DEFINE_ACCENT_HOLD_TAP(ht_i_hat, &special_i_hat_maj, &special_i_hat, "HOLD_TAP_I_HAT")
-
-                ht_num_fn: hold_tap_num_fn {
-                        compatible = "zmk,behavior-hold-tap";
-                        #binding-cells = <2>;
-                        HOLD_TAP_COMMON
-                        bindings = <&kp &kp>;
-                        label = "HOLD_TAP_NUMBER_FN";
-                };
 
         };
 
@@ -163,7 +112,7 @@
                         bindings = <
 
 &trans      &kp Q         &kp W         &kp E          &kp R           &kp T                                                                             &kp Y  &kp U           &kp I          &kp O         &kp P             &trans
-&trans  &hmrl LGUI A  &hmrl LALT S  &hmrl LCTRL D  &hmsl LSHIFT F  &kp G                                                                             &kp H  &hmsr RSHIFT J  &hmrr RCTRL K  &hmrr LALT L  &ht_special_mouse 0 0   &trans
+&trans  &hmrl LGUI A  &hmrl LALT S  &hmrl LCTRL D  &hmsl LSHIFT F  &kp G                                                                             &kp H  &hmsr RSHIFT J  &hmrr RCTRL K  &hmrr LALT L  MOU_ENTRY   &trans
 &trans      &kp Z         &kp X         &kp C          &kp V           &kp B        &trans                                                 &trans        &kp N  &kp M           &kp COMMA      &kp DOT       &kp SLASH         &trans
                                                                   &kp DELETE  &thumb NUM_L TAB     &thumb SYM_L BACKSPACE  &trans    &trans  &space NAV_L SPACE  &kp ENTER  &kp ESC 
                         >;
@@ -173,7 +122,7 @@
 		
                  nav_layer {
                          bindings = <
- &trans  &trans             &kp HOME        &kp UP          &kp END           &trans                                                &trans  &kp K_PLAY_PAUSE   &kp K_MUTE      &kp K_VOL_UP    &kp K_VOL_DN     &trans
+ &trans  &trans             &kp HOME        &kp UP          &kp END           &trans                                                &trans  &kp K_VOL_DN       &kp K_VOL_DN    &kp K_PLAY_PAUSE &kp K_MUTE       &trans
  &trans  &trans             &kp LEFT        &kp DOWN        &kp RIGHT         &trans                                                &trans  &kp RSHIFT         &kp RCTRL       &kp LALT        &kp RGUI         &trans
  &trans  &trans             &kp PAGE_UP     &trans          &kp PAGE_DOWN     &trans       &trans                    &trans         &trans  &trans           &trans          &trans          &kp LS(RGUI)     &trans
                                                                         &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans 
@@ -206,9 +155,9 @@
 
                  special_layer {
                         bindings = <
-&trans  &special_e_aigu_twice  &ht_e_aigu 0 0  &ht_e_grave 0 0  &trans         &trans                                                        &trans        &ht_u_grave 0 0  &trans          &trans          &trans  &trans
-&trans  &ht_a_grave 0 0  &ht_e_trema 0 0     &ht_e_hat 0 0   &kp LSHFT          &trans                                                        &trans        &ht_u_hat 0 0    &ht_i_hat 0 0  &ht_o_hat 0 0  &trans  &trans
-&trans  &ht_a_hat 0 0    &trans                &mt LS(RA(COMMA)) RA(COMMA)     &special_aigu      &special_grave        &trans                    &trans        &special_hat  &special_trema    &trans          &trans          &trans  &trans         
+&trans  ACC_E_AIGU_TWICE  ACC_E_AIGU  ACC_E_GRAVE  &trans         &trans                                                        &trans        ACC_U_GRAVE  &trans          &trans          &trans  &trans
+&trans  ACC_A_GRAVE  ACC_E_TREMA     ACC_E_HAT   &kp LSHFT          &trans                                                        &trans        ACC_U_HAT    ACC_I_HAT  ACC_O_HAT  &trans  &trans
+&trans  ACC_A_HAT    &trans                ACC_C_CEDILLA     ACC_AIGU      ACC_GRAVE        &trans                    &trans        ACC_HAT  ACC_TREMA    &trans          &trans          &trans  &trans         
                                                                                    &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
                         >;
 			
@@ -230,7 +179,7 @@
 // Right thumb cluster: Precision, Scroll, MClick
                         bindings = <
 &trans      &trans         &trans        &kp SIG_UP     &trans            &trans                                                                       &kp TP_S1_TL   &kp TP_S1_TR   &kp TP_S2_TL   &kp TP_S2_TR   &kp TP_S3_TL   &kp TP_S3_TR
-&trans      &trans         &kp SIG_LEFT  &kp SIG_DOWN   &kp SIG_RIGHT     &trans                                                                       &trans         &mkp LCLK      &kp LCTRL      &mkp RCLK      &tog MOU_L     &trans
+&trans      &trans         &kp SIG_LEFT  &kp SIG_DOWN   &kp SIG_RIGHT     &trans                                                                       &trans         &mouse_left_click_base  &kp LCTRL      &mkp RCLK      &tog MOU_L     &trans
 &trans      &trans         &trans        &trans         &trans            &trans        &trans                                        &trans           &kp TP_S1_BL   &kp TP_S1_BR   &kp TP_S2_BL   &kp TP_S2_BR   &kp TP_S3_BL   &kp TP_S3_BR
                                                        &trans  &trans  &trans  &trans                       &trans  &kp SIG_PRECISION &kp SIG_SCROLL  &mkp MCLK
                         >;
