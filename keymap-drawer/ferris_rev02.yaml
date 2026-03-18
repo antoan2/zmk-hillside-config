@@ -20,11 +20,11 @@ layers:
     - t: D
       h: Ctrl
     - t: F
-      h: LSHIFT
+      h: Shift
     - G
     - H
     - t: J
-      h: RSHIFT
+      h: Shift
     - t: K
       h: Ctrl
     - t: L
@@ -42,10 +42,10 @@ layers:
     - .
     - /
   - - ↹
-    - t: BACKSPACE
-      h: sym
+    - t: ⌫
+      h: SYM
     - t: ␣
-      h: nav
+      h: NAV
     - ENTER
   nav:
   - - PREV
@@ -90,7 +90,8 @@ layers:
       type: trans
     - t: ▽
       type: trans
-    - type: held
+    - t: ▽
+      type: trans
     - t: ▽
       type: trans
   sym:
@@ -130,7 +131,8 @@ layers:
     - '|'
   - - t: ▽
       type: trans
-    - type: held
+    - t: ▽
+      type: trans
     - t: ▽
       type: trans
     - t: ▽
@@ -245,43 +247,43 @@ layers:
   special:
   - - t: ▽
       type: trans
-    - é
-    - è
+    - '&special_e_aigu'
+    - '&special_e_grave'
     - t: ▽
       type: trans
     - t: ▽
       type: trans
     - t: ▽
       type: trans
-    - ù
+    - '&special_u_grave'
     - t: ▽
       type: trans
     - t: ▽
       type: trans
     - t: ▽
       type: trans
-  - - à
+  - - '&special_a_grave'
     - t: ▽
       type: trans
-    - ê
+    - '&special_e_hat'
     - Shift
     - t: ▽
       type: trans
     - t: ▽
       type: trans
-    - û
-    - î
-    - ô
+    - '&special_u_hat'
+    - '&special_i_hat'
+    - '&special_o_hat'
     - t: ▽
       type: trans
-  - - â
+  - - '&special_a_hat'
     - t: ▽
       type: trans
     - ç
-    - dead '
-    - dead `
-    - dead ^
-    - dead "
+    - '&special_aigu'
+    - '&special_grave'
+    - '&special_hat'
+    - '&special_trema'
     - t: ▽
       type: trans
     - t: ▽

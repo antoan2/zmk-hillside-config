@@ -25,11 +25,11 @@ layers:
     - t: D
       h: Ctrl
     - t: F
-      h: LSHIFT
+      h: Shift
     - G
     - H
     - t: J
-      h: RSHIFT
+      h: Shift
   - - t: K
       h: Ctrl
     - t: L
@@ -58,15 +58,15 @@ layers:
       type: trans
     - DELETE
     - t: ↹
-      h: num
-  - - t: BACKSPACE
-      h: sym
+      h: NUM
+  - - t: ⌫
+      h: SYM
     - t: ▽
       type: trans
     - t: ▽
       type: trans
     - t: ␣
-      h: nav
+      h: NAV
     - ENTER
     - Esc
   nav:
@@ -81,10 +81,10 @@ layers:
       type: trans
     - t: ▽
       type: trans
+    - VOL DN
+    - VOL DN
     - PLAY PAUSE
-    - MUTE
-    - VOL UP
-  - - VOL DN
+  - - MUTE
     - t: ▽
       type: trans
     - t: ▽
@@ -126,8 +126,7 @@ layers:
       type: trans
     - t: ▽
       type: trans
-    - t: ▽
-      type: trans
+    - ⇧+Gui
     - t: ▽
       type: trans
     - t: ▽
@@ -140,7 +139,8 @@ layers:
       type: trans
     - t: ▽
       type: trans
-    - type: held
+    - t: ▽
+      type: trans
     - t: ▽
       type: trans
     - t: ▽
@@ -200,7 +200,8 @@ layers:
       type: trans
     - t: ▽
       type: trans
-  - - type: held
+  - - t: ▽
+      type: trans
     - t: ▽
       type: trans
     - t: ▽
@@ -273,7 +274,8 @@ layers:
     - F12
     - t: ▽
       type: trans
-    - type: held
+    - t: ▽
+      type: trans
   - - t: ▽
       type: trans
     - t: ▽
@@ -399,10 +401,11 @@ layers:
       type: trans
     - t: ▽
       type: trans
-    - LClick
+    - LClick↩BASE
   - - Ctrl
     - RClick
-    - MOU ↔
+    - t: mouse
+      h: toggle
     - t: ▽
       type: trans
     - t: ▽
@@ -592,7 +595,7 @@ combos:
 - p:
   - 5
   - 17
-  k: '&'
+  k: $
   l:
   - Combos/Symbols
 - p:
@@ -602,15 +605,21 @@ combos:
   l:
   - Combos/Symbols
 - p:
-  - 18
-  - 32
+  - 26
+  - 14
   k: +
+  l:
+  - Combos/Symbols
+- p:
+  - 35
+  - 21
+  k: '-'
   l:
   - Combos/Symbols
 - p:
   - 17
   - 29
-  k: '-'
+  k: '#'
   l:
   - Combos/Symbols
 - p:
@@ -644,27 +653,21 @@ combos:
   l:
   - Combos/Symbols
 - p:
-  - 14
-  - 26
-  k: '{'
-  l:
-  - Combos/Symbols
-- p:
-  - 21
-  - 35
-  k: '}'
-  l:
-  - Combos/Symbols
-- p:
-  - 7
   - 19
+  - 7
   k: '='
   l:
   - Combos/Symbols
 - p:
-  - 15
   - 27
+  - 15
   k: '!'
+  l:
+  - Combos/Symbols
+- p:
+  - 34
+  - 20
+  k: '?'
   l:
   - Combos/Symbols
 - p:
@@ -692,17 +695,8 @@ combos:
   o: 0.9
   w: 50.0
 - p:
-  - 26
-  - 35
-  k: '{}'
-  l:
-  - Combos/Symbols
-  a: bottom
-  o: 0.1
-  w: 50.0
-- p:
-  - 20
-  - 34
+  - 18
+  - 32
   k: '@'
   l:
   - Combos/Symbols
