@@ -38,8 +38,10 @@ parse_config:
     ACC_U_HAT: {t: û, h: Û}
     ACC_I_HAT: {t: î, h: Î}
     ACC_O_HAT: {t: ô, h: Ô}
+    ACC_OE: {t: œ, h: Œ}
     ACC_E_AIGU_TWICE: éé
     ACC_C_CEDILLA: {t: ç, h: Ç}
+    EURO_SIGN: €
     ACC_AIGU: dead '
     ACC_GRAVE: dead `
     ACC_HAT: dead ^
@@ -185,6 +187,8 @@ parse_config:
     combo_caps: {draw_separate: true}
     combo_apps: {draw_separate: true}
     combo_enter_ctrl: {align: top, offset: 0.01, width: 50}
+    combo_space: {align: bottom, offset: 0.01, width: 50}
+    combo_esc: {align: top, offset: 0.01, width: 50}
     combo_sym_paren_pair: {align: top, offset: 0.01, width: 50}
     combo_sym_bracket_pair: {align: top, offset: 0.9, width: 50}
     combo_vim_save: {draw_separate: true}

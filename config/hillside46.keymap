@@ -56,7 +56,7 @@
                 // 12 13 14 15 16 17                    18 19 20 21 22 23
                 // 24 25 26 27 28 29   30          31   32 33 34 35 36 37
                 //               38 39 40 41    42 43 44 45
-                #define COMBO_KEYS_ESC 2 3 // "we"
+                #define COMBO_KEYS_ESC 2 3 4 // "wer"
 
                 #define COMBO_KEYS_SYM_CARET 1 13 // "qa"
                 #define COMBO_KEYS_SYM_DOLLAR 5 17 // "tg"
@@ -71,7 +71,7 @@
                 #define COMBO_KEYS_TAB 14 15 // "sd"
 
                 #define COMBO_KEYS_CAPS 16 19 // "fj"
-                #define COMBO_KEYS_APPS 13 22 // "a + spe"
+                #define COMBO_KEYS_APPS 25 36 // "z + /"
 
                 #define COMBO_KEYS_VIM_SAVE 22 2 // "spe + w"
                 #define COMBO_KEYS_VIM_SAVE_QUIT 22 1 // "spe + q"
@@ -86,8 +86,6 @@
                 #define COMBO_KEYS_SYM_QUESTION 34 20 // ",k"
                 #define COMBO_KEYS_SYM_UNDER 4 16 // "rf"
                 #define COMBO_KEYS_SYM_EQUAL 19 7 // "ju"
-                #define COMBO_KEYS_SYM_PAREN_PAIR 3 8 // "ei"
-                #define COMBO_KEYS_SYM_BRACKET_PAIR 2 9 // "wo"
                 #define COMBO_KEYS_SYM_AT 18 32 // "hn"
                 #define COMBO_KEYS_SYM_COLON 10 22 // "p + spe"
                 #define COMBO_KEYS_SYM_SEMI 22 36 // "spe/"
@@ -95,6 +93,7 @@
                 #define COMBO_KEYS_CUT 25 26 // "zx"
                 #define COMBO_KEYS_COPY 26 27 // "xc"
                 #define COMBO_KEYS_PASTE 27 28 // "cv"
+                #define COMBO_KEYS_SPACE 26 27 28 // "xcv"
                 #define COMBO_KEYS_PLAIN_PASTE 28 29 // "vb"
                 #include "combos.dtsi"
         };
@@ -122,10 +121,10 @@
 		
                  nav_layer {
                          bindings = <
- &trans  &trans             &kp HOME        &kp UP          &kp END           &trans                                                &trans  &kp K_VOL_DN       &kp K_VOL_DN    &kp K_PLAY_PAUSE &kp K_MUTE       &trans
+ &trans  &trans             &kp HOME        &kp UP          &kp END           &trans                                                &trans  &kp K_PLAY_PAUSE   &kp K_MUTE      &trans &trans       &trans
  &trans  &trans             &kp LEFT        &kp DOWN        &kp RIGHT         &trans                                                &trans  &kp RSHIFT         &kp RCTRL       &kp LALT        &kp RGUI         &trans
- &trans  &trans             &kp PAGE_UP     &trans          &kp PAGE_DOWN     &trans       &trans                    &trans         &trans  &trans           &trans          &trans          &kp LS(RGUI)     &trans
-                                                                        &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans 
+ &trans  &trans             &trans     &kp PAGE_UP          &kp PAGE_DOWN     &trans       &trans                    &trans         &trans  &kp K_VOL_DN       &kp K_VOL_UP          &trans          &kp LS(RGUI)     &trans
+                                                                      &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans 
                          >;
  		
                          sensor-bindings = DEFAULT_SENSORS;
@@ -144,9 +143,9 @@
 
                  num_layer {
                         bindings = <
-&trans       &bt BT_CLR_ALL  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2                                                           &kp PLUS   HT_7_F7  HT_8_F8  HT_9_F9  &trans        &kp F10
-&trans       &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &trans                                                           &kp EQUAL  HT_4_F4  HT_5_F5  HT_6_F6  &trans        &kp F11
-&trans &out OUT_BLE  &out OUT_USB  &out OUT_TOG  &sys_reset  &bootloader  &trans                               &trans        &kp MINUS  HT_1_F1  HT_2_F2  HT_3_F3  &trans        &kp F12
+&trans       &bt BT_CLR_ALL  &bt BT_CLR  &out OUT_TOG  &sys_reset &bootloader                                                           &kp PLUS   HT_7_F7  HT_8_F8  HT_9_F9 &kp F10 &trans
+&trans       &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &trans                                                           &kp EQUAL  HT_4_F4  HT_5_F5  HT_6_F6  &kp F11 &trans
+&trans &out OUT_BLE  &out OUT_USB  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2   &trans                               &trans        &kp MINUS  HT_1_F1  HT_2_F2  HT_3_F3  &kp F12 &trans
                                                      &trans  &trans  &trans  &trans    &kp COMMA  &kp NUMBER_0  &kp DOT  &trans
                         >;
 			
@@ -157,7 +156,7 @@
                         bindings = <
 &trans  ACC_E_AIGU_TWICE  ACC_E_AIGU  ACC_E_GRAVE  &trans         &trans                                                        &trans        ACC_U_GRAVE  &trans          &trans          &trans  &trans
 &trans  ACC_A_GRAVE  ACC_E_TREMA     ACC_E_HAT   &kp LSHFT          &trans                                                        &trans        ACC_U_HAT    ACC_I_HAT  ACC_O_HAT  &trans  &trans
-&trans  ACC_A_HAT    &trans                ACC_C_CEDILLA     ACC_AIGU      ACC_GRAVE        &trans                    &trans        ACC_HAT  ACC_TREMA    &trans          &trans          &trans  &trans         
+&trans  ACC_A_HAT    EURO_SIGN            ACC_C_CEDILLA     ACC_AIGU      ACC_GRAVE        &trans                    &trans        ACC_HAT  ACC_TREMA    ACC_OE         &trans          &trans  &trans         
                                                                                    &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
                         >;
 			

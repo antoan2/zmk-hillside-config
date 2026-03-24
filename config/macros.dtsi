@@ -295,3 +295,18 @@ special_c_cedilla_maj: special_c_cedilla_maj {
         #binding-cells = <0>;
         bindings = <&kp LS(RA(COMMA))>;
 };
+special_euro: special_euro {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&kp RA(NUMBER_5)>;
+};
+special_oe: special_oe {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&kp RA(K)>;
+};
+special_oe_maj: special_oe_maj {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&kp LS(RA(K))>;
+};

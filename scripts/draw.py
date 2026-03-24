@@ -50,6 +50,7 @@ COMBOS_BY_DISPLAY_LAYER = {
     ],
     "Combos/Edit": [
         "↹",
+        "␣",
         "ENTER",
         "Ctl+ENTER",
         "Esc",

@@ -46,6 +46,7 @@ DEFINE_ACCENT_HOLD_TAP(ht_u_hat, &special_u_hat_maj, &special_u_hat, "HOLD_TAP_U
 DEFINE_ACCENT_HOLD_TAP(ht_o_hat, &special_o_hat_maj, &special_o_hat, "HOLD_TAP_O_HAT")
 DEFINE_ACCENT_HOLD_TAP(ht_i_hat, &special_i_hat_maj, &special_i_hat, "HOLD_TAP_I_HAT")
 DEFINE_ACCENT_HOLD_TAP(ht_c_cedilla, &special_c_cedilla_maj, &special_c_cedilla, "HOLD_TAP_C_CEDILLA")
+DEFINE_ACCENT_HOLD_TAP(ht_oe, &special_oe_maj, &special_oe, "HOLD_TAP_OE")
 
 #define ACC_E_AIGU &ht_e_aigu 0 0
 #define ACC_E_GRAVE &ht_e_grave 0 0
@@ -63,6 +64,8 @@ DEFINE_ACCENT_HOLD_TAP(ht_c_cedilla, &special_c_cedilla_maj, &special_c_cedilla,
 #define ACC_AIGU &special_aigu
 #define ACC_GRAVE &special_grave
 #define ACC_HAT &special_hat
+#define ACC_OE &ht_oe 0 0
+#define EURO_SIGN &special_euro
 #define ACC_TREMA &special_trema
 
 
