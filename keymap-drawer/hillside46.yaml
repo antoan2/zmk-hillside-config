@@ -81,10 +81,12 @@ layers:
       type: trans
     - t: ▽
       type: trans
-    - VOL DN
-    - VOL DN
     - PLAY PAUSE
-  - - MUTE
+    - MUTE
+    - t: ▽
+      type: trans
+  - - t: ▽
+      type: trans
     - t: ▽
       type: trans
     - t: ▽
@@ -108,9 +110,9 @@ layers:
       type: trans
     - t: ▽
       type: trans
-    - PAGE UP
     - t: ▽
       type: trans
+    - PAGE UP
     - PAGE DOWN
     - t: ▽
       type: trans
@@ -120,10 +122,8 @@ layers:
       type: trans
     - t: ▽
       type: trans
-    - t: ▽
-      type: trans
-    - t: ▽
-      type: trans
+    - VOL DN
+    - VOL UP
     - t: ▽
       type: trans
     - ⇧+Gui
@@ -217,12 +217,9 @@ layers:
       type: trans
     - BT CLR ALL
     - BT CLR
-    - t: BT
-      h: '0'
-    - t: BT
-      h: '1'
-    - t: BT
-      h: '2'
+    - OUT TOG
+    - '&sys_reset'
+    - '&bootloader'
     - +
     - t: '7'
       h: F7
@@ -230,9 +227,9 @@ layers:
       h: F8
     - t: '9'
       h: F9
-  - - t: ▽
+  - - F10
+    - t: ▽
       type: trans
-    - F10
     - t: ▽
       type: trans
     - Gui
@@ -248,16 +245,19 @@ layers:
       h: F5
     - t: '6'
       h: F6
+    - F11
     - t: ▽
       type: trans
-    - F11
     - t: ▽
       type: trans
     - OUT BLE
     - OUT USB
-    - OUT TOG
-    - '&sys_reset'
-    - '&bootloader'
+    - t: BT
+      h: '0'
+    - t: BT
+      h: '1'
+    - t: BT
+      h: '2'
   - - t: ▽
       type: trans
     - t: ▽
@@ -269,9 +269,9 @@ layers:
       h: F2
     - t: '3'
       h: F3
+    - F12
     - t: ▽
       type: trans
-    - F12
     - t: ▽
       type: trans
     - t: ▽
@@ -336,8 +336,7 @@ layers:
       type: trans
     - t: â
       h: Â
-    - t: ▽
-      type: trans
+    - €
     - t: ç
       h: Ç
     - dead '
@@ -348,8 +347,8 @@ layers:
       type: trans
     - dead ^
     - dead "
-    - t: ▽
-      type: trans
+    - t: œ
+      h: Œ
     - t: ▽
       type: trans
     - t: ▽
@@ -541,17 +540,21 @@ combos:
 - p:
   - 2
   - 3
+  - 4
   k: Esc
   l:
   - Combos/Edit
+  a: top
+  o: 0.01
+  w: 50.0
 - p:
   - 16
   - 19
   k: CAPS
   draw_separate: true
 - p:
-  - 13
-  - 22
+  - 25
+  - 36
   k: Gui
   draw_separate: true
 - p:
@@ -677,24 +680,6 @@ combos:
   l:
   - Combos/Symbols
 - p:
-  - 3
-  - 8
-  k: ()
-  l:
-  - Combos/Symbols
-  a: top
-  o: 0.01
-  w: 50.0
-- p:
-  - 2
-  - 9
-  k: '[]'
-  l:
-  - Combos/Symbols
-  a: top
-  o: 0.9
-  w: 50.0
-- p:
   - 18
   - 32
   k: '@'
@@ -730,6 +715,16 @@ combos:
   k: Paste
   l:
   - Combos/Edit
+- p:
+  - 26
+  - 27
+  - 28
+  k: ␣
+  l:
+  - Combos/Edit
+  a: bottom
+  o: 0.01
+  w: 50.0
 - p:
   - 28
   - 29
