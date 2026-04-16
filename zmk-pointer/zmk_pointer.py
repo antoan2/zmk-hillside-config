@@ -52,6 +52,9 @@ from screeninfo import get_monitors
 # Configuration
 # =============================================================================
 
+# Prefer this keyboard
+HILSIDE_KB_NAME = "KB_TONIO_"
+
 # =============================================================================
 # Movement and Mode Configuration
 # =============================================================================
@@ -633,7 +636,8 @@ def find_keyboard(device_index: Optional[int] = None) -> evdev.InputDevice:
 
     # Prefer HSHS52 keyboard if available
     for kb in keyboards:
-        if "HSHS52" in kb.name:
+        print(kb.name)
+        if HILSIDE_KB_NAME in kb.name:
             return kb
 
     return keyboards[0]
