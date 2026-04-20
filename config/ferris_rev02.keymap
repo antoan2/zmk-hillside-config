@@ -55,7 +55,7 @@
                 #define ENTER_COMBO_KEYS 12 13
                 #define ENTER_CTRL_COMBO_KEYS 11 12 13
                 #define CAPS_COMBO_KEYS 13 16
-                #define APPS_COMBO_KEYS 20 29
+                #define APPS_COMBO_KEYS 10 19
                 #define VIM_SAVE_COMBO_KEYS 19 1
                 #define VIM_SAVE_QUIT_COMBO_KEYS 19 0
                 #define CTLA_COMBO_KEYS 10 11
@@ -77,8 +77,8 @@
                         bindings = <
 
 &lt FUN_L Q   &kp W         &kp E          &kp R           &kp T                     &kp Y  &kp U           &kp I          &kp O         &kp P
-&lt NUM_L A   &hmrl LALT S  &hmrl LCTRL D  &hmsl LSHIFT F  &kp G                     &kp H  &hmsr RSHIFT J  &hmrr RCTRL K  &hmrr LALT L  &lt SPE_L SEMI
-&hmrl LGUI Z  &kp X         &kp C          &kp V           &kp B                     &kp N  &kp M           &kp COMMA      &kp DOT       &hmrr RGUI SLASH
+&hmrl LGUI A  &hmrl LALT S  &hmrl LCTRL D  &hmsl LSHIFT F  &kp G                     &kp H  &hmsr RSHIFT J  &hmrr RCTRL K  &hmrr LALT L  &hmrr RGUI SEMI
+&kp Z         &kp X         &kp C          &kp V           &kp B                     &kp N  &kp M           &kp COMMA      &kp DOT       &kp SLASH
                                                   &kp TAB  &thumb SYM_L BACKSPACE    &space NAV_L SPACE  &kp ENTER
                         >;
 			

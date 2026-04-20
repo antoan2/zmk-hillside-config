@@ -143,7 +143,6 @@
 //
 hmrl: miryoku_home_row_mods_left_hand {
     compatible = "zmk,behavior-hold-tap";
-    label = "HOME_ROW_MODS_LEFT_HAND";
     flavor = HOMEY_HOLDING_TYPE;
     hold-trigger-key-positions = <RIGHT_HAND_KEYS THUMB_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
@@ -155,7 +154,6 @@ hmrl: miryoku_home_row_mods_left_hand {
 };
 hmrr: miryoku_home_row_mods_right_hand {
     compatible = "zmk,behavior-hold-tap";
-    label = "HOME_ROW_MODS_RIGHT_HAND";
     flavor = HOMEY_HOLDING_TYPE;
     hold-trigger-key-positions = <LEFT_HAND_KEYS THUMB_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
@@ -171,7 +169,6 @@ hmrr: miryoku_home_row_mods_right_hand {
 //
 hmsl: miryoku_home_row_mods_left_shift_shift {
     compatible = "zmk,behavior-hold-tap";
-    label = "HOME_ROW_MODS_LEFT_SHIFT_SHIFT";
     flavor = SHIFT_HOLDING_TYPE;
     hold-trigger-key-positions = <RIGHT_HAND_KEYS THUMB_KEYS>;
     //hold-trigger-on-release; // don't wait for other mods
@@ -183,7 +180,6 @@ hmsl: miryoku_home_row_mods_left_shift_shift {
 };
 hmsr: miryoku_home_row_mods_right_shift_shift {
     compatible = "zmk,behavior-hold-tap";
-    label = "HOME_ROW_MODS_RIGHT_SHIFT_SHIFT";
     flavor = SHIFT_HOLDING_TYPE;
     hold-trigger-key-positions = <LEFT_HAND_KEYS THUMB_KEYS>;
     //hold-trigger-on-release; // don't wait for other mods
@@ -199,7 +195,6 @@ hmsr: miryoku_home_row_mods_right_shift_shift {
 //
 thumb: miryoku_thumb_layer {
     compatible = "zmk,behavior-hold-tap";
-    label = "MIRYOKU_THUMB_LAYER";
     flavor = THUMB_HOLDING_TYPE;
     tapping-term-ms = <THUMB_HOLDING_TIME>;
     quick-tap-ms = <THUMB_REPEAT_DECAY>; // enable repeat
@@ -210,7 +205,6 @@ thumb: miryoku_thumb_layer {
 };
 space: miryoku_thumb_layer_spacebar {
     compatible = "zmk,behavior-hold-tap";
-    label = "MIRYOKU_THUMB_LAYER_SPACEBAR";
     flavor = THUMB_HOLDING_TYPE;
     tapping-term-ms = <SPACE_HOLDING_TIME>;
     quick-tap-ms = <SPACE_REPEAT_DECAY>; // enable repeat

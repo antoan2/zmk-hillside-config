@@ -1,332 +1,749 @@
-layout: {zmk_keyboard: hillside46}
+layout:
+  zmk_keyboard: hillside46
 layers:
   base:
-  - ESCAPE
-  - Q
-  - W
-  - E
-  - R
-  - T
-  - Y
-  - U
-  - I
-  - O
-  - P
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: A, h: mouse}
-  - {t: S, h: Alt}
-  - {t: D, h: Ctrl}
-  - {t: F, h: LSHIFT}
-  - G
-  - H
-  - {t: J, h: RSHIFT}
-  - {t: K, h: Ctrl}
-  - {t: L, h: Alt}
-  - {t: ;, h: special}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: Z, h: Gui}
-  - X
-  - C
-  - V
-  - B
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - N
-  - M
-  - ','
-  - .
-  - {t: /, h: Gui}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - ↹
-  - {t: BACKSPACE, h: sym}
-  - {t: DELETE, h: num}
-  - {t: ▽, type: trans}
-  - {t: ␣, h: nav}
-  - ENTER
-  - {t: ▽, type: trans}
+  - - t: ▽
+      type: trans
+    - Q
+    - W
+    - E
+    - R
+    - T
+    - Y
+    - U
+    - I
+    - O
+  - - P
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: A
+      h: Gui
+    - t: S
+      h: Alt
+    - t: D
+      h: Ctrl
+    - t: F
+      h: Shift
+    - G
+    - H
+    - t: J
+      h: Shift
+  - - t: K
+      h: Ctrl
+    - t: L
+      h: Alt
+    - t: SPE
+      h: MOU ↔
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - Z
+    - X
+    - C
+    - V
+    - B
+  - - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - N
+    - M
+    - ','
+    - .
+    - /
+    - t: ▽
+      type: trans
+    - DELETE
+    - t: ↹
+      h: NUM
+  - - t: ⌫
+      h: SYM
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ␣
+      h: NAV
+    - ENTER
+    - Esc
   nav:
-  - {t: ▽, type: trans}
-  - PREV
-  - NEXT
-  - VOL UP
-  - VOL DN
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - '&msc SCRL_DOWN'
-  - '&msc SCRL_UP'
-  - '&msc SCRL_LEFT'
-  - '&msc SCRL_RIGHT'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - Gui
-  - Alt
-  - Ctrl
-  - LSHIFT
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - ↓
-  - ↑
-  - ←
-  - →
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - REWIND
-  - FAST FORWARD
-  - MUTE
-  - PLAY PAUSE
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - PAGE DOWN
-  - PAGE UP
-  - HOME
-  - END
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {type: held}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - HOME
+    - ↑
+    - END
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - PLAY PAUSE
+    - MUTE
+    - t: ▽
+      type: trans
+  - - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - ←
+    - ↓
+    - →
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - RSHIFT
+  - - Ctrl
+    - Alt
+    - Gui
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - PAGE UP
+    - PAGE DOWN
+    - t: ▽
+      type: trans
+  - - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - VOL DN
+    - VOL UP
+    - t: ▽
+      type: trans
+    - ⇧+Gui
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+  - - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
   sym:
-  - {t: ▽, type: trans}
-  - '~'
-  - '@'
-  - '#'
-  - $
-  - '%'
-  - ^
-  - '&'
-  - '*'
-  - '?'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - '!'
-  - (
-  - {t: '[', h: Ctrl}
-  - _
-  - '-'
-  - +
-  - '='
-  - {t: ']', h: Ctrl}
-  - )
-  - ':'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - '`'
-  - '{'
-  - {t: ▽, type: trans}
-  - ''''
-  - <
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - '>'
-  - '"'
-  - \
-  - '}'
-  - '|'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {type: held}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - - t: ▽
+      type: trans
+    - '~'
+    - '@'
+    - '#'
+    - $
+    - '%'
+    - ^
+    - '&'
+    - '*'
+    - '?'
+  - - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - '!'
+    - t: '['
+      h: Ctrl
+    - (
+    - _
+    - '-'
+    - +
+    - '='
+  - - )
+    - t: ']'
+      h: Ctrl
+    - ':'
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - '`'
+    - '{'
+    - t: ▽
+      type: trans
+    - ''''
+    - <
+  - - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - '>'
+    - '"'
+    - \
+    - '}'
+    - '|'
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+  - - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
   num:
-  - '&bootloader'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - +
-  - {t: '7', h: F7}
-  - {t: '8', h: F8}
-  - {t: '9', h: F9}
-  - '0'
-  - F10
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - Alt
-  - Ctrl
-  - Shift
-  - {t: ▽, type: trans}
-  - '='
-  - {t: '4', h: F4}
-  - {t: '5', h: F5}
-  - {t: '6', h: F6}
-  - '0'
-  - F11
-  - '&sys_reset'
-  - Gui
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - '-'
-  - {t: '1', h: F1}
-  - {t: '2', h: F2}
-  - {t: '3', h: F3}
-  - '0'
-  - F12
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {type: held}
-  - ','
-  - {t: ▽, type: trans}
-  - .
-  - {t: ▽, type: trans}
+  - - t: ▽
+      type: trans
+    - BT CLR ALL
+    - BT CLR
+    - OUT TOG
+    - '&sys_reset'
+    - '&bootloader'
+    - +
+    - t: '7'
+      h: F7
+    - t: '8'
+      h: F8
+    - t: '9'
+      h: F9
+  - - F10
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - Gui
+    - Alt
+    - Ctrl
+    - Shift
+    - t: ▽
+      type: trans
+    - '='
+    - t: '4'
+      h: F4
+  - - t: '5'
+      h: F5
+    - t: '6'
+      h: F6
+    - F11
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - OUT BLE
+    - OUT USB
+    - t: BT
+      h: '0'
+    - t: BT
+      h: '1'
+    - t: BT
+      h: '2'
+  - - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - '-'
+    - t: '1'
+      h: F1
+    - t: '2'
+      h: F2
+    - t: '3'
+      h: F3
+    - F12
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+  - - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - ','
+    - '0'
+    - .
+    - t: ▽
+      type: trans
   special:
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: é, h: É}
-  - {t: è, h: È}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ù, h: Ù}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: à, h: À}
-  - {t: ë, h: Ë}
-  - {t: ê, h: Ê}
-  - Shift
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: û, h: Û}
-  - {t: î, h: Î}
-  - {t: ô, h: Ô}
-  - {type: held}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: â, h: Â}
-  - {t: ▽, type: trans}
-  - {t: ç, h: Ç}
-  - dead '
-  - dead `
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - dead ^
-  - dead "
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - - t: ▽
+      type: trans
+    - éé
+    - t: é
+      h: É
+    - t: è
+      h: È
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ù
+      h: Ù
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+  - - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: à
+      h: À
+    - t: ë
+      h: Ë
+    - t: ê
+      h: Ê
+    - Shift
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: û
+      h: Û
+  - - t: î
+      h: Î
+    - t: ô
+      h: Ô
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: â
+      h: Â
+    - €
+    - t: ç
+      h: Ç
+    - dead '
+    - dead `
+  - - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - dead ^
+    - dead "
+    - t: œ
+      h: Œ
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+  - - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
   mouse:
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - ↑
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - S1 ↖
-  - S1 ↗
-  - S2 ↖
-  - S2 ↗
-  - S3 ↖
-  - S3 ↗
-  - {t: ▽, type: trans}
-  - {type: held}
-  - ←
-  - ↓
-  - →
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - LClick
-  - Ctrl
-  - RClick
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - S1 ↙
-  - S1 ↘
-  - S2 ↙
-  - S2 ↘
-  - S3 ↙
-  - S3 ↘
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - 📜 Scroll
-  - 🎯 Slow
-  - MClick
-  - {t: ▽, type: trans}
+  - - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - ↑
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - S1 ↖
+    - S1 ↗
+    - S2 ↖
+    - S2 ↗
+  - - S3 ↖
+    - S3 ↗
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - ←
+    - ↓
+    - →
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - LClick↩BASE
+  - - Ctrl
+    - RClick
+    - t: mouse
+      h: toggle
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+  - - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - S1 ↙
+    - S1 ↘
+    - S2 ↙
+    - S2 ↘
+    - S3 ↙
+    - S3 ↘
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+  - - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - t: ▽
+      type: trans
+    - 🎯 Slow
+    - 📜 Scroll
+    - MClick
+  Combos/Symbols:
+  - - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  Combos/Edit:
+  - - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
 combos:
-- p: [15, 20]
+- p:
+  - 2
+  - 3
+  - 4
   k: Esc
-  l: [base]
-  draw_separate: true
-- p: [16, 19]
+  l:
+  - Combos/Edit
+  a: top
+  o: 0.01
+  w: 50.0
+- p:
+  - 16
+  - 19
   k: CAPS
-  l: [base]
   draw_separate: true
-- p: [25, 36]
+- p:
+  - 25
+  - 36
   k: Gui
-  l: [base]
   draw_separate: true
-- p: [22, 2]
+- p:
+  - 14
+  - 15
+  k: ↹
+  l:
+  - Combos/Edit
+- p:
+  - 22
+  - 2
   k: :w
-  l: [base]
+  l:
+  - Combos/Edit
   draw_separate: true
-- p: [22, 1]
+- p:
+  - 22
+  - 1
   k: :wq
-  l: [base]
+  l:
+  - Combos/Edit
   draw_separate: true
-- p: [13, 14]
-  k: Ctl+A
-  l: [base]
-- p: [25, 26]
+- p:
+  - 28
+  - 16
+  k: ''''
+  l:
+  - Combos/Symbols
+- p:
+  - 33
+  - 19
+  k: '"'
+  l:
+  - Combos/Symbols
+- p:
+  - 1
+  - 13
+  k: ^
+  l:
+  - Combos/Symbols
+- p:
+  - 5
+  - 17
+  k: $
+  l:
+  - Combos/Symbols
+- p:
+  - 6
+  - 18
+  k: '*'
+  l:
+  - Combos/Symbols
+- p:
+  - 26
+  - 14
+  k: +
+  l:
+  - Combos/Symbols
+- p:
+  - 35
+  - 21
+  k: '-'
+  l:
+  - Combos/Symbols
+- p:
+  - 17
+  - 29
+  k: '#'
+  l:
+  - Combos/Symbols
+- p:
+  - 13
+  - 25
+  k: '`'
+  l:
+  - Combos/Symbols
+- p:
+  - 3
+  - 15
+  k: (
+  l:
+  - Combos/Symbols
+- p:
+  - 8
+  - 20
+  k: )
+  l:
+  - Combos/Symbols
+- p:
+  - 2
+  - 14
+  k: '['
+  l:
+  - Combos/Symbols
+- p:
+  - 9
+  - 21
+  k: ']'
+  l:
+  - Combos/Symbols
+- p:
+  - 19
+  - 7
+  k: '='
+  l:
+  - Combos/Symbols
+- p:
+  - 27
+  - 15
+  k: '!'
+  l:
+  - Combos/Symbols
+- p:
+  - 34
+  - 20
+  k: '?'
+  l:
+  - Combos/Symbols
+- p:
+  - 4
+  - 16
+  k: _
+  l:
+  - Combos/Symbols
+- p:
+  - 18
+  - 32
+  k: '@'
+  l:
+  - Combos/Symbols
+- p:
+  - 10
+  - 22
+  k: ':'
+  l:
+  - Combos/Symbols
+- p:
+  - 22
+  - 36
+  k: ;
+  l:
+  - Combos/Symbols
+- p:
+  - 25
+  - 26
   k: Cut
-  l: [base]
-- p: [26, 27]
+  l:
+  - Combos/Edit
+- p:
+  - 26
+  - 27
   k: Copy
-  l: [base]
-- p: [27, 28]
+  l:
+  - Combos/Edit
+- p:
+  - 27
+  - 28
   k: Paste
-  l: [base]
-- p: [28, 29]
+  l:
+  - Combos/Edit
+- p:
+  - 26
+  - 27
+  - 28
+  k: ␣
+  l:
+  - Combos/Edit
+  a: bottom
+  o: 0.01
+  w: 50.0
+- p:
+  - 28
+  - 29
   k: Plain Paste
-  l: [base]
-- p: [14, 15]
-  k: Esc
-  l: [base]
-- p: [15, 16]
+  l:
+  - Combos/Edit
+- p:
+  - 15
+  - 16
   k: ENTER
-  l: [base]
-- p: [14, 15, 16]
+  l:
+  - Combos/Edit
+- p:
+  - 14
+  - 15
+  - 16
   k: Ctl+ENTER
-  l: [base]
+  l:
+  - Combos/Edit
   a: top
   o: 0.01
   w: 50.0

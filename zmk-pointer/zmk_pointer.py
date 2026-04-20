@@ -52,6 +52,9 @@ from screeninfo import get_monitors
 # Configuration
 # =============================================================================
 
+# Prefer this keyboard
+HILSIDE_KB_NAME = "KB_TONIO_"
+
 # =============================================================================
 # Movement and Mode Configuration
 # =============================================================================
@@ -443,7 +446,7 @@ class Pointer:
     held_modifiers: set[str] = field(
         default_factory=set
     )  # System modifiers (Alt, Ctrl, etc.)
-    mode_keys: set[str] = field(default_factory=set)  # Mode modifiers (F17, F21)
+    mode_keys: set[str] = field(default_factory=set)  # Mode modifiers (F17, F18)
     scroll_accum_x: float = 0.0
     scroll_accum_y: float = 0.0
 
@@ -454,7 +457,7 @@ class Pointer:
 
     @property
     def is_scroll_mode(self) -> bool:
-        """Scroll mode is active when F21 is held."""
+        """Scroll mode is active when F18 is held."""
         return SCROLL_MODE_KEY in self.mode_keys
 
     @property
@@ -471,7 +474,7 @@ class Pointer:
                 self.held_modifiers.discard(key)
 
     def set_mode_key(self, key: str, pressed: bool) -> None:
-        """Update mode modifier key state (F17, F21)."""
+        """Update mode modifier key state (F17, F18)."""
         if pressed:
             self.mode_keys.add(key)
         else:
@@ -633,7 +636,8 @@ def find_keyboard(device_index: Optional[int] = None) -> evdev.InputDevice:
 
     # Prefer HSHS52 keyboard if available
     for kb in keyboards:
-        if "HSHS52" in kb.name:
+        print(kb.name)
+        if HILSIDE_KB_NAME in kb.name:
             return kb
 
     return keyboards[0]
@@ -675,7 +679,7 @@ def handle_key_event(
                 print(f"[{timestamp}] 🔑 Modifier: {key_char} (held: {mod_state})")
         return
 
-    # Handle mode modifier keys (F17 = precision, F21 = scroll)
+    # Handle mode modifier keys (F17 = precision, F18 = scroll)
     # Note: These only affect movement, not teleport
     if key_char in (PRECISION_MODE_KEY, SCROLL_MODE_KEY):
         # If Alt is held, this is a teleport key, not a mode modifier
@@ -734,7 +738,9 @@ def print_startup_info(layout: ScreenLayout, grid: TeleportGrid) -> None:
         print(f"   Screen {i + 1}: {m.width}x{m.height} at ({m.x}, {m.y}) - {m.name}")
     print()
 
-    print("🎯 Activation: Hold LCtrl + RCtrl together")
+    print("🎯 Activation:")
+    print("   Movement: direct F13-F18 signals from the keyboard")
+    print("   Teleport: hold Alt while pressing a teleport key")
     print()
 
     print("🕹️  Movement (Left Hand):")
