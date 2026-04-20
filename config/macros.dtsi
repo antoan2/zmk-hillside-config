@@ -14,6 +14,7 @@ special_layer_once: special_layer_once {
         bindings = <&sl SPE_L>;
 };
 #define SPE_ENTRY &special_layer_once
+#ifdef MOU_L
 mouse_layer_toggle: mouse_layer_toggle {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
@@ -24,6 +25,7 @@ mouse_left_click_base: mouse_left_click_base {
         #binding-cells = <0>;
         bindings = <&mkp LCLK &to BASE_L>;
 };
+#endif
 sym_paren_pair: sym_paren_pair {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;

@@ -11,6 +11,7 @@
 /* 2) Mouse
 /* -------------------------------------------------------------------------- */
 
+#ifdef MOU_L
 ht_special_mouse: hold_tap_special_mouse {
         compatible = "zmk,behavior-hold-tap";
         #binding-cells = <2>;
@@ -19,6 +20,7 @@ ht_special_mouse: hold_tap_special_mouse {
 };
 
 #define MOU_ENTRY &ht_special_mouse 0 0
+#endif
 
 
 /* -------------------------------------------------------------------------- */
