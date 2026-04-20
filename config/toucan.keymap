@@ -143,5 +143,6 @@ ACC_A_HAT         EURO_SIGN   ACC_C_CEDILLA    ACC_AIGU          ACC_GRAVE      
                                                        &trans  &trans  &trans         &trans  &trans  &trans
                         >;
                 };
+
         };
 };
