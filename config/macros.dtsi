@@ -13,6 +13,7 @@ special_layer_once: special_layer_once {
         #binding-cells = <0>;
         bindings = <&sl SPE_L>;
 };
+#define SPE_ENTRY &special_layer_once
 mouse_layer_toggle: mouse_layer_toggle {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;

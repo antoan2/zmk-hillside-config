@@ -1,10 +1,15 @@
-# Hillside 46 ZMK config
+# ZMK keyboard configs
 
-This repository contains my personal ZMK layout for the Hillside 46: a split ergonomic keyboard with 3x6+5 choc-spaced keys, an aggressive stagger, and a longer thumb arc than the Ferris-style boards it borrows ideas from.
+This repository contains my personal ZMK layouts for two split ergonomic keyboards:
+
+- Hillside 46: a 3x6+4 split with an aggressive stagger and a host-driven keyboard mouse layer.
+- Toucan: a 3x5+3 split with an integrated trackpad, reusing the Hillside layers without the dedicated keyboard mouse layer.
 
 ## Layout
 
 ![Layout](./keymap-drawer/hillside46.svg)
+
+![Toucan Layout](./keymap-drawer/toucan.svg)
 
 ## Inspirations
 
@@ -22,6 +27,8 @@ This repository contains my personal ZMK layout for the Hillside 46: a split erg
 - The ZMK layout differs from the QMK default mainly on the adjust and utility side: Bluetooth actions, reset/output keys, and fewer power-hungry extras.
 - Underglow and encoders are optional and must be enabled explicitly in [config/hillside46.conf](config/hillside46.conf).
 - A display can be hardwired to the I2C header if needed.
+- Toucan uses the Seeeduino XIAO BLE controller and pulls in the Cirque trackpad driver through [config/west.yml](config/west.yml).
+- The Toucan keymap is intentionally parallel to the Hillside keymap, but it drops the separate mouse layer because the board already has a built-in trackpad.
 
 ## Local build (Linux)
 
@@ -30,33 +37,39 @@ This repository contains my personal ZMK layout for the Hillside 46: a split erg
 - Build the right UF2: `make zmk-right`
 - Build the settings-reset UF2: `make zmk-reset`
 
-Generated UF2 files are written to:
+Generated UF2 files are written to board-specific build directories under `.zmk/build/`.
+
+The build matrix in [build.yaml](build.yaml) includes:
 
 - `.zmk/build/left/zephyr/zmk.uf2`
 - `.zmk/build/right/zephyr/zmk.uf2`
 - `.zmk/build/reset/zephyr/zmk.uf2`
+- Toucan left/right UF2 outputs for `seeeduino_xiao_ble`
 
-[config/west.yml](config/west.yml) tracks ZMK `main`, so upstream ZMK and Zephyr changes can alter build behavior over time. For a stable long-term setup, pin it to a known tag or commit.
+[config/west.yml](config/west.yml) is pinned to ZMK `v0.3` and adds the Cirque input module needed by the Toucan trackpad.
 
 ## Layer overview
 
-- `base`: alpha layer with home-row mods and the dual-role special/mouse key.
+- `base`: alpha layer with home-row mods and a special-layer entry key.
 - `nav`: arrows, paging, window navigation, and media controls.
 - `sym`: symbols, brackets, quotes, and coding punctuation.
 - `num`: numbers, function-key hold-taps, Bluetooth/output actions.
 - `special`: French accented characters plus dead-key helpers.
 - `mouse`: host-driven pointer layer powered by the daemon in [zmk-pointer/zmk_pointer.py](zmk-pointer/zmk_pointer.py).
 
+Toucan uses the same `base`, `nav`, `sym`, `num`, and `special` layers on a 3x5+3 matrix. Its integrated trackpad replaces the separate keyboard mouse layer.
+
 ## Special layer
 
 The special layer follows the qwerty-lafayette idea for French characters and dead keys.
 
-- Tap the dual-role `SPE / MOU ↔` key on the base layer to activate a one-shot special layer.
-- Hold that same key to toggle the mouse layer.
+- On Hillside, tap the dual-role `SPE / MOU ↔` key on the base layer to activate a one-shot special layer.
+- On Hillside, hold that same key to toggle the mouse layer.
+- On Toucan, the base layer uses a dedicated `SPE` one-shot entry because the board already has an integrated trackpad.
 - The `Q` position on the special layer inserts `éé` for quick repetition.
 - Several accented letters use hold-tap wrappers: tap for lowercase, hold for uppercase.
 
-This key is implemented in [config/hillside46.keymap](config/hillside46.keymap) as `&ht_special_mouse`, with the special-layer one-shot and mouse toggle behaviors defined in [config/macros.dtsi](config/macros.dtsi).
+On Hillside, this key is implemented in [config/hillside46.keymap](config/hillside46.keymap) as `&ht_special_mouse`, with the special-layer one-shot and mouse toggle behaviors defined in [config/macros.dtsi](config/macros.dtsi). Toucan uses the `SPE_ENTRY` alias from [config/macros.dtsi](config/macros.dtsi).
 
 ## Daemon-controlled mouse layer
 

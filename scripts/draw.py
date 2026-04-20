@@ -6,7 +6,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-TARGET_BOARDS = ("hillside46", "ferris_rev02")
+TARGET_BOARDS = ("hillside46", "toucan")
 
 # Opinionated combo display layout:
 # - key = virtual layer name
@@ -133,6 +133,16 @@ def transform_yaml(yaml_path: Path, yaml_module, combo_lookup: dict[str, str]) -
     combos = data.get("combos", []) or []
     if not isinstance(combos, list):
         combos = []
+
+    if yaml_path.stem == "toucan":
+        data["layout"] = {
+            "ortho_layout": {
+                "split": True,
+                "rows": 3,
+                "columns": 5,
+                "thumbs": 3,
+            }
+        }
 
     unmatched: list[str] = []
     matched_count = 0
