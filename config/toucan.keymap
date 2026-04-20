@@ -130,7 +130,7 @@
 &bt BT_CLR_ALL  &bt BT_CLR   &out OUT_TOG  &sys_reset   &bootloader                      &kp PLUS   HT_7_F7  HT_8_F8  HT_9_F9  &kp F10
 &kp LGUI        &kp LALT     &kp LCTRL     &kp LSHFT    &trans                           &kp EQUAL  HT_4_F4  HT_5_F5  HT_6_F6  &kp F11
 &out OUT_BLE    &out OUT_USB &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2                     &kp MINUS  HT_1_F1  HT_2_F2  HT_3_F3  &kp F12
-                                                  &trans  &trans  &trans         &kp COMMA  &kp NUMBER_0  &kp DOT
+                                                  &trans  &trans  &trans         &kp NUMBER_0  &kp COMMA  &kp DOT
                         >;
                 };
 
