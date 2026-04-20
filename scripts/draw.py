@@ -136,12 +136,7 @@ def transform_yaml(yaml_path: Path, yaml_module, combo_lookup: dict[str, str]) -
 
     if yaml_path.stem == "toucan":
         data["layout"] = {
-            "ortho_layout": {
-                "split": True,
-                "rows": 3,
-                "columns": 5,
-                "thumbs": 3,
-            }
+            "qmk_keyboard": "obosob/arch_36",
         }
 
     unmatched: list[str] = []
