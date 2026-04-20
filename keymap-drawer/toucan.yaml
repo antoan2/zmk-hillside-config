@@ -1,9 +1,5 @@
 layout:
-  ortho_layout:
-    split: true
-    rows: 3
-    columns: 5
-    thumbs: 3
+  qmk_keyboard: obosob/arch_36
 layers:
   base:
   - - Q
@@ -45,11 +41,11 @@ layers:
     - /
   - - DELETE
     - t: ↹
-      h: NUM
-    - t: ⌫
-      h: SYM
+      h: num
+    - t: BACKSPACE
+      h: sym
     - t: ␣
-      h: NAV
+      h: nav
     - ENTER
     - Esc
   nav:
@@ -102,8 +98,7 @@ layers:
       type: trans
     - t: ▽
       type: trans
-    - t: ▽
-      type: trans
+    - type: held
     - t: ▽
       type: trans
     - t: ▽
@@ -147,8 +142,7 @@ layers:
       type: trans
     - t: ▽
       type: trans
-    - t: ▽
-      type: trans
+    - type: held
     - t: ▽
       type: trans
     - t: ▽
@@ -201,8 +195,7 @@ layers:
     - F12
   - - t: ▽
       type: trans
-    - t: ▽
-      type: trans
+    - type: held
     - t: ▽
       type: trans
     - ','
