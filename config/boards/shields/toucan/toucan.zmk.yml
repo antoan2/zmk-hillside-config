@@ -6,7 +6,8 @@ url: https://github.com/beekeeb/zmk-keyboard-toucan/
 requires: [seeeduino_xiao_ble]
 features:
   - keys
-  - pointing
+  - display
+  - studio
 siblings:
   - toucan_left
   - toucan_right

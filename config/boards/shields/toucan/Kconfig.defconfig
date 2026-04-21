@@ -14,6 +14,8 @@ config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY
 
 endif
 
+
+
 if SHIELD_TOUCAN_LEFT || SHIELD_TOUCAN_RIGHT
 
 config SPI
@@ -24,5 +26,8 @@ config ZMK_SPLIT
 
 config ZMK_POINTING
     default y
+
+config RGBLED_WIDGET_BATTERY_LEVEL_HIGH
+    default 40
 
 endif
