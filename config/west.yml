@@ -1,11 +1,17 @@
 manifest:
+  defaults:
+    revision: v0.3
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: geeksville
+      url-base: https://github.com/geeksville
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: 40e06f3
       import: app/west.yml
+    - name: cirque-input-module
+      remote: geeksville
+      revision: toucan
   self:
     path: config

@@ -2,6 +2,7 @@ parse_config:
   raw_binding_map:
     '&vim_save': :w
     '&vim_save_quit': :wq
+    SPE_ENTRY: SPE
     '&mouse_left_click_base': LClick↩BASE
     MOU_ENTRY:
       t: SPE
@@ -13,9 +14,6 @@ parse_config:
     '&hmsr RSHIFT J': {t: J, h: Shift}
     '&hmrr RCTRL K': {t: K, h: Ctrl}
     '&hmrr LALT L': {t: L, h: Alt}
-    '&thumb 3 TAB': {t: ↹, h: NUM}
-    '&thumb 2 BACKSPACE': {t: ⌫, h: SYM}
-    '&space 1 SPACE': {t: ␣, h: NAV}
     '&kp LS(RGUI)': ⇧+Gui
     '&caps_word': CAPS
     '&tog NAV_L': NAV ↔
