@@ -9,7 +9,6 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: 40e06f3
       import: app/west.yml
     - name: cirque-input-module
       remote: geeksville
